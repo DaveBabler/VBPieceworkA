@@ -10,9 +10,11 @@
 '               Standard Windows colors: Black, Gainsboro
 '
 
-
+Option Strict On
 
 Public Class frmPiecework_A
+    Protected intWorkerCount As Integer = 0 'will be used to tabulate the total number of people
+    Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
 
     Private Sub FrmPiecework_A_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -22,4 +24,5 @@ Public Class frmPiecework_A
         'Close form terminate program
         Close()
     End Sub
+
 End Class
