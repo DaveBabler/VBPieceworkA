@@ -15,15 +15,6 @@ Option Strict On
 Public Class frmPiecework_A
     Protected intWorkerCount As Integer = 0 'will be used to tabulate the total number of people
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
-
-    Private Sub FrmPiecework_A_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        'Close form terminate program
-        Close()
-    End Sub
     Protected Function CalculateEarnings(ByRef intIncomingNumPieces As Integer) As Double
         ' Calculates the earnings based on the number of pieces and returns that value
         Dim decEarningsOut As Double
@@ -39,4 +30,31 @@ Public Class frmPiecework_A
         End Select
         Return decEarningsOut
     End Function
+
+    Private Sub FrmPiecework_A_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        'Close form terminate program
+        Close()
+    End Sub
+
+
+    Private Sub BtnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+        Dim intPiecesEntered As Integer
+        Dim dblAmountEarned As Double
+
+        If String.IsNullOrEmpty(txtName.Text) Then
+            MsgBox("You must enter a name to proceed")
+        Else
+            intPiecesEntered = Integer.Parse(txtNumberOfPieces.Text)
+            dblAmountEarned = CalculateEarnings(intPiecesEntered)
+            lblEarnedAmountOutput.Text = dblAmountEarned.ToString("C")
+            lblEarnedAmountOutput.Visible = True
+
+
+
+        End If
+    End Sub
 End Class
