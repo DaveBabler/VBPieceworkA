@@ -43,6 +43,7 @@ Partial Class frmPiecework_A
         Me.lblNumberPeopleTotalPay = New System.Windows.Forms.Label()
         Me.lblTotalNumPieces = New System.Windows.Forms.Label()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.lblBullShit = New System.Windows.Forms.Label()
         Me.grpSummaryInfo.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -276,12 +277,22 @@ Partial Class frmPiecework_A
         Me.lblTotalNumPieces.Text = "Total Number of Pieces"
         Me.lblTotalNumPieces.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'lblBullShit
+        '
+        Me.lblBullShit.AutoSize = True
+        Me.lblBullShit.Location = New System.Drawing.Point(305, 13)
+        Me.lblBullShit.Name = "lblBullShit"
+        Me.lblBullShit.Size = New System.Drawing.Size(29, 15)
+        Me.lblBullShit.TabIndex = 12
+        Me.lblBullShit.Text = "Label1"
+        '
         'frmPiecework_A
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(4.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(541, 452)
+        Me.Controls.Add(Me.lblBullShit)
         Me.Controls.Add(Me.grpSummaryInfo)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnPurgeData)
@@ -327,4 +338,5 @@ Partial Class frmPiecework_A
     Private WithEvents lblTotalNumPiecesOutput As Label
     Private WithEvents lblTotalPayOutput As Label
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
+    Friend WithEvents lblBullShit As Label
 End Class

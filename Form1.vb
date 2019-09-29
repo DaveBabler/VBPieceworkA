@@ -13,7 +13,12 @@
 
 
 Public Class frmPiecework_A
+    Public Sub TestingLabelManipulation(ByVal SomeCrap As String, ByRef SomeLabel As Label)
+        Dim strSomeDumbShit As String
+        strSomeDumbShit = SomeCrap & "SomeBullshit" & " no, for real! "
 
+        SomeLabel.Text = strSomeDumbShit
+    End Sub
     Private Sub FrmPiecework_A_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -21,5 +26,9 @@ Public Class frmPiecework_A
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         'Close form terminate program
         Close()
+    End Sub
+
+    Private Sub BtnPurgeData_Click(sender As Object, e As EventArgs) Handles btnPurgeData.Click
+        TestingLabelManipulation("This Is some", lblBullShit)
     End Sub
 End Class
