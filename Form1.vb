@@ -24,5 +24,19 @@ Public Class frmPiecework_A
         'Close form terminate program
         Close()
     End Sub
-
+    Protected Function CalculateEarnings(ByRef intIncomingNumPieces As Integer) As Double
+        ' Calculates the earnings based on the number of pieces and returns that value
+        Dim decEarningsOut As Double
+        Select Case intIncomingNumPieces
+            Case Is <= 199
+                decEarningsOut = 0.5
+            Case 200 To 399
+                decEarningsOut = 0.55
+            Case 400 To 599
+                decEarningsOut = 0.6
+            Case >= 600
+                decEarningsOut = 0.65
+        End Select
+        Return decEarningsOut
+    End Function
 End Class
