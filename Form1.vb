@@ -43,15 +43,33 @@ Public Class frmPiecework_A
 
     Private Sub BtnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         Dim intPiecesEntered As Integer
+        Dim exDecimalError As Decimal  'using ex instaed of dec as I'm using this for error checking! 
         Dim dblAmountEarned As Double
 
         If String.IsNullOrEmpty(txtName.Text) Then
             MsgBox("You must enter a name to proceed")
         Else
-            intPiecesEntered = Integer.Parse(txtNumberOfPieces.Text)
-            dblAmountEarned = CalculateEarnings(intPiecesEntered)
-            lblEarnedAmountOutput.Text = dblAmountEarned.ToString("C")
-            lblEarnedAmountOutput.Visible = True
+            If Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered) Then
+                Try
+
+                    dblAmountEarned = CalculateEarnings(intPiecesEntered)
+                    lblEarnedAmountOutput.Text = dblAmountEarned.ToString("C")
+                    lblEarnedAmountOutput.Visible = True
+
+                Catch Exception As DivideByZeroException
+                    MsgBox("You can't actually generate a black hole by dividing by zero. Please choose whole number greater than 1")
+                Catch Exception As FormatException
+
+                    MsgBox("You have entered something that is Not a whole number. Enter a whole number to procced")
+
+                Catch Exception As ArgumentNullException
+                    MsgBox("I'm afraid you must actually enter a value, if you want information!")
+                End Try
+            ElseIf Decimal.TryParse(txtNumberOfPieces.Text, exDecimalError) Then
+                MsgBox("If you're seeing this, you likely tried to enter in a partial piece.  Whole numbers only (no decimals, no fractions)!")
+            Else
+                MsgBox("You have entered something that is Not a whole number. Enter a whole number to procced")
+            End If
 
 
 
