@@ -15,6 +15,24 @@ Option Strict On
 Public Class frmPiecework_A
     Protected intWorkerCount As Integer = 0 'will be used to tabulate the total number of people
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
+    Protected Sub ClearAndFocus(strTypeOfClear As String)
+        'This sub clears the forms and focuses back to the correct line
+        Select Case strTypeOfClear
+            Case "Number"
+                txtNumberOfPieces.Clear()
+                txtNumberOfPieces.Focus()
+            Case "Name"
+                txtName.Clear()
+                txtName.Focus()
+            Case "Both"
+                'defaults to name since that comes first, but clears both fields
+                txtNumberOfPieces.Clear()
+                txtName.Clear()
+                txtName.Focus()
+
+        End Select
+
+    End Sub
     Protected Function CalculateEarnings(ByRef intIncomingNumPieces As Integer) As Double
         ' Calculates the earnings based on the number of pieces and returns that value
         Dim decEarningsOut As Double
@@ -48,6 +66,7 @@ Public Class frmPiecework_A
 
         If String.IsNullOrEmpty(txtName.Text) Then
             MsgBox("You must enter a name to proceed")
+            ClearAndFocus("Name")
         Else
             If Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered) Then
                 Try
@@ -58,21 +77,31 @@ Public Class frmPiecework_A
 
                 Catch Exception As DivideByZeroException
                     MsgBox("You can't actually generate a black hole by dividing by zero. Please choose whole number greater than 1")
+                    ClearAndFocus("Number")
                 Catch Exception As FormatException
 
                     MsgBox("You have entered something that is Not a whole number. Enter a whole number to procced")
+                    ClearAndFocus("Number")
 
                 Catch Exception As ArgumentNullException
                     MsgBox("I'm afraid you must actually enter a value, if you want information!")
+                    ClearAndFocus("Number")
                 End Try
             ElseIf Decimal.TryParse(txtNumberOfPieces.Text, exDecimalError) Then
                 MsgBox("If you're seeing this, you likely tried to enter in a partial piece.  Whole numbers only (no decimals, no fractions)!")
+                ClearAndFocus("Number")
             Else
                 MsgBox("You have entered something that is Not a whole number. Enter a whole number to procced")
+                ClearAndFocus("Number")
             End If
 
 
 
         End If
+    End Sub
+
+
+    Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        ClearAndFocus("Both")
     End Sub
 End Class
