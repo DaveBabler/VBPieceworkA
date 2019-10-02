@@ -16,6 +16,8 @@ Public Class frmPiecework_A
     Protected intWorkerCount As Integer = 0 'will be used to tabulate the total number of people
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
     Protected dblEarningsAccumulation As Double = 0 'accumulation of all worker's earnings.  Keeping this as double due to the case statment.
+    Protected strLastWorkerName As String = ""
+
     Protected Sub ClearAndFocus(strTypeOfClear As String)
         'This sub clears the forms and focuses back to the correct line
         Select Case strTypeOfClear
@@ -62,6 +64,7 @@ Public Class frmPiecework_A
         'If the stored user name matches the same name entered it asks the user
         'if they are the same person, if they are it returns a 1 or a 0 for tabulating the number 
         'of users! This allows us to get actual averages
+        'at the end it sets the current worker as the stored worker for later comparison 
         Dim msgNameResponse As MsgBoxResult
 
         Dim intSameUser As Integer = 0
@@ -77,6 +80,8 @@ Public Class frmPiecework_A
             End If
 
         End If
+        'Set the class variable
+        strLastWorkerName = txtName.Text
         Return intSameUser
     End Function
 
@@ -92,9 +97,11 @@ Public Class frmPiecework_A
 
     Private Sub BtnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         Dim intPiecesEntered As Integer
+        Dim intUserIncrement As Integer 'will be zero or 1 depending on a function call
         Dim exDecimalError As Decimal  'using ex instaed of dec as I'm using this for error checking! 
         Dim dblAmountEarned As Double
-        Dim dblAveragePayPerPerson As Double
+        Dim strCurrentName As String = txtName.Text 'store the user name temporarily 
+
 
         If String.IsNullOrEmpty(txtName.Text) Then
             MsgBox("You must enter a name to proceed")
@@ -106,7 +113,10 @@ Public Class frmPiecework_A
                     dblAmountEarned = CalculateEarnings(intPiecesEntered)
                     lblEarnedAmountOutput.Text = dblAmountEarned.ToString("C")
                     lblEarnedAmountOutput.Visible = True
-
+                    intUserIncrement = CheckWorker(strCurrentName)
+                    intWorkerCount += intWorkerCount + intUserIncrement
+                    intPieceCountAccumulation += intPieceCountAccumulation + intPiecesEntered
+                    dblEarningsAccumulation += dblEarningsAccumulation + dblAmountEarned
 
                 Catch Exception As DivideByZeroException
                     MsgBox("You can't actually generate a black hole by dividing by zero. Please choose whole number greater than 1")
@@ -144,5 +154,9 @@ Public Class frmPiecework_A
 
 
 
+    End Sub
+
+    Private Sub BtnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
+        Dim dblAveragePayPerPerson As Double
     End Sub
 End Class
