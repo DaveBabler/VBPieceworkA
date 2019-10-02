@@ -68,19 +68,28 @@ Public Class frmPiecework_A
         Dim msgNameResponse As MsgBoxResult
 
         Dim intSameUser As Integer = 0
-        If txtName.Text <> strIncWorkerName Then
+        If String.IsNullOrEmpty(strLastWorkerName) Then
+            'if it is empty we know it is not the same!
             intSameUser = 1
-
         Else
-            msgNameResponse = MsgBox("It appears that the same name from the last user is still in the user box, are you the same person?", MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Same User")
-            If msgNameResponse = vbNo Then
+            If String.Equals(txtName.Text, strIncWorkerName) Then
+
+                msgNameResponse = MsgBox("It appears that the same name from the last user is still in the user box, are you the same person?", MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Same User")
+                If msgNameResponse = vbNo Then
+                    intSameUser = 1
+                Else intSameUser = 0
+
+                End If
+            Else
                 intSameUser = 1
-            Else intSameUser = 0
 
             End If
-
         End If
+
         'Set the class variable
+        strTest.Text = "Last Worker is: " & strLastWorkerName & " Current is: " & strIncWorkerName
+
+
         strLastWorkerName = txtName.Text
         Return intSameUser
     End Function
