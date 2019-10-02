@@ -18,8 +18,9 @@ Public Class frmPiecework_A
     Protected dblEarningsAccumulation As Double = 0 'accumulation of all worker's earnings.  Keeping this as double due to the case statment.
     Protected strLastWorkerName As String = ""
 
-    Protected Sub ClearAndFocus(strTypeOfClear As String)
+    Protected Sub ClearAndFocus(ByVal strTypeOfClear As String)
         'This sub clears the forms and focuses back to the correct line
+        'WARNING: "Total" purges stored variable data and hides outputs.
         Select Case strTypeOfClear
             Case "Number"
                 txtNumberOfPieces.Clear()
@@ -33,9 +34,22 @@ Public Class frmPiecework_A
                 txtName.Clear()
                 txtName.Focus()
             Case "Total"
-                txtNumberOfPieces.Clear()
-                txtName.Clear()
-                txtName.Focus()
+                'Complete purge of data
+                '
+                '
+                'In my 2 years of programming professionally (mostly with Programmatic SQL PHP and C# 
+                'This is the first time I've been brave enough to try recursion!!!
+                ClearAndFocus("Both")
+                '
+                intWorkerCount = 0
+                intPieceCountAccumulation = 0
+                dblEarningsAccumulation = 0
+                strLastWorkerName = ""
+                lblTotalNumPiecesOutput.Visible = False
+                lblNumPeopleOutput.Visible = False
+                lblTotalPayOutput.Visible = False
+                lblAvgPayPerPersonOutput.Visible = False
+
                 btnSummary.Enabled = False
         End Select
 
@@ -67,28 +81,28 @@ Public Class frmPiecework_A
         'at the end it sets the current worker as the stored worker for later comparison 
         Dim msgNameResponse As MsgBoxResult
 
-        Dim intSameUser As Integer = 0
+        Dim intDiffUser As Integer = 0
         If String.IsNullOrEmpty(strLastWorkerName) Then
             'if it is empty we know it is not the same!
-            intSameUser = 1
+            intDiffUser = 1
         Else
-            If String.Equals(txtName.Text, strIncWorkerName) Then
+            If String.Equals(txtName.Text, strLastWorkerName) Then
 
                 msgNameResponse = MsgBox("It appears that the same name from the last user is still in the user box, are you the same person?", MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Same User")
                 If msgNameResponse = vbNo Then
-                    intSameUser = 1
-                Else intSameUser = 0
+                    intDiffUser = 0
+                Else intDiffUser = 1
 
                 End If
             Else
-                intSameUser = 1
+                intDiffUser = 1
 
             End If
         End If
 
         'Set the class variable
         strLastWorkerName = txtName.Text
-        Return intSameUser
+        Return intDiffUser
     End Function
 
     Private Sub FrmPiecework_A_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -121,7 +135,7 @@ Public Class frmPiecework_A
                     lblEarnedAmountOutput.Visible = True
                     intUserIncrement = CheckWorker(strCurrentName)
                     intWorkerCount += intUserIncrement
-                    intPieceCountAccumulation += intPieceCountAccumulation + intPiecesEntered
+                    intPieceCountAccumulation += +intPiecesEntered
                     dblEarningsAccumulation += dblEarningsAccumulation + dblAmountEarned
 
 
@@ -163,7 +177,13 @@ Public Class frmPiecework_A
         'this is for setting the program back to a default state (as if it had just been loaded into RAM
         'it gives the user warning,  that all user data is purged.
         Dim msgConfirmReset As MsgBoxResult
-
+        msgConfirmReset = MsgBox("This will completely clear all data." & vbNewLine & "Are you sure?", MsgBoxStyle.Critical Or
+               MsgBoxStyle.YesNo, "Purge Data?")
+        If msgConfirmReset = vbNo Then
+            txtName.Focus()
+        Else
+            ClearAndFocus("Total")
+        End If
 
 
     End Sub
