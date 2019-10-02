@@ -42,7 +42,6 @@ Partial Class frmPiecework_A
         Me.lblAvgPayPerPerson = New System.Windows.Forms.Label()
         Me.lblNumberPeopleTotalPay = New System.Windows.Forms.Label()
         Me.lblTotalNumPieces = New System.Windows.Forms.Label()
-        Me.strTest = New System.Windows.Forms.Label()
         Me.grpSummaryInfo.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -194,11 +193,11 @@ Partial Class frmPiecework_A
         Me.lblTotalNumPiecesOutput.AutoSize = True
         Me.lblTotalNumPiecesOutput.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalNumPiecesOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotalNumPiecesOutput.Location = New System.Drawing.Point(417, 37)
+        Me.lblTotalNumPiecesOutput.Location = New System.Drawing.Point(372, 37)
         Me.lblTotalNumPiecesOutput.Name = "lblTotalNumPiecesOutput"
-        Me.lblTotalNumPiecesOutput.Size = New System.Drawing.Size(64, 22)
+        Me.lblTotalNumPiecesOutput.Size = New System.Drawing.Size(109, 22)
         Me.lblTotalNumPiecesOutput.TabIndex = 9
-        Me.lblTotalNumPiecesOutput.Text = "888888"
+        Me.lblTotalNumPiecesOutput.Text = "88888888888"
         Me.lblTotalNumPiecesOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.lblTotalNumPiecesOutput.Visible = False
         '
@@ -277,25 +276,12 @@ Partial Class frmPiecework_A
         Me.lblTotalNumPieces.Text = "Total Number of Pieces"
         Me.lblTotalNumPieces.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'strTest
-        '
-        Me.strTest.AutoSize = True
-        Me.strTest.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.strTest.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.strTest.Location = New System.Drawing.Point(142, 467)
-        Me.strTest.Name = "strTest"
-        Me.strTest.Size = New System.Drawing.Size(203, 22)
-        Me.strTest.TabIndex = 10
-        Me.strTest.Text = "Average Pay Per Person"
-        Me.strTest.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        '
         'frmPiecework_A
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(4.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(541, 604)
-        Me.Controls.Add(Me.strTest)
+        Me.ClientSize = New System.Drawing.Size(541, 436)
         Me.Controls.Add(Me.grpSummaryInfo)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnPurgeData)
@@ -340,5 +326,4 @@ Partial Class frmPiecework_A
     Private WithEvents lblNumPeopleOutput As Label
     Private WithEvents lblTotalNumPiecesOutput As Label
     Private WithEvents lblTotalPayOutput As Label
-    Private WithEvents strTest As Label
 End Class

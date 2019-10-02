@@ -87,9 +87,6 @@ Public Class frmPiecework_A
         End If
 
         'Set the class variable
-        strTest.Text = "Last Worker is: " & strLastWorkerName & " Current is: " & strIncWorkerName
-
-
         strLastWorkerName = txtName.Text
         Return intSameUser
     End Function
@@ -123,9 +120,14 @@ Public Class frmPiecework_A
                     lblEarnedAmountOutput.Text = dblAmountEarned.ToString("C")
                     lblEarnedAmountOutput.Visible = True
                     intUserIncrement = CheckWorker(strCurrentName)
-                    intWorkerCount += intWorkerCount + intUserIncrement
+                    intWorkerCount += intUserIncrement
                     intPieceCountAccumulation += intPieceCountAccumulation + intPiecesEntered
                     dblEarningsAccumulation += dblEarningsAccumulation + dblAmountEarned
+
+
+
+                    'Make the Summary button now useable
+                    btnSummary.Enabled = True
 
                 Catch Exception As DivideByZeroException
                     MsgBox("You can't actually generate a black hole by dividing by zero. Please choose whole number greater than 1")
@@ -160,12 +162,34 @@ Public Class frmPiecework_A
     Private Sub BtnPurgeData_Click(sender As Object, e As EventArgs) Handles btnPurgeData.Click
         'this is for setting the program back to a default state (as if it had just been loaded into RAM
         'it gives the user warning,  that all user data is purged.
+        Dim msgConfirmReset As MsgBoxResult
 
 
 
     End Sub
 
     Private Sub BtnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
+        'Calculates and then displays Summary data on the sheet.
+        'Does nothing to focus as it can be done at any time once data exists in the system
         Dim dblAveragePayPerPerson As Double
+        dblAveragePayPerPerson = dblEarningsAccumulation / intWorkerCount
+        'set the values of the soon to be displayed labels
+
+        lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N")
+        lblNumPeopleOutput.Text = intWorkerCount.ToString("N")
+        lblTotalPayOutput.Text = dblEarningsAccumulation.ToString("C")
+        lblAvgPayPerPersonOutput.Text = dblAveragePayPerPerson.ToString("C")
+
+        'set the labels to be visible
+        lblTotalNumPiecesOutput.Visible = True
+        lblNumPeopleOutput.Visible = True
+        lblTotalPayOutput.Visible = True
+        lblAvgPayPerPersonOutput.Visible = True
+
+
+
+
     End Sub
+
+
 End Class
