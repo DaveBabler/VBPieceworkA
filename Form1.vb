@@ -15,6 +15,7 @@ Option Strict On
 Public Class frmPiecework_A
     Protected intWorkerCount As Integer = 0 'will be used to tabulate the total number of people
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
+    Protected dblEarningsAccumulation As Double = 0 'accumulation of all worker's earnings.  Keeping this as double due to the case statment.
     Protected Sub ClearAndFocus(strTypeOfClear As String)
         'This sub clears the forms and focuses back to the correct line
         Select Case strTypeOfClear
@@ -29,12 +30,17 @@ Public Class frmPiecework_A
                 txtNumberOfPieces.Clear()
                 txtName.Clear()
                 txtName.Focus()
-
+            Case "Total"
+                txtNumberOfPieces.Clear()
+                txtName.Clear()
+                txtName.Focus()
+                btnSummary.Enabled = False
         End Select
 
     End Sub
     Protected Function CalculateEarnings(ByRef intIncomingNumPieces As Integer) As Double
         ' Calculates the earnings based on the number of pieces and returns that value
+        ' Warning, for some reason Visual Basic absolutely will not tolerate Decimal in Case Statments!
         Dim decEarningsOut As Double
         Select Case intIncomingNumPieces
             Case Is <= 199
@@ -47,6 +53,31 @@ Public Class frmPiecework_A
                 decEarningsOut = 0.65
         End Select
         Return decEarningsOut
+    End Function
+
+    Protected Sub CalculateSummary()
+
+    End Sub
+    Protected Function CheckWorker(ByVal strIncWorkerName As String) As Integer
+        'If the stored user name matches the same name entered it asks the user
+        'if they are the same person, if they are it returns a 1 or a 0 for tabulating the number 
+        'of users! This allows us to get actual averages
+        Dim msgNameResponse As MsgBoxResult
+
+        Dim intSameUser As Integer = 0
+        If txtName.Text <> strIncWorkerName Then
+            intSameUser = 1
+
+        Else
+            msgNameResponse = MsgBox("It appears that the same name from the last user is still in the user box, are you the same person?", MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Same User")
+            If msgNameResponse = vbNo Then
+                intSameUser = 1
+            Else intSameUser = 0
+
+            End If
+
+        End If
+        Return intSameUser
     End Function
 
     Private Sub FrmPiecework_A_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -63,6 +94,7 @@ Public Class frmPiecework_A
         Dim intPiecesEntered As Integer
         Dim exDecimalError As Decimal  'using ex instaed of dec as I'm using this for error checking! 
         Dim dblAmountEarned As Double
+        Dim dblAveragePayPerPerson As Double
 
         If String.IsNullOrEmpty(txtName.Text) Then
             MsgBox("You must enter a name to proceed")
@@ -74,6 +106,7 @@ Public Class frmPiecework_A
                     dblAmountEarned = CalculateEarnings(intPiecesEntered)
                     lblEarnedAmountOutput.Text = dblAmountEarned.ToString("C")
                     lblEarnedAmountOutput.Visible = True
+
 
                 Catch Exception As DivideByZeroException
                     MsgBox("You can't actually generate a black hole by dividing by zero. Please choose whole number greater than 1")
@@ -103,5 +136,13 @@ Public Class frmPiecework_A
 
     Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         ClearAndFocus("Both")
+    End Sub
+
+    Private Sub BtnPurgeData_Click(sender As Object, e As EventArgs) Handles btnPurgeData.Click
+        'this is for setting the program back to a default state (as if it had just been loaded into RAM
+        'it gives the user warning,  that all user data is purged.
+
+
+
     End Sub
 End Class

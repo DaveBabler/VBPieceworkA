@@ -136,6 +136,7 @@ Partial Class frmPiecework_A
         'btnSummary
         '
         Me.btnSummary.BackColor = System.Drawing.Color.Black
+        Me.btnSummary.Enabled = False
         Me.btnSummary.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSummary.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnSummary.Location = New System.Drawing.Point(20, 170)
