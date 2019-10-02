@@ -9,7 +9,7 @@
 '               End split complementary color scheme
 '               Standard Windows colors: Black, Gainsboro
 '
-
+'Tab stop note.  FOR SAFTEY Clear All and Exit have been removed from tabstops.
 Option Strict On
 
 Public Class frmPiecework_A
@@ -57,18 +57,23 @@ Public Class frmPiecework_A
     Protected Function CalculateEarnings(ByRef intIncomingNumPieces As Integer) As Double
         ' Calculates the earnings based on the number of pieces and returns that value
         ' Warning, for some reason Visual Basic absolutely will not tolerate Decimal in Case Statments!
-        Dim decEarningsOut As Double
+        Dim dblRate As Double
+        Dim dblEarningsOut As Double
+
         Select Case intIncomingNumPieces
             Case Is <= 199
-                decEarningsOut = 0.5
+                dblRate = 0.5
             Case 200 To 399
-                decEarningsOut = 0.55
+                dblRate = 0.55
             Case 400 To 599
-                decEarningsOut = 0.6
+                dblRate = 0.6
             Case >= 600
-                decEarningsOut = 0.65
+                dblRate = 0.65
         End Select
-        Return decEarningsOut
+        dblEarningsOut = dblRate * intIncomingNumPieces
+
+        Return dblEarningsOut
+
     End Function
 
     Protected Sub CalculateSummary()
@@ -89,12 +94,14 @@ Public Class frmPiecework_A
             If String.Equals(txtName.Text, strLastWorkerName) Then
 
                 msgNameResponse = MsgBox("It appears that the same name from the last user is still in the user box, are you the same person?", MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Same User")
-                If msgNameResponse = vbNo Then
+                If msgNameResponse = vbYes Then
+                    'if the person is the same then we shan't update the person counter
                     intDiffUser = 0
-                Else intDiffUser = 1
-
+                Else
+                    intDiffUser = 1
                 End If
             Else
+                'if they don't equal they shouldn't be the same person so we increment 
                 intDiffUser = 1
 
             End If

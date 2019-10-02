@@ -48,30 +48,30 @@ Partial Class frmPiecework_A
         'txtName
         '
         Me.txtName.BackColor = System.Drawing.Color.Gainsboro
-        Me.txtName.Font = New System.Drawing.Font("Rockwell Nova Cond", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName.ForeColor = System.Drawing.Color.Black
         Me.txtName.Location = New System.Drawing.Point(20, 62)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(152, 27)
+        Me.txtName.Size = New System.Drawing.Size(152, 24)
         Me.txtName.TabIndex = 0
         '
         'txtNumberOfPieces
         '
         Me.txtNumberOfPieces.BackColor = System.Drawing.Color.Gainsboro
-        Me.txtNumberOfPieces.Font = New System.Drawing.Font("Rockwell Nova Cond", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNumberOfPieces.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNumberOfPieces.ForeColor = System.Drawing.Color.Black
         Me.txtNumberOfPieces.Location = New System.Drawing.Point(193, 62)
         Me.txtNumberOfPieces.Name = "txtNumberOfPieces"
-        Me.txtNumberOfPieces.Size = New System.Drawing.Size(152, 27)
+        Me.txtNumberOfPieces.Size = New System.Drawing.Size(152, 24)
         Me.txtNumberOfPieces.TabIndex = 1
         '
         'lblPersonName
         '
         Me.lblPersonName.AutoSize = True
-        Me.lblPersonName.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPersonName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPersonName.Location = New System.Drawing.Point(20, 36)
         Me.lblPersonName.Name = "lblPersonName"
-        Me.lblPersonName.Size = New System.Drawing.Size(128, 22)
+        Me.lblPersonName.Size = New System.Drawing.Size(116, 20)
         Me.lblPersonName.TabIndex = 2
         Me.lblPersonName.Text = "Person's Name"
         Me.lblPersonName.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -79,10 +79,10 @@ Partial Class frmPiecework_A
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(193, 36)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(151, 22)
+        Me.Label2.Size = New System.Drawing.Size(134, 20)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Number of Pieces"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -90,10 +90,10 @@ Partial Class frmPiecework_A
         'lblEarnedAmountLabel
         '
         Me.lblEarnedAmountLabel.AutoSize = True
-        Me.lblEarnedAmountLabel.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEarnedAmountLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEarnedAmountLabel.Location = New System.Drawing.Point(44, 112)
         Me.lblEarnedAmountLabel.Name = "lblEarnedAmountLabel"
-        Me.lblEarnedAmountLabel.Size = New System.Drawing.Size(135, 22)
+        Me.lblEarnedAmountLabel.Size = New System.Drawing.Size(121, 20)
         Me.lblEarnedAmountLabel.TabIndex = 4
         Me.lblEarnedAmountLabel.Text = "Earned Amount"
         Me.lblEarnedAmountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -101,10 +101,10 @@ Partial Class frmPiecework_A
         'lblEarnedAmountOutput
         '
         Me.lblEarnedAmountOutput.AutoSize = True
-        Me.lblEarnedAmountOutput.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEarnedAmountOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEarnedAmountOutput.Location = New System.Drawing.Point(193, 112)
         Me.lblEarnedAmountOutput.Name = "lblEarnedAmountOutput"
-        Me.lblEarnedAmountOutput.Size = New System.Drawing.Size(78, 22)
+        Me.lblEarnedAmountOutput.Size = New System.Drawing.Size(76, 20)
         Me.lblEarnedAmountOutput.TabIndex = 5
         Me.lblEarnedAmountOutput.Text = "$8888.88"
         Me.lblEarnedAmountOutput.Visible = False
@@ -155,6 +155,7 @@ Partial Class frmPiecework_A
         Me.btnPurgeData.Name = "btnPurgeData"
         Me.btnPurgeData.Size = New System.Drawing.Size(126, 27)
         Me.btnPurgeData.TabIndex = 9
+        Me.btnPurgeData.TabStop = False
         Me.btnPurgeData.Text = "Clear &All"
         Me.btnPurgeData.UseVisualStyleBackColor = False
         '
@@ -167,6 +168,7 @@ Partial Class frmPiecework_A
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(126, 27)
         Me.btnExit.TabIndex = 10
+        Me.btnExit.TabStop = False
         Me.btnExit.Text = "E&xit"
         Me.btnExit.UseVisualStyleBackColor = False
         '
@@ -179,7 +181,7 @@ Partial Class frmPiecework_A
         Me.grpSummaryInfo.Controls.Add(Me.lblAvgPayPerPerson)
         Me.grpSummaryInfo.Controls.Add(Me.lblNumberPeopleTotalPay)
         Me.grpSummaryInfo.Controls.Add(Me.lblTotalNumPieces)
-        Me.grpSummaryInfo.Font = New System.Drawing.Font("Rockwell Nova", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpSummaryInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpSummaryInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.grpSummaryInfo.Location = New System.Drawing.Point(20, 233)
         Me.grpSummaryInfo.Name = "grpSummaryInfo"
@@ -191,11 +193,11 @@ Partial Class frmPiecework_A
         'lblTotalNumPiecesOutput
         '
         Me.lblTotalNumPiecesOutput.AutoSize = True
-        Me.lblTotalNumPiecesOutput.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalNumPiecesOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalNumPiecesOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblTotalNumPiecesOutput.Location = New System.Drawing.Point(372, 37)
         Me.lblTotalNumPiecesOutput.Name = "lblTotalNumPiecesOutput"
-        Me.lblTotalNumPiecesOutput.Size = New System.Drawing.Size(109, 22)
+        Me.lblTotalNumPiecesOutput.Size = New System.Drawing.Size(108, 20)
         Me.lblTotalNumPiecesOutput.TabIndex = 9
         Me.lblTotalNumPiecesOutput.Text = "88888888888"
         Me.lblTotalNumPiecesOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -204,11 +206,11 @@ Partial Class frmPiecework_A
         'lblTotalPayOutput
         '
         Me.lblTotalPayOutput.AutoSize = True
-        Me.lblTotalPayOutput.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalPayOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalPayOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblTotalPayOutput.Location = New System.Drawing.Point(390, 83)
         Me.lblTotalPayOutput.Name = "lblTotalPayOutput"
-        Me.lblTotalPayOutput.Size = New System.Drawing.Size(91, 22)
+        Me.lblTotalPayOutput.Size = New System.Drawing.Size(89, 20)
         Me.lblTotalPayOutput.TabIndex = 8
         Me.lblTotalPayOutput.Text = "$ 88888.88"
         Me.lblTotalPayOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -217,11 +219,11 @@ Partial Class frmPiecework_A
         'lblNumPeopleOutput
         '
         Me.lblNumPeopleOutput.AutoSize = True
-        Me.lblNumPeopleOutput.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumPeopleOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNumPeopleOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblNumPeopleOutput.Location = New System.Drawing.Point(28, 83)
         Me.lblNumPeopleOutput.Name = "lblNumPeopleOutput"
-        Me.lblNumPeopleOutput.Size = New System.Drawing.Size(37, 22)
+        Me.lblNumPeopleOutput.Size = New System.Drawing.Size(36, 20)
         Me.lblNumPeopleOutput.TabIndex = 7
         Me.lblNumPeopleOutput.Text = "888"
         Me.lblNumPeopleOutput.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -230,11 +232,11 @@ Partial Class frmPiecework_A
         'lblAvgPayPerPersonOutput
         '
         Me.lblAvgPayPerPersonOutput.AutoSize = True
-        Me.lblAvgPayPerPersonOutput.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAvgPayPerPersonOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAvgPayPerPersonOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblAvgPayPerPersonOutput.Location = New System.Drawing.Point(390, 129)
         Me.lblAvgPayPerPersonOutput.Name = "lblAvgPayPerPersonOutput"
-        Me.lblAvgPayPerPersonOutput.Size = New System.Drawing.Size(91, 22)
+        Me.lblAvgPayPerPersonOutput.Size = New System.Drawing.Size(89, 20)
         Me.lblAvgPayPerPersonOutput.TabIndex = 6
         Me.lblAvgPayPerPersonOutput.Text = "$ 88888.88"
         Me.lblAvgPayPerPersonOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -243,11 +245,11 @@ Partial Class frmPiecework_A
         'lblAvgPayPerPerson
         '
         Me.lblAvgPayPerPerson.AutoSize = True
-        Me.lblAvgPayPerPerson.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAvgPayPerPerson.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAvgPayPerPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblAvgPayPerPerson.Location = New System.Drawing.Point(62, 129)
         Me.lblAvgPayPerPerson.Name = "lblAvgPayPerPerson"
-        Me.lblAvgPayPerPerson.Size = New System.Drawing.Size(203, 22)
+        Me.lblAvgPayPerPerson.Size = New System.Drawing.Size(180, 20)
         Me.lblAvgPayPerPerson.TabIndex = 5
         Me.lblAvgPayPerPerson.Text = "Average Pay Per Person"
         Me.lblAvgPayPerPerson.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -255,11 +257,11 @@ Partial Class frmPiecework_A
         'lblNumberPeopleTotalPay
         '
         Me.lblNumberPeopleTotalPay.AutoSize = True
-        Me.lblNumberPeopleTotalPay.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumberPeopleTotalPay.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNumberPeopleTotalPay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblNumberPeopleTotalPay.Location = New System.Drawing.Point(71, 83)
         Me.lblNumberPeopleTotalPay.Name = "lblNumberPeopleTotalPay"
-        Me.lblNumberPeopleTotalPay.Size = New System.Drawing.Size(194, 22)
+        Me.lblNumberPeopleTotalPay.Size = New System.Drawing.Size(172, 20)
         Me.lblNumberPeopleTotalPay.TabIndex = 4
         Me.lblNumberPeopleTotalPay.Text = "# of People -- Total Pay"
         Me.lblNumberPeopleTotalPay.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -267,21 +269,21 @@ Partial Class frmPiecework_A
         'lblTotalNumPieces
         '
         Me.lblTotalNumPieces.AutoSize = True
-        Me.lblTotalNumPieces.Font = New System.Drawing.Font("Rockwell Nova", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalNumPieces.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalNumPieces.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblTotalNumPieces.Location = New System.Drawing.Point(70, 37)
         Me.lblTotalNumPieces.Name = "lblTotalNumPieces"
-        Me.lblTotalNumPieces.Size = New System.Drawing.Size(195, 22)
+        Me.lblTotalNumPieces.Size = New System.Drawing.Size(173, 20)
         Me.lblTotalNumPieces.TabIndex = 3
         Me.lblTotalNumPieces.Text = "Total Number of Pieces"
         Me.lblTotalNumPieces.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'frmPiecework_A
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(4.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(541, 436)
+        Me.ClientSize = New System.Drawing.Size(541, 472)
         Me.Controls.Add(Me.grpSummaryInfo)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnPurgeData)
@@ -294,7 +296,7 @@ Partial Class frmPiecework_A
         Me.Controls.Add(Me.lblPersonName)
         Me.Controls.Add(Me.txtNumberOfPieces)
         Me.Controls.Add(Me.txtName)
-        Me.Font = New System.Drawing.Font("Rockwell Nova Cond", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
