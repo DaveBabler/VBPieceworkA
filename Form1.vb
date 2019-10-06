@@ -41,6 +41,8 @@ Public Class frmPiecework_A
                 'This is the first time I've been brave enough to try recursion!!!
                 ClearAndFocus("Both")
                 '
+                lblEarnedAmountOutput.Text = ""
+                lblEarnedAmountOutput.Visible = False
                 intWorkerCount = 0
                 intPieceCountAccumulation = 0
                 dblEarningsAccumulation = 0
@@ -112,9 +114,6 @@ Public Class frmPiecework_A
         Return intDiffUser
     End Function
 
-    Private Sub FrmPiecework_A_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         'Close form terminate program
