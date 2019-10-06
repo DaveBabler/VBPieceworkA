@@ -72,7 +72,7 @@ Public Class frmPiecework_A
             Case >= 600
                 decRate = CDec(0.65)
         End Select
-        decEarningsOut = decRate * CDec(intIncomingNumPieces)
+        decEarningsOut = decRate * intIncomingNumPieces
 
         Return decEarningsOut
 
@@ -88,12 +88,9 @@ Public Class frmPiecework_A
         'at the end it sets the current worker as the stored worker for later comparison 
         Dim msgNameResponse As MsgBoxResult
 
-        Dim intDiffUser As Integer = 0
-        If String.IsNullOrEmpty(strLastWorkerName) Then
-            'if it is empty we know it is not the same!
-            intDiffUser = 1
-        Else
-            If String.Equals(txtName.Text, strLastWorkerName) Then
+        Dim intDiffUser As Integer
+
+        If String.Equals(txtName.Text, strLastWorkerName) Then
 
                 msgNameResponse = MsgBox("It appears that the same name from the last user is still in the user box, are you the same person?", MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Same User")
                 If msgNameResponse = vbYes Then
@@ -103,11 +100,12 @@ Public Class frmPiecework_A
                     intDiffUser = 1
                 End If
             Else
-                'if they don't equal they shouldn't be the same person so we increment 
-                intDiffUser = 1
+            'if they don't equal they shouldn't be the same person so we increment 
+            'this includes if the value before was null! Because then by default they won't equal.
+            intDiffUser = 1
 
             End If
-        End If
+
 
         'Set the class variable
         strLastWorkerName = txtName.Text
