@@ -15,7 +15,7 @@ Option Strict On
 Public Class frmPiecework_A
     Protected intWorkerCount As Integer = 0 'will be used to tabulate the total number of people
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
-    Protected dblEarningsAccumulation As Double = 0 'accumulation of all worker's earnings.  Keeping this as double due to the case statment.
+    Protected decEarningsAccumulation As Decimal = 0 'accumulation of all worker's earnings.  Keeping this as Decimal due to the case statment.
     Protected strLastWorkerName As String = ""
 
     Protected Sub ClearAndFocus(ByVal strTypeOfClear As String)
@@ -45,7 +45,7 @@ Public Class frmPiecework_A
                 lblEarnedAmountOutput.Visible = False
                 intWorkerCount = 0
                 intPieceCountAccumulation = 0
-                dblEarningsAccumulation = 0
+                decEarningsAccumulation = 0
                 strLastWorkerName = ""
                 lblTotalNumPiecesOutput.Visible = False
                 lblNumPeopleOutput.Visible = False
@@ -56,25 +56,25 @@ Public Class frmPiecework_A
         End Select
 
     End Sub
-    Protected Function CalculateEarnings(ByRef intIncomingNumPieces As Integer) As Double
+    Protected Function CalculateEarnings(ByRef intIncomingNumPieces As Integer) As Decimal
         ' Calculates the earnings based on the number of pieces and returns that value
         ' Warning, for some reason Visual Basic absolutely will not tolerate Decimal in Case Statments!
-        Dim dblRate As Double
-        Dim dblEarningsOut As Double
+        Dim decRate As Decimal
+        Dim decEarningsOut As Decimal
 
         Select Case intIncomingNumPieces
             Case Is <= 199
-                dblRate = 0.5
+                decRate = CDec(0.5)
             Case 200 To 399
-                dblRate = 0.55
+                decRate = CDec(0.55)
             Case 400 To 599
-                dblRate = 0.6
+                decRate = CDec(0.6)
             Case >= 600
-                dblRate = 0.65
+                decRate = CDec(0.65)
         End Select
-        dblEarningsOut = dblRate * intIncomingNumPieces
+        decEarningsOut = decRate * CDec(intIncomingNumPieces)
 
-        Return dblEarningsOut
+        Return decEarningsOut
 
     End Function
 
@@ -125,7 +125,7 @@ Public Class frmPiecework_A
         Dim intPiecesEntered As Integer
         Dim intUserIncrement As Integer 'will be zero or 1 depending on a function call
         Dim exDecimalError As Decimal  'using ex instaed of dec as I'm using this for error checking! 
-        Dim dblAmountEarned As Double
+        Dim decAmountEarned As Decimal
         Dim strCurrentName As String = txtName.Text 'store the user name temporarily 
 
 
@@ -136,13 +136,13 @@ Public Class frmPiecework_A
             If Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered) Then
                 Try
 
-                    dblAmountEarned = CalculateEarnings(intPiecesEntered)
-                    lblEarnedAmountOutput.Text = dblAmountEarned.ToString("C")
+                    decAmountEarned = CalculateEarnings(intPiecesEntered)
+                    lblEarnedAmountOutput.Text = decAmountEarned.ToString("C")
                     lblEarnedAmountOutput.Visible = True
                     intUserIncrement = CheckWorker(strCurrentName)
                     intWorkerCount += intUserIncrement
                     intPieceCountAccumulation += +intPiecesEntered
-                    dblEarningsAccumulation += dblEarningsAccumulation + dblAmountEarned
+                    decEarningsAccumulation += decAmountEarned
 
 
 
@@ -197,14 +197,14 @@ Public Class frmPiecework_A
     Private Sub BtnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
         'Calculates and then displays Summary data on the sheet.
         'Does nothing to focus as it can be done at any time once data exists in the system
-        Dim dblAveragePayPerPerson As Double
-        dblAveragePayPerPerson = dblEarningsAccumulation / intWorkerCount
+        Dim decAveragePayPerPerson As Decimal
+        decAveragePayPerPerson = decEarningsAccumulation / intWorkerCount
         'set the values of the soon to be displayed labels
 
         lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N")
         lblNumPeopleOutput.Text = intWorkerCount.ToString("N")
-        lblTotalPayOutput.Text = dblEarningsAccumulation.ToString("C")
-        lblAvgPayPerPersonOutput.Text = dblAveragePayPerPerson.ToString("C")
+        lblTotalPayOutput.Text = decEarningsAccumulation.ToString("C")
+        lblAvgPayPerPersonOutput.Text = decAveragePayPerPerson.ToString("C")
 
         'set the labels to be visible
         lblTotalNumPiecesOutput.Visible = True

@@ -300,6 +300,8 @@ Partial Class frmPiecework_A
         Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.MaximumSize = New System.Drawing.Size(557, 511)
+        Me.MinimumSize = New System.Drawing.Size(557, 511)
         Me.Name = "frmPiecework_A"
         Me.Text = "Piece Rate Earnings"
         Me.grpSummaryInfo.ResumeLayout(False)
