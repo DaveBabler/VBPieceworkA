@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmPiecework_A
+Partial Class frmPiecework_B
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class frmPiecework_A
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPiecework_A))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPiecework_B))
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtNumberOfPieces = New System.Windows.Forms.TextBox()
         Me.lblPersonName = New System.Windows.Forms.Label()
@@ -278,7 +278,7 @@ Partial Class frmPiecework_A
         Me.lblTotalNumPieces.Text = "Total Number of Pieces"
         Me.lblTotalNumPieces.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'frmPiecework_A
+        'frmPiecework_B
         '
         Me.AcceptButton = Me.btnCalculate
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -303,7 +303,7 @@ Partial Class frmPiecework_A
         Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.MaximumSize = New System.Drawing.Size(557, 511)
         Me.MinimumSize = New System.Drawing.Size(557, 511)
-        Me.Name = "frmPiecework_A"
+        Me.Name = "frmPiecework_B"
         Me.Text = "Piece Rate Earnings"
         Me.grpSummaryInfo.ResumeLayout(False)
         Me.grpSummaryInfo.PerformLayout()
