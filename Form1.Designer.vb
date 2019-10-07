@@ -34,16 +34,10 @@ Partial Class frmPiecework_B
         Me.btnSummary = New System.Windows.Forms.Button()
         Me.btnPurgeData = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.grpSummaryInfo = New System.Windows.Forms.GroupBox()
-        Me.lblTotalNumPiecesOutput = New System.Windows.Forms.Label()
-        Me.lblTotalPayOutput = New System.Windows.Forms.Label()
-        Me.lblNumPeopleOutput = New System.Windows.Forms.Label()
-        Me.lblAvgPayPerPersonOutput = New System.Windows.Forms.Label()
-        Me.lblAvgPayPerPerson = New System.Windows.Forms.Label()
-        Me.lblNumberPeopleTotalPay = New System.Windows.Forms.Label()
-        Me.lblTotalNumPieces = New System.Windows.Forms.Label()
-        Me.btnTest = New System.Windows.Forms.Button()
-        Me.grpSummaryInfo.SuspendLayout()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CalculatePayToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtName
@@ -51,7 +45,7 @@ Partial Class frmPiecework_B
         Me.txtName.BackColor = System.Drawing.Color.Gainsboro
         Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName.ForeColor = System.Drawing.Color.Black
-        Me.txtName.Location = New System.Drawing.Point(20, 62)
+        Me.txtName.Location = New System.Drawing.Point(20, 106)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(152, 24)
         Me.txtName.TabIndex = 0
@@ -61,7 +55,7 @@ Partial Class frmPiecework_B
         Me.txtNumberOfPieces.BackColor = System.Drawing.Color.Gainsboro
         Me.txtNumberOfPieces.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNumberOfPieces.ForeColor = System.Drawing.Color.Black
-        Me.txtNumberOfPieces.Location = New System.Drawing.Point(193, 62)
+        Me.txtNumberOfPieces.Location = New System.Drawing.Point(193, 106)
         Me.txtNumberOfPieces.Name = "txtNumberOfPieces"
         Me.txtNumberOfPieces.Size = New System.Drawing.Size(152, 24)
         Me.txtNumberOfPieces.TabIndex = 1
@@ -70,7 +64,7 @@ Partial Class frmPiecework_B
         '
         Me.lblPersonName.AutoSize = True
         Me.lblPersonName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPersonName.Location = New System.Drawing.Point(20, 36)
+        Me.lblPersonName.Location = New System.Drawing.Point(20, 80)
         Me.lblPersonName.Name = "lblPersonName"
         Me.lblPersonName.Size = New System.Drawing.Size(116, 20)
         Me.lblPersonName.TabIndex = 2
@@ -81,7 +75,7 @@ Partial Class frmPiecework_B
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(193, 36)
+        Me.Label2.Location = New System.Drawing.Point(193, 80)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(134, 20)
         Me.Label2.TabIndex = 3
@@ -92,7 +86,7 @@ Partial Class frmPiecework_B
         '
         Me.lblEarnedAmountLabel.AutoSize = True
         Me.lblEarnedAmountLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEarnedAmountLabel.Location = New System.Drawing.Point(44, 112)
+        Me.lblEarnedAmountLabel.Location = New System.Drawing.Point(20, 156)
         Me.lblEarnedAmountLabel.Name = "lblEarnedAmountLabel"
         Me.lblEarnedAmountLabel.Size = New System.Drawing.Size(121, 20)
         Me.lblEarnedAmountLabel.TabIndex = 4
@@ -103,7 +97,7 @@ Partial Class frmPiecework_B
         '
         Me.lblEarnedAmountOutput.AutoSize = True
         Me.lblEarnedAmountOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEarnedAmountOutput.Location = New System.Drawing.Point(193, 112)
+        Me.lblEarnedAmountOutput.Location = New System.Drawing.Point(189, 156)
         Me.lblEarnedAmountOutput.Name = "lblEarnedAmountOutput"
         Me.lblEarnedAmountOutput.Size = New System.Drawing.Size(76, 20)
         Me.lblEarnedAmountOutput.TabIndex = 5
@@ -115,7 +109,7 @@ Partial Class frmPiecework_B
         Me.btnCalculate.BackColor = System.Drawing.Color.Black
         Me.btnCalculate.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCalculate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnCalculate.Location = New System.Drawing.Point(375, 62)
+        Me.btnCalculate.Location = New System.Drawing.Point(375, 106)
         Me.btnCalculate.Name = "btnCalculate"
         Me.btnCalculate.Size = New System.Drawing.Size(126, 27)
         Me.btnCalculate.TabIndex = 6
@@ -127,7 +121,7 @@ Partial Class frmPiecework_B
         Me.btnClear.BackColor = System.Drawing.Color.Black
         Me.btnClear.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnClear.Location = New System.Drawing.Point(375, 112)
+        Me.btnClear.Location = New System.Drawing.Point(375, 156)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(126, 27)
         Me.btnClear.TabIndex = 7
@@ -140,7 +134,7 @@ Partial Class frmPiecework_B
         Me.btnSummary.Enabled = False
         Me.btnSummary.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSummary.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnSummary.Location = New System.Drawing.Point(20, 170)
+        Me.btnSummary.Location = New System.Drawing.Point(20, 214)
         Me.btnSummary.Name = "btnSummary"
         Me.btnSummary.Size = New System.Drawing.Size(126, 27)
         Me.btnSummary.TabIndex = 8
@@ -152,7 +146,7 @@ Partial Class frmPiecework_B
         Me.btnPurgeData.BackColor = System.Drawing.Color.Black
         Me.btnPurgeData.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPurgeData.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPurgeData.Location = New System.Drawing.Point(203, 170)
+        Me.btnPurgeData.Location = New System.Drawing.Point(203, 214)
         Me.btnPurgeData.Name = "btnPurgeData"
         Me.btnPurgeData.Size = New System.Drawing.Size(126, 27)
         Me.btnPurgeData.TabIndex = 9
@@ -165,7 +159,7 @@ Partial Class frmPiecework_B
         Me.btnExit.BackColor = System.Drawing.Color.Black
         Me.btnExit.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnExit.Location = New System.Drawing.Point(375, 170)
+        Me.btnExit.Location = New System.Drawing.Point(375, 214)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(126, 27)
         Me.btnExit.TabIndex = 10
@@ -173,123 +167,29 @@ Partial Class frmPiecework_B
         Me.btnExit.Text = "E&xit"
         Me.btnExit.UseVisualStyleBackColor = False
         '
-        'grpSummaryInfo
+        'MenuStrip1
         '
-        Me.grpSummaryInfo.Controls.Add(Me.lblTotalNumPiecesOutput)
-        Me.grpSummaryInfo.Controls.Add(Me.lblTotalPayOutput)
-        Me.grpSummaryInfo.Controls.Add(Me.lblNumPeopleOutput)
-        Me.grpSummaryInfo.Controls.Add(Me.lblAvgPayPerPersonOutput)
-        Me.grpSummaryInfo.Controls.Add(Me.lblAvgPayPerPerson)
-        Me.grpSummaryInfo.Controls.Add(Me.lblNumberPeopleTotalPay)
-        Me.grpSummaryInfo.Controls.Add(Me.lblTotalNumPieces)
-        Me.grpSummaryInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpSummaryInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.grpSummaryInfo.Location = New System.Drawing.Point(20, 233)
-        Me.grpSummaryInfo.Name = "grpSummaryInfo"
-        Me.grpSummaryInfo.Size = New System.Drawing.Size(500, 190)
-        Me.grpSummaryInfo.TabIndex = 11
-        Me.grpSummaryInfo.TabStop = False
-        Me.grpSummaryInfo.Text = "Summary Information"
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(541, 24)
+        Me.MenuStrip1.TabIndex = 11
+        Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'lblTotalNumPiecesOutput
+        'FileToolStripMenuItem
         '
-        Me.lblTotalNumPiecesOutput.AutoSize = True
-        Me.lblTotalNumPiecesOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalNumPiecesOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotalNumPiecesOutput.Location = New System.Drawing.Point(372, 37)
-        Me.lblTotalNumPiecesOutput.Name = "lblTotalNumPiecesOutput"
-        Me.lblTotalNumPiecesOutput.Size = New System.Drawing.Size(108, 20)
-        Me.lblTotalNumPiecesOutput.TabIndex = 9
-        Me.lblTotalNumPiecesOutput.Text = "88888888888"
-        Me.lblTotalNumPiecesOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblTotalNumPiecesOutput.Visible = False
+        Me.FileToolStripMenuItem.BackColor = System.Drawing.Color.Gainsboro
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CalculatePayToolStripMenuItem})
+        Me.FileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Text = "File"
         '
-        'lblTotalPayOutput
+        'CalculatePayToolStripMenuItem
         '
-        Me.lblTotalPayOutput.AutoSize = True
-        Me.lblTotalPayOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalPayOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotalPayOutput.Location = New System.Drawing.Point(390, 83)
-        Me.lblTotalPayOutput.Name = "lblTotalPayOutput"
-        Me.lblTotalPayOutput.Size = New System.Drawing.Size(89, 20)
-        Me.lblTotalPayOutput.TabIndex = 8
-        Me.lblTotalPayOutput.Text = "$ 88888.88"
-        Me.lblTotalPayOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblTotalPayOutput.Visible = False
-        '
-        'lblNumPeopleOutput
-        '
-        Me.lblNumPeopleOutput.AutoSize = True
-        Me.lblNumPeopleOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumPeopleOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblNumPeopleOutput.Location = New System.Drawing.Point(28, 83)
-        Me.lblNumPeopleOutput.Name = "lblNumPeopleOutput"
-        Me.lblNumPeopleOutput.Size = New System.Drawing.Size(36, 20)
-        Me.lblNumPeopleOutput.TabIndex = 7
-        Me.lblNumPeopleOutput.Text = "888"
-        Me.lblNumPeopleOutput.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.lblNumPeopleOutput.Visible = False
-        '
-        'lblAvgPayPerPersonOutput
-        '
-        Me.lblAvgPayPerPersonOutput.AutoSize = True
-        Me.lblAvgPayPerPersonOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAvgPayPerPersonOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblAvgPayPerPersonOutput.Location = New System.Drawing.Point(390, 129)
-        Me.lblAvgPayPerPersonOutput.Name = "lblAvgPayPerPersonOutput"
-        Me.lblAvgPayPerPersonOutput.Size = New System.Drawing.Size(89, 20)
-        Me.lblAvgPayPerPersonOutput.TabIndex = 6
-        Me.lblAvgPayPerPersonOutput.Text = "$ 88888.88"
-        Me.lblAvgPayPerPersonOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblAvgPayPerPersonOutput.Visible = False
-        '
-        'lblAvgPayPerPerson
-        '
-        Me.lblAvgPayPerPerson.AutoSize = True
-        Me.lblAvgPayPerPerson.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAvgPayPerPerson.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblAvgPayPerPerson.Location = New System.Drawing.Point(62, 129)
-        Me.lblAvgPayPerPerson.Name = "lblAvgPayPerPerson"
-        Me.lblAvgPayPerPerson.Size = New System.Drawing.Size(180, 20)
-        Me.lblAvgPayPerPerson.TabIndex = 5
-        Me.lblAvgPayPerPerson.Text = "Average Pay Per Person"
-        Me.lblAvgPayPerPerson.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        '
-        'lblNumberPeopleTotalPay
-        '
-        Me.lblNumberPeopleTotalPay.AutoSize = True
-        Me.lblNumberPeopleTotalPay.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumberPeopleTotalPay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblNumberPeopleTotalPay.Location = New System.Drawing.Point(71, 83)
-        Me.lblNumberPeopleTotalPay.Name = "lblNumberPeopleTotalPay"
-        Me.lblNumberPeopleTotalPay.Size = New System.Drawing.Size(172, 20)
-        Me.lblNumberPeopleTotalPay.TabIndex = 4
-        Me.lblNumberPeopleTotalPay.Text = "# of People -- Total Pay"
-        Me.lblNumberPeopleTotalPay.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        '
-        'lblTotalNumPieces
-        '
-        Me.lblTotalNumPieces.AutoSize = True
-        Me.lblTotalNumPieces.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalNumPieces.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotalNumPieces.Location = New System.Drawing.Point(70, 37)
-        Me.lblTotalNumPieces.Name = "lblTotalNumPieces"
-        Me.lblTotalNumPieces.Size = New System.Drawing.Size(173, 20)
-        Me.lblTotalNumPieces.TabIndex = 3
-        Me.lblTotalNumPieces.Text = "Total Number of Pieces"
-        Me.lblTotalNumPieces.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'btnTest
-        '
-        Me.btnTest.BackColor = System.Drawing.Color.Black
-        Me.btnTest.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTest.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnTest.Location = New System.Drawing.Point(201, 203)
-        Me.btnTest.Name = "btnTest"
-        Me.btnTest.Size = New System.Drawing.Size(126, 27)
-        Me.btnTest.TabIndex = 12
-        Me.btnTest.Text = "Test"
-        Me.btnTest.UseVisualStyleBackColor = False
+        Me.CalculatePayToolStripMenuItem.Name = "CalculatePayToolStripMenuItem"
+        Me.CalculatePayToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CalculatePayToolStripMenuItem.Text = "&Calculate Pay"
         '
         'frmPiecework_B
         '
@@ -297,9 +197,7 @@ Partial Class frmPiecework_B
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(541, 472)
-        Me.Controls.Add(Me.btnTest)
-        Me.Controls.Add(Me.grpSummaryInfo)
+        Me.ClientSize = New System.Drawing.Size(541, 314)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnPurgeData)
         Me.Controls.Add(Me.btnSummary)
@@ -311,16 +209,17 @@ Partial Class frmPiecework_B
         Me.Controls.Add(Me.lblPersonName)
         Me.Controls.Add(Me.txtNumberOfPieces)
         Me.Controls.Add(Me.txtName)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.MaximumSize = New System.Drawing.Size(557, 511)
-        Me.MinimumSize = New System.Drawing.Size(557, 511)
+        Me.MaximizeBox = False
         Me.Name = "frmPiecework_B"
         Me.Text = "Piece Rate Earnings"
-        Me.grpSummaryInfo.ResumeLayout(False)
-        Me.grpSummaryInfo.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -337,13 +236,7 @@ Partial Class frmPiecework_B
     Friend WithEvents btnSummary As Button
     Friend WithEvents btnPurgeData As Button
     Friend WithEvents btnExit As Button
-    Friend WithEvents grpSummaryInfo As GroupBox
-    Private WithEvents lblAvgPayPerPersonOutput As Label
-    Private WithEvents lblAvgPayPerPerson As Label
-    Private WithEvents lblNumberPeopleTotalPay As Label
-    Private WithEvents lblTotalNumPieces As Label
-    Private WithEvents lblNumPeopleOutput As Label
-    Private WithEvents lblTotalNumPiecesOutput As Label
-    Private WithEvents lblTotalPayOutput As Label
-    Friend WithEvents btnTest As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CalculatePayToolStripMenuItem As ToolStripMenuItem
 End Class

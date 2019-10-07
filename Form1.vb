@@ -47,15 +47,33 @@ Public Class frmPiecework_B
                 intPieceCountAccumulation = 0
                 decEarningsAccumulation = 0
                 strLastWorkerName = ""
-                lblTotalNumPiecesOutput.Visible = False
-                lblNumPeopleOutput.Visible = False
-                lblTotalPayOutput.Visible = False
-                lblAvgPayPerPersonOutput.Visible = False
-
                 btnSummary.Enabled = False
         End Select
 
     End Sub
+
+    Private Sub ResultsBox(ByVal intPieceTotal As Integer, ByVal intPeople As Integer, ByVal decTotalPay As Decimal, ByVal decAveragePay As Decimal)
+        'This procedure compiles and displays a nicely formatted Message Box with information about 
+        ' the cumulative stats of pieces done, amount of workers, total paid, and average paid per worker.
+        ' hard spaces and vbTab stops are used for formatting
+
+        Dim strNumPieces As String = "The number of pieces completed is: "
+        Dim strNumWokers As String = "The number of workers contributing is: "
+        Dim strTotalPay As String = "The total amount paid to the workers is: "
+        Dim strAveragePay As String = "The average pay per worker is: "
+        Dim strMessageBoxHeading As String = "Accumulation Totals"
+        MsgBox(strNumPieces & vbTab & vbTab & "  " & intPieceTotal.ToString("N0") & vbCr &
+                strNumWokers & vbTab & "  " & intPeople.ToString("N0") & vbCr &
+                strTotalPay & vbTab & decTotalPay.ToString("C") & vbCr &
+                strAveragePay & vbTab & vbTab & decAveragePay.ToString("C") & vbCr, MsgBoxStyle.Information, strMessageBoxHeading)
+
+
+
+
+
+
+    End Sub
+
     Protected Function CalculateEarnings(ByVal intIncomingNumPieces As Integer) As Decimal
         ' Calculates the earnings based on the number of pieces and returns that value
         ' Warning, for some reason Visual Basic absolutely will not tolerate Decimal in Case Statments!
@@ -197,50 +215,19 @@ Public Class frmPiecework_B
     End Sub
 
     Private Sub BtnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
-        'Calculates and then displays Summary data on the sheet.
+        'Calculates and then displays Summary data on the in a MessageBox.
         'Does nothing to focus as it can be done at any time once data exists in the system
 
         decAveragePayPerPerson = CalculateAverage(decEarningsAccumulation, intWorkerCount)
 
-        'set the values of the soon to be displayed labels
-
-        lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N0")
-        lblNumPeopleOutput.Text = intWorkerCount.ToString("N0")
-        lblTotalPayOutput.Text = decEarningsAccumulation.ToString("C")
-        lblAvgPayPerPersonOutput.Text = decAveragePayPerPerson.ToString("C")
-
-        'set the labels to be visible
-        lblTotalNumPiecesOutput.Visible = True
-        lblNumPeopleOutput.Visible = True
-        lblTotalPayOutput.Visible = True
-        lblAvgPayPerPersonOutput.Visible = True
-
-
-
-
-    End Sub
-    Private Sub ResultsBox(ByVal intPieceTotal As Integer, ByVal intPeople As Integer, ByVal decTotalPay As Decimal, ByVal decAveragePay As Decimal)
-        'This procedure compiles and displays a nicely formatted Message Box with information about 
-        ' the cumulative stats of pieces done, amount of workers, total paid, and average paid per worker.
-        ' hard spaces and vbTab stops are used for formatting
-
-        Dim strNumPieces As String = "The number of pieces completed is: "
-        Dim strNumWokers As String = "The number of workers contributing is: "
-        Dim strTotalPay As String = "The total amount paid to the workers is: "
-        Dim strAveragePay As String = "The average pay per worker is: "
-        Dim strMessageBoxHeading As String = "Accumulation Totals"
-        MsgBox(strNumPieces & vbTab & vbTab & "  " & intPieceTotal.ToString("N0") & vbCr &
-                strNumWokers & vbTab & "  " & intPeople.ToString("N0") & vbCr &
-                strTotalPay & vbTab & decTotalPay.ToString("C") & vbCr &
-                strAveragePay & vbTab & vbTab & decAveragePay.ToString("C") & vbCr, MsgBoxStyle.Information, strMessageBoxHeading)
-
-
-
-
-
-
-    End Sub
-    Private Sub BtnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
         ResultsBox(intPieceCountAccumulation, intWorkerCount, decEarningsAccumulation, decAveragePayPerPerson)
+
+
+
+
+    End Sub
+
+    Private Sub FrmPiecework_B_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
