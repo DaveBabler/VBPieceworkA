@@ -17,7 +17,7 @@ Public Class frmPiecework_B
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
     Protected decEarningsAccumulation As Decimal = 0 'accumulation of all worker's earnings.  Keeping this as Decimal due to the case statment.
     Protected strLastWorkerName As String = ""
-
+    Protected decAveragePayPerPerson As Decimal
     Protected Sub ClearAndFocus(ByVal strTypeOfClear As String)
         'This sub clears the forms and focuses back to the correct line
         'WARNING: "Total" purges stored variable data and hides outputs.
@@ -199,13 +199,13 @@ Public Class frmPiecework_B
     Private Sub BtnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
         'Calculates and then displays Summary data on the sheet.
         'Does nothing to focus as it can be done at any time once data exists in the system
-        Dim decAveragePayPerPerson As Decimal
+
         decAveragePayPerPerson = CalculateAverage(decEarningsAccumulation, intWorkerCount)
 
         'set the values of the soon to be displayed labels
 
-        lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N")
-        lblNumPeopleOutput.Text = intWorkerCount.ToString("N")
+        lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N0")
+        lblNumPeopleOutput.Text = intWorkerCount.ToString("N0")
         lblTotalPayOutput.Text = decEarningsAccumulation.ToString("C")
         lblAvgPayPerPersonOutput.Text = decAveragePayPerPerson.ToString("C")
 
@@ -219,5 +219,28 @@ Public Class frmPiecework_B
 
 
     End Sub
+    Private Sub ResultsBox(ByVal intPieceTotal As Integer, ByVal intPeople As Integer, ByVal decTotalPay As Decimal, ByVal decAveragePay As Decimal)
+        'This procedure compiles and displays a nicely formatted Message Box with information about 
+        ' the cumulative stats of pieces done, amount of workers, total paid, and average paid per worker.
+        ' hard spaces and vbTab stops are used for formatting
 
+        Dim strNumPieces As String = "The number of pieces completed is: "
+        Dim strNumWokers As String = "The number of workers contributing is: "
+        Dim strTotalPay As String = "The total amount paid to the workers is: "
+        Dim strAveragePay As String = "The average pay per worker is: "
+        Dim strMessageBoxHeading As String = "Accumulation Totals"
+        MsgBox(strNumPieces & vbTab & vbTab & "  " & intPieceTotal.ToString("N0") & vbCr &
+                strNumWokers & vbTab & "  " & intPeople.ToString("N0") & vbCr &
+                strTotalPay & vbTab & decTotalPay.ToString("C") & vbCr &
+                strAveragePay & vbTab & vbTab & decAveragePay.ToString("C") & vbCr, MsgBoxStyle.Information, strMessageBoxHeading)
+
+
+
+
+
+
+    End Sub
+    Private Sub BtnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
+        ResultsBox(intPieceCountAccumulation, intWorkerCount, decEarningsAccumulation, decAveragePayPerPerson)
+    End Sub
 End Class

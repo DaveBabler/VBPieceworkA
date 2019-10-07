@@ -42,6 +42,7 @@ Partial Class frmPiecework_B
         Me.lblAvgPayPerPerson = New System.Windows.Forms.Label()
         Me.lblNumberPeopleTotalPay = New System.Windows.Forms.Label()
         Me.lblTotalNumPieces = New System.Windows.Forms.Label()
+        Me.btnTest = New System.Windows.Forms.Button()
         Me.grpSummaryInfo.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -278,6 +279,18 @@ Partial Class frmPiecework_B
         Me.lblTotalNumPieces.Text = "Total Number of Pieces"
         Me.lblTotalNumPieces.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'btnTest
+        '
+        Me.btnTest.BackColor = System.Drawing.Color.Black
+        Me.btnTest.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTest.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnTest.Location = New System.Drawing.Point(201, 203)
+        Me.btnTest.Name = "btnTest"
+        Me.btnTest.Size = New System.Drawing.Size(126, 27)
+        Me.btnTest.TabIndex = 12
+        Me.btnTest.Text = "Test"
+        Me.btnTest.UseVisualStyleBackColor = False
+        '
         'frmPiecework_B
         '
         Me.AcceptButton = Me.btnCalculate
@@ -285,6 +298,7 @@ Partial Class frmPiecework_B
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(541, 472)
+        Me.Controls.Add(Me.btnTest)
         Me.Controls.Add(Me.grpSummaryInfo)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnPurgeData)
@@ -331,4 +345,5 @@ Partial Class frmPiecework_B
     Private WithEvents lblNumPeopleOutput As Label
     Private WithEvents lblTotalNumPiecesOutput As Label
     Private WithEvents lblTotalPayOutput As Label
+    Friend WithEvents btnTest As Button
 End Class
