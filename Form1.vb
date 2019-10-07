@@ -56,7 +56,7 @@ Public Class frmPiecework_B
         End Select
 
     End Sub
-    Protected Function CalculateEarnings(ByRef intIncomingNumPieces As Integer) As Decimal
+    Protected Function CalculateEarnings(ByVal intIncomingNumPieces As Integer) As Decimal
         ' Calculates the earnings based on the number of pieces and returns that value
         ' Warning, for some reason Visual Basic absolutely will not tolerate Decimal in Case Statments!
         Dim decRate As Decimal
@@ -78,9 +78,13 @@ Public Class frmPiecework_B
 
     End Function
 
-    Protected Sub CalculateSummary()
+    Protected Function CalculateAverage(ByVal decTotalAccumulation As Decimal, ByVal decAmountOfContributors As Decimal) As Decimal
+        'This is a generic Average calculator and is mostly here because Dave already made a function for the previous part of the assignment
+        Dim decAverageOut = decTotalAccumulation / decAmountOfContributors
+        Return decAverageOut
 
-    End Sub
+    End Function
+
     Protected Function CheckWorker(ByVal strIncWorkerName As String) As Integer
         'If the stored user name matches the same name entered it asks the user
         'if they are the same person, if they are it returns a 1 or a 0 for tabulating the number 
@@ -148,7 +152,7 @@ Public Class frmPiecework_B
                     btnSummary.Enabled = True
 
                 Catch Exception As DivideByZeroException
-                    MsgBox("You can't actually generate a black hole by dividing by zero. Please choose whole number greater than 1")
+                    MsgBox("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1")
                     ClearAndFocus("Number")
                 Catch Exception As FormatException
 
@@ -196,7 +200,8 @@ Public Class frmPiecework_B
         'Calculates and then displays Summary data on the sheet.
         'Does nothing to focus as it can be done at any time once data exists in the system
         Dim decAveragePayPerPerson As Decimal
-        decAveragePayPerPerson = decEarningsAccumulation / intWorkerCount
+        decAveragePayPerPerson = CalculateAverage(decEarningsAccumulation, intWorkerCount)
+
         'set the values of the soon to be displayed labels
 
         lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N")
