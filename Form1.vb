@@ -78,9 +78,7 @@ Public Class frmPiecework_A
 
     End Function
 
-    Protected Sub CalculateSummary()
 
-    End Sub
     Protected Function CheckWorker(ByVal strIncWorkerName As String) As Integer
         'If the stored user name matches the same name entered it asks the user
         'if they are the same person, if they are it returns a 1 or a 0 for tabulating the number 
@@ -199,8 +197,8 @@ Public Class frmPiecework_A
         decAveragePayPerPerson = decEarningsAccumulation / intWorkerCount
         'set the values of the soon to be displayed labels
 
-        lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N")
-        lblNumPeopleOutput.Text = intWorkerCount.ToString("N")
+        lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N0")
+        lblNumPeopleOutput.Text = intWorkerCount.ToString("N0")
         lblTotalPayOutput.Text = decEarningsAccumulation.ToString("C")
         lblAvgPayPerPersonOutput.Text = decAveragePayPerPerson.ToString("C")
 

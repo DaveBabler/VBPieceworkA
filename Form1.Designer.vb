@@ -200,7 +200,7 @@ Partial Class frmPiecework_A
         Me.lblTotalNumPiecesOutput.Size = New System.Drawing.Size(108, 20)
         Me.lblTotalNumPiecesOutput.TabIndex = 9
         Me.lblTotalNumPiecesOutput.Text = "88888888888"
-        Me.lblTotalNumPiecesOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblTotalNumPiecesOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.lblTotalNumPiecesOutput.Visible = False
         '
         'lblTotalPayOutput
@@ -213,7 +213,7 @@ Partial Class frmPiecework_A
         Me.lblTotalPayOutput.Size = New System.Drawing.Size(89, 20)
         Me.lblTotalPayOutput.TabIndex = 8
         Me.lblTotalPayOutput.Text = "$ 88888.88"
-        Me.lblTotalPayOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblTotalPayOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.lblTotalPayOutput.Visible = False
         '
         'lblNumPeopleOutput
@@ -239,7 +239,7 @@ Partial Class frmPiecework_A
         Me.lblAvgPayPerPersonOutput.Size = New System.Drawing.Size(89, 20)
         Me.lblAvgPayPerPersonOutput.TabIndex = 6
         Me.lblAvgPayPerPersonOutput.Text = "$ 88888.88"
-        Me.lblAvgPayPerPersonOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblAvgPayPerPersonOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.lblAvgPayPerPersonOutput.Visible = False
         '
         'lblAvgPayPerPerson
