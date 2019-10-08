@@ -47,7 +47,7 @@ Public Class frmPiecework_B
                 intPieceCountAccumulation = 0
                 decEarningsAccumulation = 0
                 strLastWorkerName = ""
-                btnSummary.Enabled = False
+                mnuFileSummary.Enabled = False
         End Select
 
     End Sub
@@ -135,13 +135,18 @@ Public Class frmPiecework_B
     End Function
 
 
-    Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        'Close form terminate program
-        Close()
+
+    Private Sub SummaryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuFileSummary.Click
+        'Calculates and then displays Summary data on the in a MessageBox.
+        'Does nothing to focus as it can be done at any time once data exists in the system
+
+        decAveragePayPerPerson = CalculateAverage(decEarningsAccumulation, intWorkerCount)
+
+        ResultsBox(intPieceCountAccumulation, intWorkerCount, decEarningsAccumulation, decAveragePayPerPerson)
+
     End Sub
 
-
-    Private Sub BtnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+    Private Sub CalculatePayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuFileCalculate.Click
         Dim intPiecesEntered As Integer
         Dim intUserIncrement As Integer 'will be zero or 1 depending on a function call
         Dim exDecimalError As Decimal  'using ex instaed of dec as I'm using this for error checking! 
@@ -167,7 +172,7 @@ Public Class frmPiecework_B
 
 
                     'Make the Summary button now useable
-                    btnSummary.Enabled = True
+                    mnuFileSummary.Enabled = True
 
                 Catch Exception As DivideByZeroException
                     MsgBox("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1")
@@ -194,12 +199,16 @@ Public Class frmPiecework_B
         End If
     End Sub
 
+    Private Sub MnuFileExit_Click(sender As Object, e As EventArgs) Handles mnuFileExit.Click
+        'Close form terminate program
+        Close()
+    End Sub
 
-    Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Private Sub MnuEditClear_Click(sender As Object, e As EventArgs) Handles mnuEditClear.Click
         ClearAndFocus("Both")
     End Sub
 
-    Private Sub BtnPurgeData_Click(sender As Object, e As EventArgs) Handles btnPurgeData.Click
+    Private Sub MnuEditClearAll_Click(sender As Object, e As EventArgs) Handles mnuEditClearAll.Click
         'this is for setting the program back to a default state (as if it had just been loaded into RAM
         'it gives the user warning,  that all user data is purged.
         Dim msgConfirmReset As MsgBoxResult
@@ -210,24 +219,6 @@ Public Class frmPiecework_B
         Else
             ClearAndFocus("Total")
         End If
-
-
-    End Sub
-
-    Private Sub BtnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
-        'Calculates and then displays Summary data on the in a MessageBox.
-        'Does nothing to focus as it can be done at any time once data exists in the system
-
-        decAveragePayPerPerson = CalculateAverage(decEarningsAccumulation, intWorkerCount)
-
-        ResultsBox(intPieceCountAccumulation, intWorkerCount, decEarningsAccumulation, decAveragePayPerPerson)
-
-
-
-
-    End Sub
-
-    Private Sub SummaryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SummaryToolStripMenuItem.Click
 
     End Sub
 End Class

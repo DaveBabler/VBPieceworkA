@@ -30,25 +30,22 @@ Partial Class frmPiecework_B
         Me.lblEarnedAmountLabel = New System.Windows.Forms.Label()
         Me.lblEarnedAmountOutput = New System.Windows.Forms.Label()
         Me.btnCalculate = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnSummary = New System.Windows.Forms.Button()
         Me.btnPurgeData = New System.Windows.Forms.Button()
-        Me.btnExit = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CalculatePayToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SummaryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileCalculate = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileSummary = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFilePrint = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuEditClear = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuEditClearAll = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.FontToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuEditFont = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuEditColor = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -128,31 +125,6 @@ Partial Class frmPiecework_B
         Me.btnCalculate.Text = "&Calculate"
         Me.btnCalculate.UseVisualStyleBackColor = False
         '
-        'btnClear
-        '
-        Me.btnClear.BackColor = System.Drawing.Color.Black
-        Me.btnClear.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnClear.Location = New System.Drawing.Point(375, 156)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(126, 27)
-        Me.btnClear.TabIndex = 7
-        Me.btnClear.Text = "&Reset/Clear"
-        Me.btnClear.UseVisualStyleBackColor = False
-        '
-        'btnSummary
-        '
-        Me.btnSummary.BackColor = System.Drawing.Color.Black
-        Me.btnSummary.Enabled = False
-        Me.btnSummary.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSummary.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnSummary.Location = New System.Drawing.Point(20, 214)
-        Me.btnSummary.Name = "btnSummary"
-        Me.btnSummary.Size = New System.Drawing.Size(126, 27)
-        Me.btnSummary.TabIndex = 8
-        Me.btnSummary.Text = "&Summary"
-        Me.btnSummary.UseVisualStyleBackColor = False
-        '
         'btnPurgeData
         '
         Me.btnPurgeData.BackColor = System.Drawing.Color.Black
@@ -166,116 +138,104 @@ Partial Class frmPiecework_B
         Me.btnPurgeData.Text = "Clear &All"
         Me.btnPurgeData.UseVisualStyleBackColor = False
         '
-        'btnExit
-        '
-        Me.btnExit.BackColor = System.Drawing.Color.Black
-        Me.btnExit.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnExit.Location = New System.Drawing.Point(375, 214)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(126, 27)
-        Me.btnExit.TabIndex = 10
-        Me.btnExit.TabStop = False
-        Me.btnExit.Text = "E&xit"
-        Me.btnExit.UseVisualStyleBackColor = False
-        '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuEdit, Me.mnuHelp})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(541, 24)
         Me.MenuStrip1.TabIndex = 11
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'FileToolStripMenuItem
+        'mnuFile
         '
-        Me.FileToolStripMenuItem.BackColor = System.Drawing.Color.Black
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CalculatePayToolStripMenuItem, Me.SummaryToolStripMenuItem, Me.ToolStripSeparator1, Me.PrintToolStripMenuItem, Me.ExitToolStripMenuItem})
-        Me.FileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "&File"
+        Me.mnuFile.BackColor = System.Drawing.Color.Black
+        Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFileCalculate, Me.mnuFileSummary, Me.ToolStripSeparator1, Me.mnuFilePrint, Me.mnuFileExit})
+        Me.mnuFile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.mnuFile.Name = "mnuFile"
+        Me.mnuFile.Size = New System.Drawing.Size(37, 20)
+        Me.mnuFile.Text = "&File"
         '
-        'CalculatePayToolStripMenuItem
+        'mnuFileCalculate
         '
-        Me.CalculatePayToolStripMenuItem.Name = "CalculatePayToolStripMenuItem"
-        Me.CalculatePayToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.CalculatePayToolStripMenuItem.Text = "&Calculate Pay"
+        Me.mnuFileCalculate.Name = "mnuFileCalculate"
+        Me.mnuFileCalculate.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileCalculate.Text = "&Calculate Pay"
         '
-        'SummaryToolStripMenuItem
+        'mnuFileSummary
         '
-        Me.SummaryToolStripMenuItem.Name = "SummaryToolStripMenuItem"
-        Me.SummaryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SummaryToolStripMenuItem.Text = "&Summary"
+        Me.mnuFileSummary.Enabled = False
+        Me.mnuFileSummary.Name = "mnuFileSummary"
+        Me.mnuFileSummary.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileSummary.Text = "&Summary"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
         '
-        'PrintToolStripMenuItem
+        'mnuFilePrint
         '
-        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.PrintToolStripMenuItem.Text = "&Print"
+        Me.mnuFilePrint.Name = "mnuFilePrint"
+        Me.mnuFilePrint.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFilePrint.Text = "&Print"
         '
-        'ExitToolStripMenuItem
+        'mnuFileExit
         '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ExitToolStripMenuItem.Text = "E&xit"
+        Me.mnuFileExit.Name = "mnuFileExit"
+        Me.mnuFileExit.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileExit.Text = "E&xit"
         '
-        'EditToolStripMenuItem
+        'mnuEdit
         '
-        Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearToolStripMenuItem, Me.ClearAllToolStripMenuItem, Me.ToolStripSeparator2, Me.FontToolStripMenuItem, Me.ColorToolStripMenuItem})
-        Me.EditToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
-        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
-        Me.EditToolStripMenuItem.Text = "&Edit"
+        Me.mnuEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEditClear, Me.mnuEditClearAll, Me.ToolStripSeparator2, Me.mnuEditFont, Me.mnuEditColor})
+        Me.mnuEdit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.mnuEdit.Name = "mnuEdit"
+        Me.mnuEdit.Size = New System.Drawing.Size(39, 20)
+        Me.mnuEdit.Text = "&Edit"
         '
-        'ClearToolStripMenuItem
+        'mnuEditClear
         '
-        Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
-        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ClearToolStripMenuItem.Text = "Clea&r"
+        Me.mnuEditClear.Name = "mnuEditClear"
+        Me.mnuEditClear.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditClear.Text = "Clea&r"
         '
-        'ClearAllToolStripMenuItem
+        'mnuEditClearAll
         '
-        Me.ClearAllToolStripMenuItem.Name = "ClearAllToolStripMenuItem"
-        Me.ClearAllToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ClearAllToolStripMenuItem.Text = "Clear All"
+        Me.mnuEditClearAll.Name = "mnuEditClearAll"
+        Me.mnuEditClearAll.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditClearAll.Text = "Clear All"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
         '
-        'FontToolStripMenuItem
+        'mnuEditFont
         '
-        Me.FontToolStripMenuItem.Name = "FontToolStripMenuItem"
-        Me.FontToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.FontToolStripMenuItem.Text = "&Font"
+        Me.mnuEditFont.Name = "mnuEditFont"
+        Me.mnuEditFont.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditFont.Text = "&Font"
         '
-        'ColorToolStripMenuItem
+        'mnuEditColor
         '
-        Me.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem"
-        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ColorToolStripMenuItem.Text = "&Color"
+        Me.mnuEditColor.Name = "mnuEditColor"
+        Me.mnuEditColor.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditColor.Text = "&Color"
         '
-        'HelpToolStripMenuItem
+        'mnuHelp
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
-        Me.HelpToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.HelpToolStripMenuItem.Text = "&Help"
+        Me.mnuHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuAbout})
+        Me.mnuHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.mnuHelp.Name = "mnuHelp"
+        Me.mnuHelp.Size = New System.Drawing.Size(44, 20)
+        Me.mnuHelp.Text = "&Help"
         '
-        'AboutToolStripMenuItem
+        'mnuAbout
         '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.AboutToolStripMenuItem.Text = "&About"
+        Me.mnuAbout.Name = "mnuAbout"
+        Me.mnuAbout.Size = New System.Drawing.Size(107, 22)
+        Me.mnuAbout.Text = "&About"
         '
         'frmPiecework_B
         '
@@ -284,10 +244,7 @@ Partial Class frmPiecework_B
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(541, 314)
-        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnPurgeData)
-        Me.Controls.Add(Me.btnSummary)
-        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnCalculate)
         Me.Controls.Add(Me.lblEarnedAmountOutput)
         Me.Controls.Add(Me.lblEarnedAmountLabel)
@@ -318,23 +275,20 @@ Partial Class frmPiecework_B
     Friend WithEvents lblEarnedAmountOutput As Label
     Private WithEvents lblPersonName As Label
     Friend WithEvents btnCalculate As Button
-    Friend WithEvents btnClear As Button
-    Friend WithEvents btnSummary As Button
     Friend WithEvents btnPurgeData As Button
-    Friend WithEvents btnExit As Button
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CalculatePayToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SummaryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuFile As ToolStripMenuItem
+    Friend WithEvents mnuFileCalculate As ToolStripMenuItem
+    Friend WithEvents mnuFileSummary As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents PrintToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ClearToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ClearAllToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuFilePrint As ToolStripMenuItem
+    Friend WithEvents mnuFileExit As ToolStripMenuItem
+    Friend WithEvents mnuEdit As ToolStripMenuItem
+    Friend WithEvents mnuEditClear As ToolStripMenuItem
+    Friend WithEvents mnuEditClearAll As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents FontToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ColorToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuEditFont As ToolStripMenuItem
+    Friend WithEvents mnuEditColor As ToolStripMenuItem
+    Friend WithEvents mnuHelp As ToolStripMenuItem
+    Friend WithEvents mnuAbout As ToolStripMenuItem
 End Class
