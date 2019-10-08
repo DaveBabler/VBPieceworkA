@@ -227,7 +227,7 @@ Public Class frmPiecework_B
 
     End Sub
 
-    Private Sub FrmPiecework_B_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub SummaryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SummaryToolStripMenuItem.Click
 
     End Sub
 End Class
