@@ -26,7 +26,7 @@ Partial Class frmPiecework_B
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtNumberOfPieces = New System.Windows.Forms.TextBox()
         Me.lblPersonName = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblNumberOfPieces = New System.Windows.Forms.Label()
         Me.lblEarnedAmountLabel = New System.Windows.Forms.Label()
         Me.lblEarnedAmountOutput = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -44,6 +44,7 @@ Partial Class frmPiecework_B
         Me.mnuEditColor = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnConsole = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -78,16 +79,16 @@ Partial Class frmPiecework_B
         Me.lblPersonName.Text = "Person's Name"
         Me.lblPersonName.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
-        'Label2
+        'lblNumberOfPieces
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(193, 80)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(134, 20)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Number of Pieces"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.lblNumberOfPieces.AutoSize = True
+        Me.lblNumberOfPieces.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumberOfPieces.Location = New System.Drawing.Point(193, 80)
+        Me.lblNumberOfPieces.Name = "lblNumberOfPieces"
+        Me.lblNumberOfPieces.Size = New System.Drawing.Size(134, 20)
+        Me.lblNumberOfPieces.TabIndex = 3
+        Me.lblNumberOfPieces.Text = "Number of Pieces"
+        Me.lblNumberOfPieces.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
         'lblEarnedAmountLabel
         '
@@ -116,7 +117,7 @@ Partial Class frmPiecework_B
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuEdit, Me.mnuHelp})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(379, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(541, 24)
         Me.MenuStrip1.TabIndex = 11
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -210,15 +211,29 @@ Partial Class frmPiecework_B
         Me.mnuAbout.Size = New System.Drawing.Size(107, 22)
         Me.mnuAbout.Text = "&About"
         '
+        'btnConsole
+        '
+        Me.btnConsole.BackColor = System.Drawing.Color.Black
+        Me.btnConsole.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsole.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnConsole.Location = New System.Drawing.Point(375, 106)
+        Me.btnConsole.Name = "btnConsole"
+        Me.btnConsole.Size = New System.Drawing.Size(126, 27)
+        Me.btnConsole.TabIndex = 6
+        Me.btnConsole.Text = "&Console"
+        Me.btnConsole.UseVisualStyleBackColor = False
+        '
         'frmPiecework_B
         '
+        Me.AcceptButton = Me.btnConsole
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(379, 208)
+        Me.ClientSize = New System.Drawing.Size(541, 314)
+        Me.Controls.Add(Me.btnConsole)
         Me.Controls.Add(Me.lblEarnedAmountOutput)
         Me.Controls.Add(Me.lblEarnedAmountLabel)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblNumberOfPieces)
         Me.Controls.Add(Me.lblPersonName)
         Me.Controls.Add(Me.txtNumberOfPieces)
         Me.Controls.Add(Me.txtName)
@@ -240,7 +255,7 @@ Partial Class frmPiecework_B
 
     Friend WithEvents txtName As TextBox
     Friend WithEvents txtNumberOfPieces As TextBox
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lblNumberOfPieces As Label
     Friend WithEvents lblEarnedAmountLabel As Label
     Friend WithEvents lblEarnedAmountOutput As Label
     Private WithEvents lblPersonName As Label
@@ -259,4 +274,5 @@ Partial Class frmPiecework_B
     Friend WithEvents mnuEditColor As ToolStripMenuItem
     Friend WithEvents mnuHelp As ToolStripMenuItem
     Friend WithEvents mnuAbout As ToolStripMenuItem
+    Friend WithEvents btnConsole As Button
 End Class

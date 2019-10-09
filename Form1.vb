@@ -222,5 +222,23 @@ Public Class frmPiecework_B
 
     End Sub
 
+    Private Sub BtnConsole_Click(sender As Object, e As EventArgs) Handles btnConsole.Click
+        Dim strCurrentFontName As String
 
+
+
+        strCurrentFontName = lblEarnedAmountLabel.Font.OriginalFontName.ToString()
+        If strCurrentFontName = "Microsoft Sans Serif" Then
+            Console.WriteLine("It do!")
+            Dim formLabels = Me.Controls.OfType(Of Control)().Where(Function(c) c.Name.StartsWith("lbl"))
+            For Each formLabel As Label In formLabels
+                formLabel.Font = New Font("Rockwell", 11.25, Font.Style.Bold)
+                formLabel.ForeColor = Color.FromArgb(0, 204, 255)
+            Next
+
+        End If
+
+
+
+    End Sub
 End Class
