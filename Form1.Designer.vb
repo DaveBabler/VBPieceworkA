@@ -29,8 +29,6 @@ Partial Class frmPiecework_B
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblEarnedAmountLabel = New System.Windows.Forms.Label()
         Me.lblEarnedAmountOutput = New System.Windows.Forms.Label()
-        Me.btnCalculate = New System.Windows.Forms.Button()
-        Me.btnPurgeData = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuFileCalculate = New System.Windows.Forms.ToolStripMenuItem()
@@ -113,37 +111,12 @@ Partial Class frmPiecework_B
         Me.lblEarnedAmountOutput.Text = "$8888.88"
         Me.lblEarnedAmountOutput.Visible = False
         '
-        'btnCalculate
-        '
-        Me.btnCalculate.BackColor = System.Drawing.Color.Black
-        Me.btnCalculate.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCalculate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnCalculate.Location = New System.Drawing.Point(375, 106)
-        Me.btnCalculate.Name = "btnCalculate"
-        Me.btnCalculate.Size = New System.Drawing.Size(126, 27)
-        Me.btnCalculate.TabIndex = 6
-        Me.btnCalculate.Text = "&Calculate"
-        Me.btnCalculate.UseVisualStyleBackColor = False
-        '
-        'btnPurgeData
-        '
-        Me.btnPurgeData.BackColor = System.Drawing.Color.Black
-        Me.btnPurgeData.Font = New System.Drawing.Font("Rockwell", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPurgeData.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPurgeData.Location = New System.Drawing.Point(203, 214)
-        Me.btnPurgeData.Name = "btnPurgeData"
-        Me.btnPurgeData.Size = New System.Drawing.Size(126, 27)
-        Me.btnPurgeData.TabIndex = 9
-        Me.btnPurgeData.TabStop = False
-        Me.btnPurgeData.Text = "Clear &All"
-        Me.btnPurgeData.UseVisualStyleBackColor = False
-        '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuEdit, Me.mnuHelp})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(541, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(379, 24)
         Me.MenuStrip1.TabIndex = 11
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -197,30 +170,30 @@ Partial Class frmPiecework_B
         'mnuEditClear
         '
         Me.mnuEditClear.Name = "mnuEditClear"
-        Me.mnuEditClear.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditClear.Size = New System.Drawing.Size(118, 22)
         Me.mnuEditClear.Text = "Clea&r"
         '
         'mnuEditClearAll
         '
         Me.mnuEditClearAll.Name = "mnuEditClearAll"
-        Me.mnuEditClearAll.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditClearAll.Size = New System.Drawing.Size(118, 22)
         Me.mnuEditClearAll.Text = "Clear All"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(115, 6)
         '
         'mnuEditFont
         '
         Me.mnuEditFont.Name = "mnuEditFont"
-        Me.mnuEditFont.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditFont.Size = New System.Drawing.Size(118, 22)
         Me.mnuEditFont.Text = "&Font"
         '
         'mnuEditColor
         '
         Me.mnuEditColor.Name = "mnuEditColor"
-        Me.mnuEditColor.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditColor.Size = New System.Drawing.Size(118, 22)
         Me.mnuEditColor.Text = "&Color"
         '
         'mnuHelp
@@ -239,13 +212,10 @@ Partial Class frmPiecework_B
         '
         'frmPiecework_B
         '
-        Me.AcceptButton = Me.btnCalculate
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(541, 314)
-        Me.Controls.Add(Me.btnPurgeData)
-        Me.Controls.Add(Me.btnCalculate)
+        Me.ClientSize = New System.Drawing.Size(379, 208)
         Me.Controls.Add(Me.lblEarnedAmountOutput)
         Me.Controls.Add(Me.lblEarnedAmountLabel)
         Me.Controls.Add(Me.Label2)
@@ -274,8 +244,6 @@ Partial Class frmPiecework_B
     Friend WithEvents lblEarnedAmountLabel As Label
     Friend WithEvents lblEarnedAmountOutput As Label
     Private WithEvents lblPersonName As Label
-    Friend WithEvents btnCalculate As Button
-    Friend WithEvents btnPurgeData As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents mnuFile As ToolStripMenuItem
     Friend WithEvents mnuFileCalculate As ToolStripMenuItem
