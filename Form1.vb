@@ -223,22 +223,31 @@ Public Class frmPiecework_B
     End Sub
 
     Private Sub BtnConsole_Click(sender As Object, e As EventArgs) Handles btnConsole.Click
+        Const strDEFAULTCOLOR As String = "[A=255, R=204, G=255, B=0]"
         Dim strCurrentFontName As String
+        Dim strColorName As String
+        Dim intIsColorInStr As Integer
+        strColorName = lblEarnedAmountLabel.ForeColor.ToString()
+        intIsColorInStr = InStr(strColorName, strDEFAULTCOLOR)
+        Console.WriteLine(strColorName)
+        If intIsColorInStr > 0 Then
+            Console.WriteLine("The color matches")
+        End If
+    End Sub
 
-
-
-        strCurrentFontName = lblEarnedAmountLabel.Font.OriginalFontName.ToString()
-        If strCurrentFontName = "Microsoft Sans Serif" Then
-            Console.WriteLine("It do!")
-            Dim formLabels = Me.Controls.OfType(Of Control)().Where(Function(c) c.Name.StartsWith("lbl"))
-            For Each formLabel As Label In formLabels
-                formLabel.Font = New Font("Rockwell", 11.25, Font.Style.Bold)
-                formLabel.ForeColor = Color.FromArgb(0, 204, 255)
-            Next
+    Private Sub SummaryFontChanger(ByRef lblToChange As Label, ByVal strOriginalFontName As String)
+        'Changes the font of the specifified label based on it's current font
+        If strOriginalFontName = "Microsoft Sans Serif" Then
+            lblToChange.Font = New Font("Rockwell", 11.25, Font.Style.Bold)
+        Else lblToChange.Font = New Font("Microsoft Sans Serif", 12, Font.Style.Regular)
 
         End If
 
-
+    End Sub
+    Private Sub SummaryFontColorChanger(ByRef lblToChange As Label, ByVal strOriginalColor As String)
+        'Changes the font color of the specified label based on the original input color
 
     End Sub
+
+
 End Class

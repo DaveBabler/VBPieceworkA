@@ -133,31 +133,31 @@ Partial Class frmPiecework_B
         'mnuFileCalculate
         '
         Me.mnuFileCalculate.Name = "mnuFileCalculate"
-        Me.mnuFileCalculate.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileCalculate.Size = New System.Drawing.Size(180, 22)
         Me.mnuFileCalculate.Text = "&Calculate Pay"
         '
         'mnuFileSummary
         '
         Me.mnuFileSummary.Enabled = False
         Me.mnuFileSummary.Name = "mnuFileSummary"
-        Me.mnuFileSummary.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileSummary.Size = New System.Drawing.Size(180, 22)
         Me.mnuFileSummary.Text = "&Summary"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'mnuFilePrint
         '
         Me.mnuFilePrint.Name = "mnuFilePrint"
-        Me.mnuFilePrint.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFilePrint.Size = New System.Drawing.Size(180, 22)
         Me.mnuFilePrint.Text = "&Print"
         '
         'mnuFileExit
         '
         Me.mnuFileExit.Name = "mnuFileExit"
-        Me.mnuFileExit.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileExit.Size = New System.Drawing.Size(180, 22)
         Me.mnuFileExit.Text = "E&xit"
         '
         'mnuEdit
