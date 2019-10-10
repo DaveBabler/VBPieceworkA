@@ -4,7 +4,7 @@
 ' Purpose: Calculates and accumulates values entered in by workers.  Values are calculated 
 '           based on the number of pieces done on a scale.
 'Colors used:   #ff00cc|rgb(255, 0, 204)  ~  #5a0048|rgb(90, 0, 72) (Darker shade ff0cc)
-'               #00ccff|rgb(90, 0, 72)
+'               #00ccff|rgb(0, 204, 255)
 '               #ccff00|rgb(204, 255, 0)
 '               End split complementary color scheme
 '               Standard Windows colors: Black, Gainsboro
@@ -134,6 +134,36 @@ Public Class frmPiecework_B
         Return intDiffUser
     End Function
 
+    Private Sub SummaryFontChanger(ByRef lblToChange As Label)
+        Dim strOriginalFontName As String = lblToChange.Font.Name.ToString()
+        'Changes the font of the specifified label based on it's current font
+        If strOriginalFontName = "Microsoft Sans Serif" Then
+            lblToChange.Font = New Font("Rockwell", 11.25, Font.Style.Bold)
+        Else lblToChange.Font = New Font("Microsoft Sans Serif", 12, Font.Style.Regular)
+
+        End If
+
+    End Sub
+    Private Sub SummaryFontColorChanger(ByRef lblToChange As Label)
+        Const strDEFAULTCOLOR As String = "[A=255, R=204, G=255, B=0]"
+        Const strALTCOLOR As String = "[A=255, R=90, G=0, B=72]"
+        Dim clrDeepPink As Color = Color.FromArgb(90, 0, 72)
+        Dim clrNeonGreen As Color = Color.FromArgb(204, 255, 0)
+        Dim clrHotBlue As Color = Color.FromArgb(0, 204, 255)
+        Dim intIsColorInStr As Integer
+        'Changes the font color of the specified label based on the original input color
+        Dim strColorName = lblToChange.ForeColor.ToString()
+        'Find out if the constant color (the original color on the form) is in the string
+
+        If (InStr(strColorName, strDEFAULTCOLOR)) > 0 Then
+            lblToChange.ForeColor = clrDeepPink
+        ElseIf (InStr(strColorName, strALTCOLOR)) > 0 Then
+            lblToChange.ForeColor = clrHotBlue
+        Else lblToChange.ForeColor = clrNeonGreen
+        End If
+
+    End Sub
+
 
 
     Private Sub SummaryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuFileSummary.Click
@@ -222,32 +252,18 @@ Public Class frmPiecework_B
 
     End Sub
 
-    Private Sub BtnConsole_Click(sender As Object, e As EventArgs) Handles btnConsole.Click
-        Const strDEFAULTCOLOR As String = "[A=255, R=204, G=255, B=0]"
-        Dim strCurrentFontName As String
-        Dim strColorName As String
-        Dim intIsColorInStr As Integer
-        strColorName = lblEarnedAmountLabel.ForeColor.ToString()
-        intIsColorInStr = InStr(strColorName, strDEFAULTCOLOR)
-        Console.WriteLine(strColorName)
-        If intIsColorInStr > 0 Then
-            Console.WriteLine("The color matches")
-        End If
+
+    Private Sub MnuEditFont_Click(sender As Object, e As EventArgs) Handles mnuEditFont.Click
+        SummaryFontChanger(lblEarnedAmountLabel)
+        SummaryFontChanger(lblEarnedAmountOutput)
     End Sub
 
-    Private Sub SummaryFontChanger(ByRef lblToChange As Label, ByVal strOriginalFontName As String)
-        'Changes the font of the specifified label based on it's current font
-        If strOriginalFontName = "Microsoft Sans Serif" Then
-            lblToChange.Font = New Font("Rockwell", 11.25, Font.Style.Bold)
-        Else lblToChange.Font = New Font("Microsoft Sans Serif", 12, Font.Style.Regular)
-
-        End If
-
-    End Sub
-    Private Sub SummaryFontColorChanger(ByRef lblToChange As Label, ByVal strOriginalColor As String)
-        'Changes the font color of the specified label based on the original input color
-
+    Private Sub MnuEditColor_Click(sender As Object, e As EventArgs) Handles mnuEditColor.Click
+        SummaryFontColorChanger(lblEarnedAmountLabel)
+        SummaryFontColorChanger(lblEarnedAmountOutput)
     End Sub
 
+    Private Sub MnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
 
+    End Sub
 End Class
