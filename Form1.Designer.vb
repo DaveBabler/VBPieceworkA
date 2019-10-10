@@ -22,6 +22,7 @@ Partial Class frmPiecework_B
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPiecework_B))
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtNumberOfPieces = New System.Windows.Forms.TextBox()
@@ -44,6 +45,7 @@ Partial Class frmPiecework_B
         Me.mnuEditColor = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.printPieceRateForm = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -132,31 +134,31 @@ Partial Class frmPiecework_B
         'mnuFileCalculate
         '
         Me.mnuFileCalculate.Name = "mnuFileCalculate"
-        Me.mnuFileCalculate.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileCalculate.Size = New System.Drawing.Size(180, 22)
         Me.mnuFileCalculate.Text = "&Calculate Pay"
         '
         'mnuFileSummary
         '
         Me.mnuFileSummary.Enabled = False
         Me.mnuFileSummary.Name = "mnuFileSummary"
-        Me.mnuFileSummary.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileSummary.Size = New System.Drawing.Size(180, 22)
         Me.mnuFileSummary.Text = "&Summary"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'mnuFilePrint
         '
         Me.mnuFilePrint.Name = "mnuFilePrint"
-        Me.mnuFilePrint.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFilePrint.Size = New System.Drawing.Size(180, 22)
         Me.mnuFilePrint.Text = "&Print"
         '
         'mnuFileExit
         '
         Me.mnuFileExit.Name = "mnuFileExit"
-        Me.mnuFileExit.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileExit.Size = New System.Drawing.Size(180, 22)
         Me.mnuFileExit.Text = "E&xit"
         '
         'mnuEdit
@@ -210,6 +212,14 @@ Partial Class frmPiecework_B
         Me.mnuAbout.Size = New System.Drawing.Size(180, 22)
         Me.mnuAbout.Text = "&About"
         '
+        'printPieceRateForm
+        '
+        Me.printPieceRateForm.DocumentName = "document"
+        Me.printPieceRateForm.Form = Me
+        Me.printPieceRateForm.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview
+        Me.printPieceRateForm.PrinterSettings = CType(resources.GetObject("printPieceRateForm.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
+        Me.printPieceRateForm.PrintFileName = "Piece Rate Earnings"
+        '
         'frmPiecework_B
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -259,4 +269,5 @@ Partial Class frmPiecework_B
     Friend WithEvents mnuEditColor As ToolStripMenuItem
     Friend WithEvents mnuHelp As ToolStripMenuItem
     Friend WithEvents mnuAbout As ToolStripMenuItem
+    Friend WithEvents printPieceRateForm As PowerPacks.Printing.PrintForm
 End Class

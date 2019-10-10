@@ -272,4 +272,12 @@ Public Class frmPiecework_B
                strProgramAuthorLabel & vbTab & strProgramAuthorName, MsgBoxStyle.ApplicationModal Or MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "About")
 
     End Sub
+
+    Private Sub MnuFilePrint_Click(sender As Object, e As EventArgs) Handles mnuFilePrint.Click
+        'Print preview the form on the printer.
+        printPieceRateForm.PrintAction = Printing.PrintAction.PrintToPreview
+        'Nobody needs this tiny little screen in landscape form setting that to false
+        printPieceRateForm.PrinterSettings.DefaultPageSettings.Landscape = False
+        printPieceRateForm.Print(Me, PowerPacks.Printing.PrintForm.PrintOption.FullWindow)
+    End Sub
 End Class
