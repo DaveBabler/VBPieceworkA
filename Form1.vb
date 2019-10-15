@@ -12,7 +12,7 @@
 'Tab stop note.  FOR SAFTEY Clear All and Exit have been removed from tabstops.
 Option Strict On
 
-Public Class frmPiecework_B
+Public Class frmPiecework_C
     Protected intWorkerCount As Integer = 0 'will be used to tabulate the total number of people
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
     Protected decEarningsAccumulation As Decimal = 0 'accumulation of all worker's earnings.  Keeping this as Decimal due to the case statment.

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmPiecework_B
+Partial Class frmPiecework_C
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class frmPiecework_B
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPiecework_B))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPiecework_C))
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtNumberOfPieces = New System.Windows.Forms.TextBox()
         Me.lblPersonName = New System.Windows.Forms.Label()
@@ -134,31 +134,31 @@ Partial Class frmPiecework_B
         'mnuFileCalculate
         '
         Me.mnuFileCalculate.Name = "mnuFileCalculate"
-        Me.mnuFileCalculate.Size = New System.Drawing.Size(180, 22)
+        Me.mnuFileCalculate.Size = New System.Drawing.Size(145, 22)
         Me.mnuFileCalculate.Text = "&Calculate Pay"
         '
         'mnuFileSummary
         '
         Me.mnuFileSummary.Enabled = False
         Me.mnuFileSummary.Name = "mnuFileSummary"
-        Me.mnuFileSummary.Size = New System.Drawing.Size(180, 22)
+        Me.mnuFileSummary.Size = New System.Drawing.Size(145, 22)
         Me.mnuFileSummary.Text = "&Summary"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
         '
         'mnuFilePrint
         '
         Me.mnuFilePrint.Name = "mnuFilePrint"
-        Me.mnuFilePrint.Size = New System.Drawing.Size(180, 22)
+        Me.mnuFilePrint.Size = New System.Drawing.Size(145, 22)
         Me.mnuFilePrint.Text = "&Print"
         '
         'mnuFileExit
         '
         Me.mnuFileExit.Name = "mnuFileExit"
-        Me.mnuFileExit.Size = New System.Drawing.Size(180, 22)
+        Me.mnuFileExit.Size = New System.Drawing.Size(145, 22)
         Me.mnuFileExit.Text = "E&xit"
         '
         'mnuEdit
@@ -172,30 +172,30 @@ Partial Class frmPiecework_B
         'mnuEditClear
         '
         Me.mnuEditClear.Name = "mnuEditClear"
-        Me.mnuEditClear.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditClear.Size = New System.Drawing.Size(118, 22)
         Me.mnuEditClear.Text = "Clea&r"
         '
         'mnuEditClearAll
         '
         Me.mnuEditClearAll.Name = "mnuEditClearAll"
-        Me.mnuEditClearAll.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditClearAll.Size = New System.Drawing.Size(118, 22)
         Me.mnuEditClearAll.Text = "Clear All"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(115, 6)
         '
         'mnuEditFont
         '
         Me.mnuEditFont.Name = "mnuEditFont"
-        Me.mnuEditFont.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditFont.Size = New System.Drawing.Size(118, 22)
         Me.mnuEditFont.Text = "&Font"
         '
         'mnuEditColor
         '
         Me.mnuEditColor.Name = "mnuEditColor"
-        Me.mnuEditColor.Size = New System.Drawing.Size(180, 22)
+        Me.mnuEditColor.Size = New System.Drawing.Size(118, 22)
         Me.mnuEditColor.Text = "&Color"
         '
         'mnuHelp
@@ -209,7 +209,7 @@ Partial Class frmPiecework_B
         'mnuAbout
         '
         Me.mnuAbout.Name = "mnuAbout"
-        Me.mnuAbout.Size = New System.Drawing.Size(180, 22)
+        Me.mnuAbout.Size = New System.Drawing.Size(107, 22)
         Me.mnuAbout.Text = "&About"
         '
         'printPieceRateForm
@@ -220,7 +220,7 @@ Partial Class frmPiecework_B
         Me.printPieceRateForm.PrinterSettings = CType(resources.GetObject("printPieceRateForm.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
         Me.printPieceRateForm.PrintFileName = "Piece Rate Earnings"
         '
-        'frmPiecework_B
+        'frmPiecework_C
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -239,7 +239,7 @@ Partial Class frmPiecework_B
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.MaximizeBox = False
-        Me.Name = "frmPiecework_B"
+        Me.Name = "frmPiecework_C"
         Me.Text = "Piece Rate Earnings"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
