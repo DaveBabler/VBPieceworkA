@@ -4,7 +4,7 @@
 ' Purpose: Calculates and accumulates values entered in by workers.  Values are calculated 
 '           based on the number of pieces done on a scale.
 'Colors used:   #ff00cc|rgb(255, 0, 204)  ~  #5a0048|rgb(90, 0, 72) (Darker shade ff0cc)
-'               #00ccff|rgb(90, 0, 72)
+'               #00ccff|rgb(0, 204, 255)
 '               #ccff00|rgb(204, 255, 0)
 '               End split complementary color scheme
 '               Standard Windows colors: Black, Gainsboro
@@ -12,12 +12,12 @@
 'Tab stop note.  FOR SAFTEY Clear All and Exit have been removed from tabstops.
 Option Strict On
 
-Public Class frmPiecework_A
+Public Class frmPiecework_B
     Protected intWorkerCount As Integer = 0 'will be used to tabulate the total number of people
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
     Protected decEarningsAccumulation As Decimal = 0 'accumulation of all worker's earnings.  Keeping this as Decimal due to the case statment.
     Protected strLastWorkerName As String = ""
-
+    Protected decAveragePayPerPerson As Decimal
     Protected Sub ClearAndFocus(ByVal strTypeOfClear As String)
         'This sub clears the forms and focuses back to the correct line
         'WARNING: "Total" purges stored variable data and hides outputs.
@@ -47,16 +47,34 @@ Public Class frmPiecework_A
                 intPieceCountAccumulation = 0
                 decEarningsAccumulation = 0
                 strLastWorkerName = ""
-                lblTotalNumPiecesOutput.Visible = False
-                lblNumPeopleOutput.Visible = False
-                lblTotalPayOutput.Visible = False
-                lblAvgPayPerPersonOutput.Visible = False
-
-                btnSummary.Enabled = False
+                mnuFileSummary.Enabled = False
         End Select
 
     End Sub
-    Protected Function CalculateEarnings(ByRef intIncomingNumPieces As Integer) As Decimal
+
+    Private Sub ResultsBox(ByVal intPieceTotal As Integer, ByVal intPeople As Integer, ByVal decTotalPay As Decimal, ByVal decAveragePay As Decimal)
+        'This procedure compiles and displays a nicely formatted Message Box with information about 
+        ' the cumulative stats of pieces done, amount of workers, total paid, and average paid per worker.
+        ' hard spaces and vbTab stops are used for formatting
+
+        Dim strNumPieces As String = "The number of pieces completed is: "
+        Dim strNumWokers As String = "The number of workers contributing is: "
+        Dim strTotalPay As String = "The total amount paid to the workers is: "
+        Dim strAveragePay As String = "The average pay per worker is: "
+        Dim strMessageBoxHeading As String = "Accumulation Totals"
+        MsgBox(strNumPieces & vbTab & vbTab & "  " & intPieceTotal.ToString("N0") & vbCr &
+                strNumWokers & vbTab & "  " & intPeople.ToString("N0") & vbCr &
+                strTotalPay & vbTab & decTotalPay.ToString("C") & vbCr &
+                strAveragePay & vbTab & vbTab & decAveragePay.ToString("C") & vbCr, MsgBoxStyle.Information, strMessageBoxHeading)
+
+
+
+
+
+
+    End Sub
+
+    Protected Function CalculateEarnings(ByVal intIncomingNumPieces As Integer) As Decimal
         ' Calculates the earnings based on the number of pieces and returns that value
         ' Warning, for some reason Visual Basic absolutely will not tolerate Decimal in Case Statments!
         Dim decRate As Decimal
@@ -78,6 +96,12 @@ Public Class frmPiecework_A
 
     End Function
 
+    Protected Function CalculateAverage(ByVal decTotalAccumulation As Decimal, ByVal decAmountOfContributors As Decimal) As Decimal
+        'This is a generic Average calculator and is mostly here because Dave already made a function for the previous part of the assignment
+        Dim decAverageOut = decTotalAccumulation / decAmountOfContributors
+        Return decAverageOut
+
+    End Function
 
     Protected Function CheckWorker(ByVal strIncWorkerName As String) As Integer
         'If the stored user name matches the same name entered it asks the user
@@ -90,19 +114,19 @@ Public Class frmPiecework_A
 
         If String.Equals(txtName.Text, strLastWorkerName) Then
 
-                msgNameResponse = MsgBox("It appears that the same name from the last user is still in the user box, are you the same person?", MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Same User")
-                If msgNameResponse = vbYes Then
-                    'if the person is the same then we shan't update the person counter
-                    intDiffUser = 0
-                Else
-                    intDiffUser = 1
-                End If
+            msgNameResponse = MsgBox("It appears that the same name from the last user is still in the user box, are you the same person?", MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Same User")
+            If msgNameResponse = vbYes Then
+                'if the person is the same then we shan't update the person counter
+                intDiffUser = 0
             Else
+                intDiffUser = 1
+            End If
+        Else
             'if they don't equal they shouldn't be the same person so we increment 
             'this includes if the value before was null! Because then by default they won't equal.
             intDiffUser = 1
 
-            End If
+        End If
 
 
         'Set the class variable
@@ -110,14 +134,49 @@ Public Class frmPiecework_A
         Return intDiffUser
     End Function
 
+    Private Sub SummaryFontChanger(ByRef lblToChange As Label)
+        Dim strOriginalFontName As String = lblToChange.Font.Name.ToString()
+        'Changes the font of the specifified label based on it's current font
+        If strOriginalFontName = "Microsoft Sans Serif" Then
+            lblToChange.Font = New Font("Rockwell", 11.25, Font.Style.Bold)
+        Else lblToChange.Font = New Font("Microsoft Sans Serif", 12, Font.Style.Regular)
 
-    Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        'Close form terminate program
-        Close()
+        End If
+
+    End Sub
+    Private Sub SummaryFontColorChanger(ByRef lblToChange As Label)
+        Const strDEFAULTCOLOR As String = "[A=255, R=204, G=255, B=0]"
+        Const strALTCOLOR As String = "[A=255, R=90, G=0, B=72]"
+        Dim clrDeepPink As Color = Color.FromArgb(90, 0, 72)
+        Dim clrNeonGreen As Color = Color.FromArgb(204, 255, 0)
+        Dim clrHotBlue As Color = Color.FromArgb(0, 204, 255)
+        Dim intIsColorInStr As Integer
+        'Changes the font color of the specified label based on the original input color
+        Dim strColorName = lblToChange.ForeColor.ToString()
+        'Find out if the constant color (the original color on the form) is in the string
+
+        If (InStr(strColorName, strDEFAULTCOLOR)) > 0 Then
+            lblToChange.ForeColor = clrDeepPink
+        ElseIf (InStr(strColorName, strALTCOLOR)) > 0 Then
+            lblToChange.ForeColor = clrHotBlue
+        Else lblToChange.ForeColor = clrNeonGreen
+        End If
+
     End Sub
 
 
-    Private Sub BtnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+
+    Private Sub SummaryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuFileSummary.Click
+        'Calculates and then displays Summary data on the in a MessageBox.
+        'Does nothing to focus as it can be done at any time once data exists in the system
+
+        decAveragePayPerPerson = CalculateAverage(decEarningsAccumulation, intWorkerCount)
+
+        ResultsBox(intPieceCountAccumulation, intWorkerCount, decEarningsAccumulation, decAveragePayPerPerson)
+
+    End Sub
+
+    Private Sub CalculatePayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuFileCalculate.Click
         Dim intPiecesEntered As Integer
         Dim intUserIncrement As Integer 'will be zero or 1 depending on a function call
         Dim exDecimalError As Decimal  'using ex instaed of dec as I'm using this for error checking! 
@@ -143,10 +202,10 @@ Public Class frmPiecework_A
 
 
                     'Make the Summary button now useable
-                    btnSummary.Enabled = True
+                    mnuFileSummary.Enabled = True
 
                 Catch Exception As DivideByZeroException
-                    MsgBox("You can't actually generate a black hole by dividing by zero. Please choose whole number greater than 1")
+                    MsgBox("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1")
                     ClearAndFocus("Number")
                 Catch Exception As FormatException
 
@@ -170,12 +229,16 @@ Public Class frmPiecework_A
         End If
     End Sub
 
+    Private Sub MnuFileExit_Click(sender As Object, e As EventArgs) Handles mnuFileExit.Click
+        'Close form terminate program
+        Close()
+    End Sub
 
-    Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Private Sub MnuEditClear_Click(sender As Object, e As EventArgs) Handles mnuEditClear.Click
         ClearAndFocus("Both")
     End Sub
 
-    Private Sub BtnPurgeData_Click(sender As Object, e As EventArgs) Handles btnPurgeData.Click
+    Private Sub MnuEditClearAll_Click(sender As Object, e As EventArgs) Handles mnuEditClearAll.Click
         'this is for setting the program back to a default state (as if it had just been loaded into RAM
         'it gives the user warning,  that all user data is purged.
         Dim msgConfirmReset As MsgBoxResult
@@ -187,30 +250,34 @@ Public Class frmPiecework_A
             ClearAndFocus("Total")
         End If
 
+    End Sub
+
+
+    Private Sub MnuEditFont_Click(sender As Object, e As EventArgs) Handles mnuEditFont.Click
+        SummaryFontChanger(lblEarnedAmountLabel)
+        SummaryFontChanger(lblEarnedAmountOutput)
+    End Sub
+
+    Private Sub MnuEditColor_Click(sender As Object, e As EventArgs) Handles mnuEditColor.Click
+        SummaryFontColorChanger(lblEarnedAmountLabel)
+        SummaryFontColorChanger(lblEarnedAmountOutput)
+    End Sub
+
+    Private Sub MnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
+        Dim strProgramAuthorLabel As String = "Program Author: "
+        Dim strProgramLabel As String = "Program Name: "
+        Dim strProgramAuthorName As String = "Dave Babler"
+        Dim strProgramName As String = "Piecework B"
+        MsgBox(strProgramLabel & vbTab & strProgramName & vbCr &
+               strProgramAuthorLabel & vbTab & strProgramAuthorName, MsgBoxStyle.ApplicationModal Or MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "About")
 
     End Sub
 
-    Private Sub BtnSummary_Click(sender As Object, e As EventArgs) Handles btnSummary.Click
-        'Calculates and then displays Summary data on the sheet.
-        'Does nothing to focus as it can be done at any time once data exists in the system
-        Dim decAveragePayPerPerson As Decimal
-        decAveragePayPerPerson = decEarningsAccumulation / intWorkerCount
-        'set the values of the soon to be displayed labels
-
-        lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N0")
-        lblNumPeopleOutput.Text = intWorkerCount.ToString("N0")
-        lblTotalPayOutput.Text = decEarningsAccumulation.ToString("C")
-        lblAvgPayPerPersonOutput.Text = decAveragePayPerPerson.ToString("C")
-
-        'set the labels to be visible
-        lblTotalNumPiecesOutput.Visible = True
-        lblNumPeopleOutput.Visible = True
-        lblTotalPayOutput.Visible = True
-        lblAvgPayPerPersonOutput.Visible = True
-
-
-
-
+    Private Sub MnuFilePrint_Click(sender As Object, e As EventArgs) Handles mnuFilePrint.Click
+        'Print preview the form on the printer.
+        printPieceRateForm.PrintAction = Printing.PrintAction.PrintToPreview
+        'Nobody needs this tiny little screen in landscape form setting that to false   
+        printPieceRateForm.PrinterSettings.DefaultPageSettings.Landscape = False
+        printPieceRateForm.Print(Me, PowerPacks.Printing.PrintForm.PrintOption.FullWindow)
     End Sub
-
 End Class
