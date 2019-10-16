@@ -235,7 +235,6 @@ Public Class frmPiecework_B
     End Sub
 
     Private Sub MnuEditClear_Click(sender As Object, e As EventArgs) Handles mnuEditClear.Click
-        'Clears but doesn't reset
         ClearAndFocus("Both")
     End Sub
 
@@ -277,7 +276,7 @@ Public Class frmPiecework_B
     Private Sub MnuFilePrint_Click(sender As Object, e As EventArgs) Handles mnuFilePrint.Click
         'Print preview the form on the printer.
         printPieceRateForm.PrintAction = Printing.PrintAction.PrintToPreview
-        'Nobody needs this tiny little screen in landscape form setting that to false
+        'Nobody needs this tiny little screen in landscape form setting that to false   
         printPieceRateForm.PrinterSettings.DefaultPageSettings.Landscape = False
         printPieceRateForm.Print(Me, PowerPacks.Printing.PrintForm.PrintOption.FullWindow)
     End Sub
