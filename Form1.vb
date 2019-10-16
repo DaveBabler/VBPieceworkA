@@ -235,6 +235,7 @@ Public Class frmPiecework_B
     End Sub
 
     Private Sub MnuEditClear_Click(sender As Object, e As EventArgs) Handles mnuEditClear.Click
+        'Clears but doesn't reset
         ClearAndFocus("Both")
     End Sub
 
