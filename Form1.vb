@@ -264,13 +264,9 @@ Public Class frmPiecework_B
     End Sub
 
     Private Sub MnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
-        Dim strProgramAuthorLabel As String = "Program Author: "
-        Dim strProgramLabel As String = "Program Name: "
-        Dim strProgramAuthorName As String = "Dave Babler"
-        Dim strProgramName As String = "Piecework B"
-        MsgBox(strProgramLabel & vbTab & strProgramName & vbCr &
-               strProgramAuthorLabel & vbTab & strProgramAuthorName, MsgBoxStyle.ApplicationModal Or MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "About")
-
+        'Load aboutbox as a modal, which is why ShowDialog is used instead of Show
+        frmAbout.ShowDialog()
+                     
     End Sub
 
     Private Sub MnuFilePrint_Click(sender As Object, e As EventArgs) Handles mnuFilePrint.Click
