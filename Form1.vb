@@ -264,19 +264,15 @@ Public Class frmPiecework_C
     End Sub
 
     Private Sub MnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
-        Dim strProgramAuthorLabel As String = "Program Author: "
-        Dim strProgramLabel As String = "Program Name: "
-        Dim strProgramAuthorName As String = "Dave Babler"
-        Dim strProgramName As String = "Piecework B"
-        MsgBox(strProgramLabel & vbTab & strProgramName & vbCr &
-               strProgramAuthorLabel & vbTab & strProgramAuthorName, MsgBoxStyle.ApplicationModal Or MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "About")
-
+        'Load aboutbox as a modal, which is why ShowDialog is used instead of Show
+        frmAbout.ShowDialog()
+                     
     End Sub
 
     Private Sub MnuFilePrint_Click(sender As Object, e As EventArgs) Handles mnuFilePrint.Click
         'Print preview the form on the printer.
         printPieceRateForm.PrintAction = Printing.PrintAction.PrintToPreview
-        'Nobody needs this tiny little screen in landscape form setting that to false
+        'Nobody needs this tiny little screen in landscape form setting that to false   
         printPieceRateForm.PrinterSettings.DefaultPageSettings.Landscape = False
         printPieceRateForm.Print(Me, PowerPacks.Printing.PrintForm.PrintOption.FullWindow)
     End Sub
