@@ -295,4 +295,26 @@ Public Class frmPiecework_C
         SummaryFontChanger(lblEarnedAmountLabel)
         SummaryFontChanger(lblEarnedAmountOutput)
     End Sub
+
+    Private Sub TESTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TESTToolStripMenuItem.Click
+
+        ''
+        ''
+        ''
+        ''
+        '' remove this babler and it's visual component
+        frmCalculationOutput.Show()
+        frmCalculationOutput.lblAvgWorkerPay.Text = ""
+        frmCalculationOutput.lblAvgWorkerPay.Text = "$800.00"
+
+        ''
+        ''
+        ''
+        ''
+        '' remove this babler and it's visual component
+
+
+
+    End Sub
 End Class
+
