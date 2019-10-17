@@ -276,4 +276,8 @@ Public Class frmPiecework_C
         printPieceRateForm.PrinterSettings.DefaultPageSettings.Landscape = False
         printPieceRateForm.Print(Me, PowerPacks.Printing.PrintForm.PrintOption.FullWindow)
     End Sub
+
+    Private Sub frmPiecework_C_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Threading.Thread.Sleep(5000)
+    End Sub
 End Class
