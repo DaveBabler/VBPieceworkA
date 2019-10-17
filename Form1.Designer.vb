@@ -46,6 +46,11 @@ Partial Class frmPiecework_C
         Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.printPieceRateForm = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
+        Me.AncillaryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FontRotationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ColorRotationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.dlgFontDialog = New System.Windows.Forms.FontDialog()
+        Me.dlgColorDialog = New System.Windows.Forms.ColorDialog()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -115,7 +120,7 @@ Partial Class frmPiecework_C
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuEdit, Me.mnuHelp})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuEdit, Me.AncillaryToolStripMenuItem, Me.mnuHelp})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(386, 24)
@@ -134,31 +139,31 @@ Partial Class frmPiecework_C
         'mnuFileCalculate
         '
         Me.mnuFileCalculate.Name = "mnuFileCalculate"
-        Me.mnuFileCalculate.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileCalculate.Size = New System.Drawing.Size(180, 22)
         Me.mnuFileCalculate.Text = "&Calculate Pay"
         '
         'mnuFileSummary
         '
         Me.mnuFileSummary.Enabled = False
         Me.mnuFileSummary.Name = "mnuFileSummary"
-        Me.mnuFileSummary.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileSummary.Size = New System.Drawing.Size(180, 22)
         Me.mnuFileSummary.Text = "&Summary"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'mnuFilePrint
         '
         Me.mnuFilePrint.Name = "mnuFilePrint"
-        Me.mnuFilePrint.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFilePrint.Size = New System.Drawing.Size(180, 22)
         Me.mnuFilePrint.Text = "&Print"
         '
         'mnuFileExit
         '
         Me.mnuFileExit.Name = "mnuFileExit"
-        Me.mnuFileExit.Size = New System.Drawing.Size(145, 22)
+        Me.mnuFileExit.Size = New System.Drawing.Size(180, 22)
         Me.mnuFileExit.Text = "E&xit"
         '
         'mnuEdit
@@ -172,30 +177,30 @@ Partial Class frmPiecework_C
         'mnuEditClear
         '
         Me.mnuEditClear.Name = "mnuEditClear"
-        Me.mnuEditClear.Size = New System.Drawing.Size(118, 22)
+        Me.mnuEditClear.Size = New System.Drawing.Size(180, 22)
         Me.mnuEditClear.Text = "Clea&r"
         '
         'mnuEditClearAll
         '
         Me.mnuEditClearAll.Name = "mnuEditClearAll"
-        Me.mnuEditClearAll.Size = New System.Drawing.Size(118, 22)
+        Me.mnuEditClearAll.Size = New System.Drawing.Size(180, 22)
         Me.mnuEditClearAll.Text = "Clear All"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(115, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
         '
         'mnuEditFont
         '
         Me.mnuEditFont.Name = "mnuEditFont"
-        Me.mnuEditFont.Size = New System.Drawing.Size(118, 22)
+        Me.mnuEditFont.Size = New System.Drawing.Size(180, 22)
         Me.mnuEditFont.Text = "&Font"
         '
         'mnuEditColor
         '
         Me.mnuEditColor.Name = "mnuEditColor"
-        Me.mnuEditColor.Size = New System.Drawing.Size(118, 22)
+        Me.mnuEditColor.Size = New System.Drawing.Size(180, 22)
         Me.mnuEditColor.Text = "&Color"
         '
         'mnuHelp
@@ -209,7 +214,7 @@ Partial Class frmPiecework_C
         'mnuAbout
         '
         Me.mnuAbout.Name = "mnuAbout"
-        Me.mnuAbout.Size = New System.Drawing.Size(107, 22)
+        Me.mnuAbout.Size = New System.Drawing.Size(180, 22)
         Me.mnuAbout.Text = "&About"
         '
         'printPieceRateForm
@@ -219,6 +224,26 @@ Partial Class frmPiecework_C
         Me.printPieceRateForm.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview
         Me.printPieceRateForm.PrinterSettings = CType(resources.GetObject("printPieceRateForm.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
         Me.printPieceRateForm.PrintFileName = "Piece Rate Earnings"
+        '
+        'AncillaryToolStripMenuItem
+        '
+        Me.AncillaryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FontRotationToolStripMenuItem, Me.ColorRotationToolStripMenuItem})
+        Me.AncillaryToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.AncillaryToolStripMenuItem.Name = "AncillaryToolStripMenuItem"
+        Me.AncillaryToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.AncillaryToolStripMenuItem.Text = "&Ancillary"
+        '
+        'FontRotationToolStripMenuItem
+        '
+        Me.FontRotationToolStripMenuItem.Name = "FontRotationToolStripMenuItem"
+        Me.FontRotationToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FontRotationToolStripMenuItem.Text = "Font R&otation"
+        '
+        'ColorRotationToolStripMenuItem
+        '
+        Me.ColorRotationToolStripMenuItem.Name = "ColorRotationToolStripMenuItem"
+        Me.ColorRotationToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ColorRotationToolStripMenuItem.Text = "Co&lor Rotation"
         '
         'frmPiecework_C
         '
@@ -270,4 +295,9 @@ Partial Class frmPiecework_C
     Friend WithEvents mnuHelp As ToolStripMenuItem
     Friend WithEvents mnuAbout As ToolStripMenuItem
     Friend WithEvents printPieceRateForm As PowerPacks.Printing.PrintForm
+    Friend WithEvents AncillaryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FontRotationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ColorRotationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents dlgFontDialog As FontDialog
+    Friend WithEvents dlgColorDialog As ColorDialog
 End Class

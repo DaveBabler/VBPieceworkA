@@ -254,13 +254,18 @@ Public Class frmPiecework_C
 
 
     Private Sub MnuEditFont_Click(sender As Object, e As EventArgs) Handles mnuEditFont.Click
-        SummaryFontChanger(lblEarnedAmountLabel)
-        SummaryFontChanger(lblEarnedAmountOutput)
+        If dlgFontDialog.ShowDialog <> DialogResult.Cancel Then
+            lblEarnedAmountLabel.Font = dlgFontDialog.Font
+            lblEarnedAmountOutput.Font = dlgFontDialog.Font
+
+        End If
     End Sub
 
     Private Sub MnuEditColor_Click(sender As Object, e As EventArgs) Handles mnuEditColor.Click
-        SummaryFontColorChanger(lblEarnedAmountLabel)
-        SummaryFontColorChanger(lblEarnedAmountOutput)
+        If dlgColorDialog.ShowDialog <> DialogResult.Cancel Then
+            lblEarnedAmountLabel.ForeColor = dlgColorDialog.Color
+            lblEarnedAmountOutput.ForeColor = dlgColorDialog.Color
+        End If
     End Sub
 
     Private Sub MnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
@@ -279,5 +284,15 @@ Public Class frmPiecework_C
 
     Private Sub frmPiecework_C_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Threading.Thread.Sleep(5000)
+    End Sub
+
+    Private Sub ColorRotationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ColorRotationToolStripMenuItem.Click
+        SummaryFontColorChanger(lblEarnedAmountLabel)
+        SummaryFontColorChanger(lblEarnedAmountOutput)
+    End Sub
+
+    Private Sub FontRotationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FontRotationToolStripMenuItem.Click
+        SummaryFontChanger(lblEarnedAmountLabel)
+        SummaryFontChanger(lblEarnedAmountOutput)
     End Sub
 End Class
