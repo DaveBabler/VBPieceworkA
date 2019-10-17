@@ -304,8 +304,8 @@ Public Class frmPiecework_C
         ''
         '' remove this babler and it's visual component
         frmCalculationOutput.Show()
-        frmCalculationOutput.lblAvgWorkerPay.Text = ""
-        frmCalculationOutput.lblAvgWorkerPay.Text = "$800.00"
+        frmCalculationOutput.lblAvgPayPerPersonOutput.Text = ""
+        frmCalculationOutput.lblAvgPayPerPersonOutput.Text = "$800.00"
 
         ''
         ''

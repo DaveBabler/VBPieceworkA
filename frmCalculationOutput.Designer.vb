@@ -23,14 +23,14 @@ Partial Class frmCalculationOutput
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.tblyCalculationTableLayout = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblNumPeopleOutput = New System.Windows.Forms.Label()
+        Me.lblTotalPayOutput = New System.Windows.Forms.Label()
+        Me.lblAvgPayPerPersonOutput = New System.Windows.Forms.Label()
         Me.lblTotalPiecesLabel = New System.Windows.Forms.Label()
-        Me.lblTotalPaidLabel = New System.Windows.Forms.Label()
-        Me.lblTotalWorkersLabel = New System.Windows.Forms.Label()
-        Me.lblAvgWorkerPayLabel = New System.Windows.Forms.Label()
-        Me.lblTotalPieces = New System.Windows.Forms.Label()
-        Me.lblTotalWorkers = New System.Windows.Forms.Label()
-        Me.lblTotalPaid = New System.Windows.Forms.Label()
-        Me.lblAvgWorkerPay = New System.Windows.Forms.Label()
+        Me.lblNumPeopleLabel = New System.Windows.Forms.Label()
+        Me.lblTotalPayLabel = New System.Windows.Forms.Label()
+        Me.lblAvgPayPerPersonLabel = New System.Windows.Forms.Label()
+        Me.lblTotalNumPiecesOutput = New System.Windows.Forms.Label()
         Me.lblSummaryHeader = New System.Windows.Forms.Label()
         Me.btnSummaryOK = New System.Windows.Forms.Button()
         Me.tblyCalculationTableLayout.SuspendLayout()
@@ -41,14 +41,14 @@ Partial Class frmCalculationOutput
         Me.tblyCalculationTableLayout.ColumnCount = 2
         Me.tblyCalculationTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.12861!))
         Me.tblyCalculationTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.87139!))
-        Me.tblyCalculationTableLayout.Controls.Add(Me.lblTotalWorkers, 1, 1)
-        Me.tblyCalculationTableLayout.Controls.Add(Me.lblTotalPaid, 1, 2)
-        Me.tblyCalculationTableLayout.Controls.Add(Me.lblAvgWorkerPay, 1, 3)
+        Me.tblyCalculationTableLayout.Controls.Add(Me.lblNumPeopleOutput, 1, 1)
+        Me.tblyCalculationTableLayout.Controls.Add(Me.lblTotalPayOutput, 1, 2)
+        Me.tblyCalculationTableLayout.Controls.Add(Me.lblAvgPayPerPersonOutput, 1, 3)
         Me.tblyCalculationTableLayout.Controls.Add(Me.lblTotalPiecesLabel, 0, 0)
-        Me.tblyCalculationTableLayout.Controls.Add(Me.lblTotalWorkersLabel, 0, 1)
-        Me.tblyCalculationTableLayout.Controls.Add(Me.lblTotalPaidLabel, 0, 2)
-        Me.tblyCalculationTableLayout.Controls.Add(Me.lblAvgWorkerPayLabel, 0, 3)
-        Me.tblyCalculationTableLayout.Controls.Add(Me.lblTotalPieces, 1, 0)
+        Me.tblyCalculationTableLayout.Controls.Add(Me.lblNumPeopleLabel, 0, 1)
+        Me.tblyCalculationTableLayout.Controls.Add(Me.lblTotalPayLabel, 0, 2)
+        Me.tblyCalculationTableLayout.Controls.Add(Me.lblAvgPayPerPersonLabel, 0, 3)
+        Me.tblyCalculationTableLayout.Controls.Add(Me.lblTotalNumPiecesOutput, 1, 0)
         Me.tblyCalculationTableLayout.Cursor = System.Windows.Forms.Cursors.SizeNESW
         Me.tblyCalculationTableLayout.Location = New System.Drawing.Point(3, 90)
         Me.tblyCalculationTableLayout.Name = "tblyCalculationTableLayout"
@@ -59,6 +59,45 @@ Partial Class frmCalculationOutput
         Me.tblyCalculationTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.tblyCalculationTableLayout.Size = New System.Drawing.Size(381, 162)
         Me.tblyCalculationTableLayout.TabIndex = 0
+        '
+        'lblNumPeopleOutput
+        '
+        Me.lblNumPeopleOutput.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblNumPeopleOutput.AutoSize = True
+        Me.lblNumPeopleOutput.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumPeopleOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblNumPeopleOutput.Location = New System.Drawing.Point(323, 58)
+        Me.lblNumPeopleOutput.Name = "lblNumPeopleOutput"
+        Me.lblNumPeopleOutput.Size = New System.Drawing.Size(55, 22)
+        Me.lblNumPeopleOutput.TabIndex = 6
+        Me.lblNumPeopleOutput.Text = "88888"
+        Me.lblNumPeopleOutput.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        '
+        'lblTotalPayOutput
+        '
+        Me.lblTotalPayOutput.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTotalPayOutput.AutoSize = True
+        Me.lblTotalPayOutput.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalPayOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblTotalPayOutput.Location = New System.Drawing.Point(281, 98)
+        Me.lblTotalPayOutput.Name = "lblTotalPayOutput"
+        Me.lblTotalPayOutput.Size = New System.Drawing.Size(97, 22)
+        Me.lblTotalPayOutput.TabIndex = 5
+        Me.lblTotalPayOutput.Text = "$888888.88"
+        Me.lblTotalPayOutput.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        '
+        'lblAvgPayPerPersonOutput
+        '
+        Me.lblAvgPayPerPersonOutput.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblAvgPayPerPersonOutput.AutoSize = True
+        Me.lblAvgPayPerPersonOutput.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAvgPayPerPersonOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblAvgPayPerPersonOutput.Location = New System.Drawing.Point(290, 140)
+        Me.lblAvgPayPerPersonOutput.Name = "lblAvgPayPerPersonOutput"
+        Me.lblAvgPayPerPersonOutput.Size = New System.Drawing.Size(88, 22)
+        Me.lblAvgPayPerPersonOutput.TabIndex = 7
+        Me.lblAvgPayPerPersonOutput.Text = "$88888.88"
+        Me.lblAvgPayPerPersonOutput.TextAlign = System.Drawing.ContentAlignment.BottomRight
         '
         'lblTotalPiecesLabel
         '
@@ -73,96 +112,57 @@ Partial Class frmCalculationOutput
         Me.lblTotalPiecesLabel.Text = "Number of completed pieces:"
         Me.lblTotalPiecesLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
-        'lblTotalPaidLabel
+        'lblNumPeopleLabel
         '
-        Me.lblTotalPaidLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblTotalPaidLabel.AutoSize = True
-        Me.lblTotalPaidLabel.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalPaidLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotalPaidLabel.Location = New System.Drawing.Point(3, 98)
-        Me.lblTotalPaidLabel.Name = "lblTotalPaidLabel"
-        Me.lblTotalPaidLabel.Size = New System.Drawing.Size(227, 22)
-        Me.lblTotalPaidLabel.TabIndex = 1
-        Me.lblTotalPaidLabel.Text = "Grand total paid to workers:"
-        Me.lblTotalPaidLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.lblNumPeopleLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblNumPeopleLabel.AutoSize = True
+        Me.lblNumPeopleLabel.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumPeopleLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblNumPeopleLabel.Location = New System.Drawing.Point(3, 58)
+        Me.lblNumPeopleLabel.Name = "lblNumPeopleLabel"
+        Me.lblNumPeopleLabel.Size = New System.Drawing.Size(262, 22)
+        Me.lblNumPeopleLabel.TabIndex = 2
+        Me.lblNumPeopleLabel.Text = "Number of contributing workers:"
+        Me.lblNumPeopleLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
-        'lblTotalWorkersLabel
+        'lblTotalPayLabel
         '
-        Me.lblTotalWorkersLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblTotalWorkersLabel.AutoSize = True
-        Me.lblTotalWorkersLabel.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalWorkersLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotalWorkersLabel.Location = New System.Drawing.Point(3, 58)
-        Me.lblTotalWorkersLabel.Name = "lblTotalWorkersLabel"
-        Me.lblTotalWorkersLabel.Size = New System.Drawing.Size(262, 22)
-        Me.lblTotalWorkersLabel.TabIndex = 2
-        Me.lblTotalWorkersLabel.Text = "Number of contributing workers:"
-        Me.lblTotalWorkersLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.lblTotalPayLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblTotalPayLabel.AutoSize = True
+        Me.lblTotalPayLabel.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalPayLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblTotalPayLabel.Location = New System.Drawing.Point(3, 98)
+        Me.lblTotalPayLabel.Name = "lblTotalPayLabel"
+        Me.lblTotalPayLabel.Size = New System.Drawing.Size(227, 22)
+        Me.lblTotalPayLabel.TabIndex = 1
+        Me.lblTotalPayLabel.Text = "Grand total paid to workers:"
+        Me.lblTotalPayLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
-        'lblAvgWorkerPayLabel
+        'lblAvgPayPerPersonLabel
         '
-        Me.lblAvgWorkerPayLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblAvgWorkerPayLabel.AutoSize = True
-        Me.lblAvgWorkerPayLabel.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAvgWorkerPayLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblAvgWorkerPayLabel.Location = New System.Drawing.Point(3, 140)
-        Me.lblAvgWorkerPayLabel.Name = "lblAvgWorkerPayLabel"
-        Me.lblAvgWorkerPayLabel.Size = New System.Drawing.Size(200, 22)
-        Me.lblAvgWorkerPayLabel.TabIndex = 3
-        Me.lblAvgWorkerPayLabel.Text = "Average pay per worker:"
-        Me.lblAvgWorkerPayLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.lblAvgPayPerPersonLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblAvgPayPerPersonLabel.AutoSize = True
+        Me.lblAvgPayPerPersonLabel.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAvgPayPerPersonLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblAvgPayPerPersonLabel.Location = New System.Drawing.Point(3, 140)
+        Me.lblAvgPayPerPersonLabel.Name = "lblAvgPayPerPersonLabel"
+        Me.lblAvgPayPerPersonLabel.Size = New System.Drawing.Size(200, 22)
+        Me.lblAvgPayPerPersonLabel.TabIndex = 3
+        Me.lblAvgPayPerPersonLabel.Text = "Average pay per worker:"
+        Me.lblAvgPayPerPersonLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
-        'lblTotalPieces
+        'lblTotalNumPiecesOutput
         '
-        Me.lblTotalPieces.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTotalPieces.AutoSize = True
-        Me.lblTotalPieces.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalPieces.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotalPieces.Location = New System.Drawing.Point(287, 18)
-        Me.lblTotalPieces.Name = "lblTotalPieces"
-        Me.lblTotalPieces.Size = New System.Drawing.Size(91, 22)
-        Me.lblTotalPieces.TabIndex = 4
-        Me.lblTotalPieces.Text = "888888888"
-        Me.lblTotalPieces.TextAlign = System.Drawing.ContentAlignment.BottomRight
-        '
-        'lblTotalWorkers
-        '
-        Me.lblTotalWorkers.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTotalWorkers.AutoSize = True
-        Me.lblTotalWorkers.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalWorkers.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotalWorkers.Location = New System.Drawing.Point(323, 58)
-        Me.lblTotalWorkers.Name = "lblTotalWorkers"
-        Me.lblTotalWorkers.Size = New System.Drawing.Size(55, 22)
-        Me.lblTotalWorkers.TabIndex = 6
-        Me.lblTotalWorkers.Text = "88888"
-        Me.lblTotalWorkers.TextAlign = System.Drawing.ContentAlignment.BottomRight
-        '
-        'lblTotalPaid
-        '
-        Me.lblTotalPaid.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTotalPaid.AutoSize = True
-        Me.lblTotalPaid.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalPaid.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotalPaid.Location = New System.Drawing.Point(281, 98)
-        Me.lblTotalPaid.Name = "lblTotalPaid"
-        Me.lblTotalPaid.Size = New System.Drawing.Size(97, 22)
-        Me.lblTotalPaid.TabIndex = 5
-        Me.lblTotalPaid.Text = "$888888.88"
-        Me.lblTotalPaid.TextAlign = System.Drawing.ContentAlignment.BottomRight
-        '
-        'lblAvgWorkerPay
-        '
-        Me.lblAvgWorkerPay.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblAvgWorkerPay.AutoSize = True
-        Me.lblAvgWorkerPay.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAvgWorkerPay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblAvgWorkerPay.Location = New System.Drawing.Point(290, 140)
-        Me.lblAvgWorkerPay.Name = "lblAvgWorkerPay"
-        Me.lblAvgWorkerPay.Size = New System.Drawing.Size(88, 22)
-        Me.lblAvgWorkerPay.TabIndex = 7
-        Me.lblAvgWorkerPay.Text = "$88888.88"
-        Me.lblAvgWorkerPay.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.lblTotalNumPiecesOutput.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTotalNumPiecesOutput.AutoSize = True
+        Me.lblTotalNumPiecesOutput.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalNumPiecesOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblTotalNumPiecesOutput.Location = New System.Drawing.Point(287, 18)
+        Me.lblTotalNumPiecesOutput.Name = "lblTotalNumPiecesOutput"
+        Me.lblTotalNumPiecesOutput.Size = New System.Drawing.Size(91, 22)
+        Me.lblTotalNumPiecesOutput.TabIndex = 4
+        Me.lblTotalNumPiecesOutput.Text = "888888888"
+        Me.lblTotalNumPiecesOutput.TextAlign = System.Drawing.ContentAlignment.BottomRight
         '
         'lblSummaryHeader
         '
@@ -209,13 +209,13 @@ Partial Class frmCalculationOutput
 
     Friend WithEvents tblyCalculationTableLayout As TableLayoutPanel
     Friend WithEvents lblTotalPiecesLabel As Label
-    Friend WithEvents lblTotalWorkersLabel As Label
-    Friend WithEvents lblTotalPaidLabel As Label
-    Friend WithEvents lblAvgWorkerPayLabel As Label
-    Friend WithEvents lblTotalWorkers As Label
-    Friend WithEvents lblTotalPaid As Label
-    Friend WithEvents lblAvgWorkerPay As Label
-    Friend WithEvents lblTotalPieces As Label
+    Friend WithEvents lblNumPeopleLabel As Label
+    Friend WithEvents lblTotalPayLabel As Label
+    Friend WithEvents lblAvgPayPerPersonLabel As Label
+    Friend WithEvents lblNumPeopleOutput As Label
+    Friend WithEvents lblTotalPayOutput As Label
+    Friend WithEvents lblAvgPayPerPersonOutput As Label
+    Friend WithEvents lblTotalNumPiecesOutput As Label
     Friend WithEvents lblSummaryHeader As Label
     Friend WithEvents btnSummaryOK As Button
 End Class
