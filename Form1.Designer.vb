@@ -51,7 +51,6 @@ Partial Class frmPiecework_C
         Me.printPieceRateForm = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.dlgFontDialog = New System.Windows.Forms.FontDialog()
         Me.dlgColorDialog = New System.Windows.Forms.ColorDialog()
-        Me.TESTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -169,7 +168,7 @@ Partial Class frmPiecework_C
         '
         'mnuEdit
         '
-        Me.mnuEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEditClear, Me.mnuEditClearAll, Me.ToolStripSeparator2, Me.mnuEditFont, Me.mnuEditColor, Me.TESTToolStripMenuItem})
+        Me.mnuEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEditClear, Me.mnuEditClearAll, Me.ToolStripSeparator2, Me.mnuEditFont, Me.mnuEditColor})
         Me.mnuEdit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
         Me.mnuEdit.Name = "mnuEdit"
         Me.mnuEdit.Size = New System.Drawing.Size(39, 20)
@@ -215,13 +214,13 @@ Partial Class frmPiecework_C
         'FontRotationToolStripMenuItem
         '
         Me.FontRotationToolStripMenuItem.Name = "FontRotationToolStripMenuItem"
-        Me.FontRotationToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FontRotationToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.FontRotationToolStripMenuItem.Text = "Font R&otation"
         '
         'ColorRotationToolStripMenuItem
         '
         Me.ColorRotationToolStripMenuItem.Name = "ColorRotationToolStripMenuItem"
-        Me.ColorRotationToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ColorRotationToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.ColorRotationToolStripMenuItem.Text = "Co&lor Rotation"
         '
         'mnuHelp
@@ -245,12 +244,6 @@ Partial Class frmPiecework_C
         Me.printPieceRateForm.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview
         Me.printPieceRateForm.PrinterSettings = CType(resources.GetObject("printPieceRateForm.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
         Me.printPieceRateForm.PrintFileName = "Piece Rate Earnings"
-        '
-        'TESTToolStripMenuItem
-        '
-        Me.TESTToolStripMenuItem.Name = "TESTToolStripMenuItem"
-        Me.TESTToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.TESTToolStripMenuItem.Text = "TEST"
         '
         'frmPiecework_C
         '
@@ -307,5 +300,4 @@ Partial Class frmPiecework_C
     Friend WithEvents ColorRotationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents dlgFontDialog As FontDialog
     Friend WithEvents dlgColorDialog As ColorDialog
-    Friend WithEvents TESTToolStripMenuItem As ToolStripMenuItem
 End Class

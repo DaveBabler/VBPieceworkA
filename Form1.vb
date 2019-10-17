@@ -52,10 +52,13 @@ Public Class frmPiecework_C
 
     End Sub
 
+
+    ''depreciated sub, saved incase customer changes mind
     Private Sub ResultsBox(ByVal intPieceTotal As Integer, ByVal intPeople As Integer, ByVal decTotalPay As Decimal, ByVal decAveragePay As Decimal)
         'This procedure compiles and displays a nicely formatted Message Box with information about 
         ' the cumulative stats of pieces done, amount of workers, total paid, and average paid per worker.
         ' hard spaces and vbTab stops are used for formatting
+        ''depreciated!!!!
 
         Dim strNumPieces As String = "The number of pieces completed is: "
         Dim strNumWokers As String = "The number of workers contributing is: "
@@ -66,12 +69,6 @@ Public Class frmPiecework_C
                 strNumWokers & vbTab & "  " & intPeople.ToString("N0") & vbCr &
                 strTotalPay & vbTab & decTotalPay.ToString("C") & vbCr &
                 strAveragePay & vbTab & vbTab & decAveragePay.ToString("C") & vbCr, MsgBoxStyle.Information, strMessageBoxHeading)
-
-
-
-
-
-
     End Sub
 
     Protected Function CalculateEarnings(ByVal intIncomingNumPieces As Integer) As Decimal
@@ -171,8 +168,20 @@ Public Class frmPiecework_C
         'Does nothing to focus as it can be done at any time once data exists in the system
 
         decAveragePayPerPerson = CalculateAverage(decEarningsAccumulation, intWorkerCount)
+        frmCalculationOutput.Show()
 
-        ResultsBox(intPieceCountAccumulation, intWorkerCount, decEarningsAccumulation, decAveragePayPerPerson)
+        'set the values of the soon to be displayed labels
+
+        frmCalculationOutput.lblTotalNumPiecesOutput.Text = intPieceCountAccumulation.ToString("N0")
+        frmCalculationOutput.lblNumPeopleOutput.Text = intWorkerCount.ToString("N0")
+        frmCalculationOutput.lblTotalPayOutput.Text = decEarningsAccumulation.ToString("C")
+        frmCalculationOutput.lblAvgPayPerPersonOutput.Text = decAveragePayPerPerson.ToString("C")
+
+        'set the labels to be visible
+        frmCalculationOutput.lblTotalNumPiecesOutput.Visible = True
+        frmCalculationOutput.lblNumPeopleOutput.Visible = True
+        frmCalculationOutput.lblTotalPayOutput.Visible = True
+        frmCalculationOutput.lblAvgPayPerPersonOutput.Visible = True
 
     End Sub
 
@@ -296,25 +305,5 @@ Public Class frmPiecework_C
         SummaryFontChanger(lblEarnedAmountOutput)
     End Sub
 
-    Private Sub TESTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TESTToolStripMenuItem.Click
-
-        ''
-        ''
-        ''
-        ''
-        '' remove this babler and it's visual component
-        frmCalculationOutput.Show()
-        frmCalculationOutput.lblAvgPayPerPersonOutput.Text = ""
-        frmCalculationOutput.lblAvgPayPerPersonOutput.Text = "$800.00"
-
-        ''
-        ''
-        ''
-        ''
-        '' remove this babler and it's visual component
-
-
-
-    End Sub
 End Class
 

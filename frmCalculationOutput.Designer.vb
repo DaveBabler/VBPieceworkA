@@ -72,6 +72,7 @@ Partial Class frmCalculationOutput
         Me.lblNumPeopleOutput.TabIndex = 6
         Me.lblNumPeopleOutput.Text = "88888"
         Me.lblNumPeopleOutput.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.lblNumPeopleOutput.Visible = False
         '
         'lblTotalPayOutput
         '
@@ -85,6 +86,7 @@ Partial Class frmCalculationOutput
         Me.lblTotalPayOutput.TabIndex = 5
         Me.lblTotalPayOutput.Text = "$888888.88"
         Me.lblTotalPayOutput.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.lblTotalPayOutput.Visible = False
         '
         'lblAvgPayPerPersonOutput
         '
@@ -98,6 +100,7 @@ Partial Class frmCalculationOutput
         Me.lblAvgPayPerPersonOutput.TabIndex = 7
         Me.lblAvgPayPerPersonOutput.Text = "$88888.88"
         Me.lblAvgPayPerPersonOutput.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.lblAvgPayPerPersonOutput.Visible = False
         '
         'lblTotalPiecesLabel
         '
@@ -163,6 +166,7 @@ Partial Class frmCalculationOutput
         Me.lblTotalNumPiecesOutput.TabIndex = 4
         Me.lblTotalNumPiecesOutput.Text = "888888888"
         Me.lblTotalNumPiecesOutput.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.lblTotalNumPiecesOutput.Visible = False
         '
         'lblSummaryHeader
         '
