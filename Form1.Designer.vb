@@ -43,12 +43,12 @@ Partial Class frmPiecework_C
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuEditFont = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuEditColor = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
-        Me.printPieceRateForm = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.AncillaryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FontRotationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ColorRotationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.printPieceRateForm = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.dlgFontDialog = New System.Windows.Forms.FontDialog()
         Me.dlgColorDialog = New System.Windows.Forms.ColorDialog()
         Me.MenuStrip1.SuspendLayout()
@@ -59,7 +59,7 @@ Partial Class frmPiecework_C
         Me.txtName.BackColor = System.Drawing.Color.Gainsboro
         Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName.ForeColor = System.Drawing.Color.Black
-        Me.txtName.Location = New System.Drawing.Point(20, 106)
+        Me.txtName.Location = New System.Drawing.Point(20, 73)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(152, 24)
         Me.txtName.TabIndex = 0
@@ -69,7 +69,7 @@ Partial Class frmPiecework_C
         Me.txtNumberOfPieces.BackColor = System.Drawing.Color.Gainsboro
         Me.txtNumberOfPieces.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNumberOfPieces.ForeColor = System.Drawing.Color.Black
-        Me.txtNumberOfPieces.Location = New System.Drawing.Point(193, 106)
+        Me.txtNumberOfPieces.Location = New System.Drawing.Point(193, 73)
         Me.txtNumberOfPieces.Name = "txtNumberOfPieces"
         Me.txtNumberOfPieces.Size = New System.Drawing.Size(152, 24)
         Me.txtNumberOfPieces.TabIndex = 1
@@ -78,7 +78,7 @@ Partial Class frmPiecework_C
         '
         Me.lblPersonName.AutoSize = True
         Me.lblPersonName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPersonName.Location = New System.Drawing.Point(20, 80)
+        Me.lblPersonName.Location = New System.Drawing.Point(20, 47)
         Me.lblPersonName.Name = "lblPersonName"
         Me.lblPersonName.Size = New System.Drawing.Size(116, 20)
         Me.lblPersonName.TabIndex = 2
@@ -89,7 +89,7 @@ Partial Class frmPiecework_C
         '
         Me.lblNumberOfPieces.AutoSize = True
         Me.lblNumberOfPieces.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumberOfPieces.Location = New System.Drawing.Point(193, 80)
+        Me.lblNumberOfPieces.Location = New System.Drawing.Point(193, 47)
         Me.lblNumberOfPieces.Name = "lblNumberOfPieces"
         Me.lblNumberOfPieces.Size = New System.Drawing.Size(134, 20)
         Me.lblNumberOfPieces.TabIndex = 3
@@ -100,7 +100,7 @@ Partial Class frmPiecework_C
         '
         Me.lblEarnedAmountLabel.AutoSize = True
         Me.lblEarnedAmountLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEarnedAmountLabel.Location = New System.Drawing.Point(20, 156)
+        Me.lblEarnedAmountLabel.Location = New System.Drawing.Point(20, 123)
         Me.lblEarnedAmountLabel.Name = "lblEarnedAmountLabel"
         Me.lblEarnedAmountLabel.Size = New System.Drawing.Size(121, 20)
         Me.lblEarnedAmountLabel.TabIndex = 4
@@ -111,7 +111,7 @@ Partial Class frmPiecework_C
         '
         Me.lblEarnedAmountOutput.AutoSize = True
         Me.lblEarnedAmountOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEarnedAmountOutput.Location = New System.Drawing.Point(189, 156)
+        Me.lblEarnedAmountOutput.Location = New System.Drawing.Point(189, 123)
         Me.lblEarnedAmountOutput.Name = "lblEarnedAmountOutput"
         Me.lblEarnedAmountOutput.Size = New System.Drawing.Size(76, 20)
         Me.lblEarnedAmountOutput.TabIndex = 5
@@ -203,28 +203,6 @@ Partial Class frmPiecework_C
         Me.mnuEditColor.Size = New System.Drawing.Size(180, 22)
         Me.mnuEditColor.Text = "&Color"
         '
-        'mnuHelp
-        '
-        Me.mnuHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuAbout})
-        Me.mnuHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
-        Me.mnuHelp.Name = "mnuHelp"
-        Me.mnuHelp.Size = New System.Drawing.Size(44, 20)
-        Me.mnuHelp.Text = "&Help"
-        '
-        'mnuAbout
-        '
-        Me.mnuAbout.Name = "mnuAbout"
-        Me.mnuAbout.Size = New System.Drawing.Size(180, 22)
-        Me.mnuAbout.Text = "&About"
-        '
-        'printPieceRateForm
-        '
-        Me.printPieceRateForm.DocumentName = "document"
-        Me.printPieceRateForm.Form = Me
-        Me.printPieceRateForm.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview
-        Me.printPieceRateForm.PrinterSettings = CType(resources.GetObject("printPieceRateForm.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
-        Me.printPieceRateForm.PrintFileName = "Piece Rate Earnings"
-        '
         'AncillaryToolStripMenuItem
         '
         Me.AncillaryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FontRotationToolStripMenuItem, Me.ColorRotationToolStripMenuItem})
@@ -245,12 +223,34 @@ Partial Class frmPiecework_C
         Me.ColorRotationToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ColorRotationToolStripMenuItem.Text = "Co&lor Rotation"
         '
+        'mnuHelp
+        '
+        Me.mnuHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuAbout})
+        Me.mnuHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.mnuHelp.Name = "mnuHelp"
+        Me.mnuHelp.Size = New System.Drawing.Size(44, 20)
+        Me.mnuHelp.Text = "&Help"
+        '
+        'mnuAbout
+        '
+        Me.mnuAbout.Name = "mnuAbout"
+        Me.mnuAbout.Size = New System.Drawing.Size(107, 22)
+        Me.mnuAbout.Text = "&About"
+        '
+        'printPieceRateForm
+        '
+        Me.printPieceRateForm.DocumentName = "document"
+        Me.printPieceRateForm.Form = Me
+        Me.printPieceRateForm.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview
+        Me.printPieceRateForm.PrinterSettings = CType(resources.GetObject("printPieceRateForm.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
+        Me.printPieceRateForm.PrintFileName = "Piece Rate Earnings"
+        '
         'frmPiecework_C
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(386, 216)
+        Me.ClientSize = New System.Drawing.Size(386, 342)
         Me.Controls.Add(Me.lblEarnedAmountOutput)
         Me.Controls.Add(Me.lblEarnedAmountLabel)
         Me.Controls.Add(Me.lblNumberOfPieces)
