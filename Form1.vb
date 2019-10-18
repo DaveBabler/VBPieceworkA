@@ -168,7 +168,7 @@ Public Class frmPiecework_C
         'Does nothing to focus as it can be done at any time once data exists in the system
 
         decAveragePayPerPerson = CalculateAverage(decEarningsAccumulation, intWorkerCount)
-        frmCalculationOutput.Show()
+
 
         'set the values of the soon to be displayed labels
 
@@ -182,7 +182,9 @@ Public Class frmPiecework_C
         frmCalculationOutput.lblNumPeopleOutput.Visible = True
         frmCalculationOutput.lblTotalPayOutput.Visible = True
         frmCalculationOutput.lblAvgPayPerPersonOutput.Visible = True
-
+        ' If we want the form to show as a modal must use ShowDialog and not Show
+        ' This also means we cannot populate the form UNTIL the data is loaded
+        frmCalculationOutput.ShowDialog()
     End Sub
 
     Private Sub CalculatePayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuFileCalculate.Click
@@ -280,7 +282,7 @@ Public Class frmPiecework_C
     Private Sub MnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
         'Load aboutbox as a modal, which is why ShowDialog is used instead of Show
         frmAbout.ShowDialog()
-                     
+
     End Sub
 
     Private Sub MnuFilePrint_Click(sender As Object, e As EventArgs) Handles mnuFilePrint.Click
