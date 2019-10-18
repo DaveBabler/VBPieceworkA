@@ -295,15 +295,35 @@ Public Class frmPiecework_C
         Threading.Thread.Sleep(5000)
     End Sub
 
-    Private Sub ColorRotationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ColorRotationToolStripMenuItem.Click
-        SummaryFontColorChanger(lblEarnedAmountLabel)
-        SummaryFontColorChanger(lblEarnedAmountOutput)
-    End Sub
 
-    Private Sub FontRotationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FontRotationToolStripMenuItem.Click
+
+    Private Sub mnuFontRorationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuFontRorationToolStripMenuItem.Click
         SummaryFontChanger(lblEarnedAmountLabel)
         SummaryFontChanger(lblEarnedAmountOutput)
     End Sub
 
+    Private Sub mnuColorRotationToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles mnuColorRotationToolStripMenuItem1.Click
+        SummaryFontColorChanger(lblEarnedAmountLabel)
+        SummaryFontColorChanger(lblEarnedAmountOutput)
+    End Sub
+
+    Private Sub ShowLogoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuShowLogoToolStrip.Click
+        If mnuShowLogoToolStrip.Checked Then
+            picEmmaFrost.Visible = True
+        Else
+            picEmmaFrost.Visible = False
+        End If
+
+
+    End Sub
+
+    Private Sub mnuShowSloganToolStrip_Click(sender As Object, e As EventArgs) Handles mnuShowSloganToolStrip.Click
+        If mnuShowSloganToolStrip.Checked Then
+            lblSlogan.Visible = True
+        Else
+            lblSlogan.Visible = False
+        End If
+
+    End Sub
 End Class
 

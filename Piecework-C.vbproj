@@ -153,5 +153,8 @@
   <ItemGroup>
     <None Include="Resources\pieceworkMarvelPuzzleQuest2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Emma Layer2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
