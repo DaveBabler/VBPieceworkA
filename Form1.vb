@@ -290,7 +290,7 @@ Public Class frmPiecework_C
         printPieceRateForm.PrintAction = Printing.PrintAction.PrintToPreview
         'Nobody needs this tiny little screen in landscape form setting that to false   
         printPieceRateForm.PrinterSettings.DefaultPageSettings.Landscape = False
-        printPieceRateForm.Print(Me, PowerPacks.Printing.PrintForm.PrintOption.FullWindow)
+        printPieceRateForm.Print(frmCalculationOutput, PowerPacks.Printing.PrintForm.PrintOption.FullWindow)
     End Sub
 
     Private Sub frmPiecework_C_Load(sender As Object, e As EventArgs) Handles MyBase.Load
