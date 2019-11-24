@@ -201,22 +201,28 @@ Public Class frmPiecework_C
         Else
             If Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered) Then
                 Try
+                    If intPiecesEntered = 0 Then
+                        Throw New DivideByZeroException
+                    Else
+                        decAmountEarned = CalculateEarnings(intPiecesEntered)
+                        lblEarnedAmountOutput.Text = decAmountEarned.ToString("C")
+                        lblEarnedAmountOutput.Visible = True
+                        intUserIncrement = CheckWorker(strCurrentName)
+                        intWorkerCount += intUserIncrement
+                        intPieceCountAccumulation += +intPiecesEntered
+                        decEarningsAccumulation += decAmountEarned
 
-                    decAmountEarned = CalculateEarnings(intPiecesEntered)
-                    lblEarnedAmountOutput.Text = decAmountEarned.ToString("C")
-                    lblEarnedAmountOutput.Visible = True
-                    intUserIncrement = CheckWorker(strCurrentName)
-                    intWorkerCount += intUserIncrement
-                    intPieceCountAccumulation += +intPiecesEntered
-                    decEarningsAccumulation += decAmountEarned
 
 
-
-                    'Make the Summary button now useable
-                    mnuFileSummary.Enabled = True
-
+                        'Make the Summary button now useable
+                        mnuFileSummary.Enabled = True
+                    End If
                 Catch Exception As DivideByZeroException
-                    MsgBox("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1")
+                    MsgBox("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1" _
+                           & Environment.NewLine _
+                           & "Why are you trying to generate a black hole anyway? That Seems dangerous." _
+                                                      & Environment.NewLine _
+                           & "Again, use a number larger than 1 (one)")
                     ClearAndFocus("Number")
                 Catch Exception As FormatException
 
