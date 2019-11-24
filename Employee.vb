@@ -3,6 +3,8 @@
     ' Do not forget to check the constructor function on the main form to see if it is the same person
     Private _strEmployeeName As String
     Private _intNumPiecesCompleted As Integer
+
+
     Sub New()
 
     End Sub
@@ -82,5 +84,18 @@
     End Property
 
 
+    Public Overridable Function WorkerIncrement() As Integer
+        'This is to let us know that the employee is not the same person as the employee that just used the form. 
+        'This is for error checking with regards to the aforemention business logic, along with increasing a loop counter
+        'for calculating averages.
+        Return 1
+    End Function
+
+
 
 End Class
+
+
+' below is a link to a page that might be helpful with setting static properties and trying to find a way to override.
+' unfortunately it is from .net's online documentation which is horrifically boring to the point of being in accessable to people with ADHD
+' https://docs.microsoft.com/en-us/dotnet/api/system.reflection.propertyinfo.setvalue?view=netframework-4.8

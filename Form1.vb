@@ -338,13 +338,24 @@ Public Class frmPiecework_C
         Dim empEntry As New Employee
         Dim strName As String = txtName.Text
         Dim intPieces As Integer
+        Dim intCounter As Integer
+
+        Dim sameEmp As New SameEmployee
+
 
         Integer.TryParse(txtNumberOfPieces.Text, intPieces)
         empEntry.EmpName() = strName
         empEntry.PiecesCompleted() = intPieces
-
+        intCounter = empEntry.WorkerIncrement()
+        sameEmp.EmpName() = strName
+        sameEmp.PiecesCompleted = intPieces
         Console.WriteLine("WE have Name {0} and intPieces {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
         Console.WriteLine(empEntry.EmpName.ToString())
+        Console.WriteLine("This is the first time the employee hit enter so increase by {0}", intCounter.ToString())
+        sameEmp.EmpName() = strName
+        sameEmp.PiecesCompleted = intPieces
+        intCounter = sameEmp.WorkerIncrement()
+        Console.WriteLine("This is the second time the employee hit enter so increase by {0}", intCounter.ToString())
 
     End Sub
 End Class
