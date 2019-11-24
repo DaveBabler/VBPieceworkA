@@ -18,7 +18,7 @@ Public Class frmPiecework_C
     Protected decEarningsAccumulation As Decimal = 0 'accumulation of all worker's earnings.  Keeping this as Decimal due to the case statment.
     Protected strLastWorkerName As String = ""
     Protected decAveragePayPerPerson As Decimal
-    Protected Sub ClearAndFocus(ByVal strTypeOfClear As String)
+    Public Sub ClearAndFocus(ByVal strTypeOfClear As String)
         'This sub clears the forms and focuses back to the correct line
         'WARNING: "Total" purges stored variable data and hides outputs.
         Select Case strTypeOfClear
@@ -333,5 +333,6 @@ Public Class frmPiecework_C
         End If
 
     End Sub
+
 End Class
 

@@ -234,13 +234,13 @@ Partial Class frmPiecework_C
         'mnuFontRorationToolStripMenuItem
         '
         Me.mnuFontRorationToolStripMenuItem.Name = "mnuFontRorationToolStripMenuItem"
-        Me.mnuFontRorationToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.mnuFontRorationToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.mnuFontRorationToolStripMenuItem.Text = "Font R&otation"
         '
         'mnuColorRotationToolStripMenuItem1
         '
         Me.mnuColorRotationToolStripMenuItem1.Name = "mnuColorRotationToolStripMenuItem1"
-        Me.mnuColorRotationToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.mnuColorRotationToolStripMenuItem1.Size = New System.Drawing.Size(151, 22)
         Me.mnuColorRotationToolStripMenuItem1.Text = "Co&lor Rotation"
         '
         'mnuShowLogoToolStrip
