@@ -57,6 +57,7 @@ Partial Class frmPiecework_C
         Me.dlgColorDialog = New System.Windows.Forms.ColorDialog()
         Me.picEmmaFrost = New System.Windows.Forms.PictureBox()
         Me.lblSlogan = New System.Windows.Forms.Label()
+        Me.btnTesting = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.picEmmaFrost, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -228,7 +229,7 @@ Partial Class frmPiecework_C
         '
         Me.mnuFunToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFontRorationToolStripMenuItem, Me.mnuColorRotationToolStripMenuItem1})
         Me.mnuFunToolStripMenuItem.Name = "mnuFunToolStripMenuItem"
-        Me.mnuFunToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.mnuFunToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.mnuFunToolStripMenuItem.Text = "F&un"
         '
         'mnuFontRorationToolStripMenuItem
@@ -249,7 +250,7 @@ Partial Class frmPiecework_C
         Me.mnuShowLogoToolStrip.CheckOnClick = True
         Me.mnuShowLogoToolStrip.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnuShowLogoToolStrip.Name = "mnuShowLogoToolStrip"
-        Me.mnuShowLogoToolStrip.Size = New System.Drawing.Size(180, 22)
+        Me.mnuShowLogoToolStrip.Size = New System.Drawing.Size(142, 22)
         Me.mnuShowLogoToolStrip.Text = "Show &Logo"
         '
         'mnuShowSloganToolStrip
@@ -258,7 +259,7 @@ Partial Class frmPiecework_C
         Me.mnuShowSloganToolStrip.CheckOnClick = True
         Me.mnuShowSloganToolStrip.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnuShowSloganToolStrip.Name = "mnuShowSloganToolStrip"
-        Me.mnuShowSloganToolStrip.Size = New System.Drawing.Size(180, 22)
+        Me.mnuShowSloganToolStrip.Size = New System.Drawing.Size(142, 22)
         Me.mnuShowSloganToolStrip.Text = "Show &Slogan"
         '
         'mnuHelp
@@ -308,12 +309,24 @@ Partial Class frmPiecework_C
         Me.lblSlogan.Text = "You will continue making " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "pieces until you die."
         Me.lblSlogan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'btnTesting
+        '
+        Me.btnTesting.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnTesting.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTesting.Location = New System.Drawing.Point(295, 151)
+        Me.btnTesting.Name = "btnTesting"
+        Me.btnTesting.Size = New System.Drawing.Size(75, 23)
+        Me.btnTesting.TabIndex = 14
+        Me.btnTesting.Text = "&TESTING"
+        Me.btnTesting.UseVisualStyleBackColor = True
+        '
         'frmPiecework_C
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(370, 493)
+        Me.Controls.Add(Me.btnTesting)
         Me.Controls.Add(Me.lblSlogan)
         Me.Controls.Add(Me.picEmmaFrost)
         Me.Controls.Add(Me.lblEarnedAmountOutput)
@@ -372,4 +385,5 @@ Partial Class frmPiecework_C
     Friend WithEvents mnuShowSloganToolStrip As ToolStripMenuItem
     Friend WithEvents picEmmaFrost As PictureBox
     Friend WithEvents lblSlogan As Label
+    Friend WithEvents btnTesting As Button
 End Class

@@ -334,5 +334,18 @@ Public Class frmPiecework_C
 
     End Sub
 
+    Private Sub btnTesting_Click(sender As Object, e As EventArgs) Handles btnTesting.Click
+        Dim empEntry As New Employee
+        Dim strName As String = txtName.Text
+        Dim intPieces As Integer
+
+        Integer.TryParse(txtNumberOfPieces.Text, intPieces)
+        empEntry.EmpName() = strName
+        empEntry.PiecesCompleted() = intPieces
+
+        Console.WriteLine("WE have Name {0} and intPieces {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
+        Console.WriteLine(empEntry.EmpName.ToString())
+
+    End Sub
 End Class
 

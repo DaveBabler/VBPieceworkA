@@ -3,7 +3,9 @@
     ' Do not forget to check the constructor function on the main form to see if it is the same person
     Private _strEmployeeName As String
     Private _intNumPiecesCompleted As Integer
+    Sub New()
 
+    End Sub
     Public Property EmpName() As String
         Get
 
@@ -29,17 +31,21 @@
         End Get
         Set(value As Integer)
             Dim intTester As Integer 'for holing test values
+
+            'Dim modTester As Integer 'used in modulus 
+
+
             Try
                 If String.IsNullOrEmpty(value) Then
                     Throw New ArgumentNullException
 
-                ElseIf Not Integer.TryParse(value, intTester) Then
+                ElseIf Integer.TryParse(value, intTester) = False Then
                     Throw New FormatException
-
                 ElseIf CInt(value) = 0 Then
                     Throw New DivideByZeroException
-                ElseIf Decimal.TryParse(value, intTester) Then
-                    Throw New ApplicationException
+
+
+
 
                 Else
                     _intNumPiecesCompleted = value
@@ -50,16 +56,16 @@
                                                  "Seriously, what are you doing?")
                 frmPiecework_C.ClearAndFocus("Number")
             Catch Exception As DivideByZeroException
-                MsgBox("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1" _
-                       & Environment.NewLine _
-                       & "Why are you trying to generate a black hole anyway? That Seems dangerous." _
-                                                  & Environment.NewLine _
-                       & "Again, use a number larger than 1 (one)")
-                frmPiecework_C.ClearAndFocus("Number")
-            Catch Exception As FormatException
+                MsgBox("If You're seeing this it is likely because: " _
+                     & Environment.NewLine _
+                     & Space(5) & "1." & Space(2) & "You likely entered in a Partial Piece" _
+                     & Environment.NewLine & Convert.ToChar(Keys.Tab) & "Solution: use a whole number." _
+                     & Environment.NewLine _
+                     & Space(5) & "2." & Space(2) & "You entered in a 0 value, are you trying to create a black hole?" _
+                     & Environment.NewLine & Convert.ToChar(Keys.Tab) & "Solution: use a whole number, NOT ZERO.")
 
-                MsgBox("You have entered something that is Not a whole number. Enter a whole number to procced")
                 frmPiecework_C.ClearAndFocus("Number")
+
 
             Catch Exception As ArgumentNullException
                 MsgBox("I'm afraid you must actually enter a value, if you want information!")
@@ -71,6 +77,7 @@
 
 
             End Try
+            '_intNumPiecesCompleted = value
         End Set
     End Property
 
