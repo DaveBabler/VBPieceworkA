@@ -4,6 +4,7 @@
     ' Do not forget to check the constructor function on the main form to see if it is the same person
     Private _strEmployeeName As String
     Private _intNumPiecesCompleted As Integer
+    Private _intIncrementValue As Integer
 
 
     Sub New()
