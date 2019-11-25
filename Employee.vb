@@ -1,4 +1,5 @@
 ﻿Public Class Employee
+    Implements IIncrementLogic
     'The employee class contains the data structure that holds information about the Employee, and the amount of work they have done.
     ' Do not forget to check the constructor function on the main form to see if it is the same person
     Private _strEmployeeName As String
@@ -84,7 +85,7 @@
     End Property
 
 
-    Public Overridable Function WorkerIncrement() As Integer
+    Public Overridable Function WorkerIncrement() As Integer Implements IIncrementLogic.WorkerIncrement
         'This is to let us know that the employee is not the same person as the employee that just used the form. 
         'This is for error checking with regards to the aforemention business logic, along with increasing a loop counter
         'for calculating averages.
