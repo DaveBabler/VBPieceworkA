@@ -349,7 +349,7 @@ Public Class frmPiecework_C
 
                 'Unlock label here
                 'Do Accumulation stuff here
-
+                'Probably move this up to the proper location now and delete the button
             End If
 
 
