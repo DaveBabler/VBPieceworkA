@@ -313,38 +313,59 @@ Public Class frmPiecework_C
         Dim boolDiffWorker As Boolean 'Is it a different worker or not? It ABSOLUTELY matters for proper tabulation.
 
         Dim decAmountEarned As Decimal
-
-
-
-
-
         Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered)
-        Console.WriteLine("Number of pieces {0}", intPiecesEntered.ToString())
-        boolDiffWorker = GlobalClass.CheckWorkerBool(strName, strPreviousName)
 
-        Console.WriteLine("The current value of sameworker is {0}", boolDiffWorker)
 
-        If boolDiffWorker = True Then
-            Dim empEntry As New Employee
-            empEntry.EmpName() = strName
-            empEntry.PiecesCompleted() = intPiecesEntered
-            intWorkerCount += empEntry.WorkerIncrement()
-           decAmountEarned =  empEntry.EarningsForEntry()
-            Console.WriteLine("WE have Name {0} and intPiecesEntered {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
-            Console.WriteLine(empEntry.EmpName.ToString())
-            Console.WriteLine("This is the first time the employee hit enter so increase by {0}", empEntry.WorkerIncrement())
-            Console.WriteLine("_______________________________________________________")
-            Console.WriteLine("The earned value is {0}", empEntry.EarningsForEntry.ToString())
-        Else
+        Try
+            If String.IsNullOrEmpty(txtName.Text) Then
+                Throw New NullReferenceException
+            ElseIf intPiecesEntered = 0 Then
+                Throw New DivideByZeroException
+            Else
+                ' Is the worker the same or not? 
+                boolDiffWorker = GlobalClass.CheckWorkerBool(strName, strPreviousName)
 
-            Dim sameEmp As New SameEmployee
-            sameEmp.EmpName() = strName
-            sameEmp.PiecesCompleted = intPiecesEntered
-            decAmountEarned = sameEmp.EarningsForEntry()
-            intWorkerCount += sameEmp.WorkerIncrement()
-            Console.WriteLine("This is the second time the employee hit enter so increase by {0}", sameEmp.WorkerIncrement())
-            Console.WriteLine("The earned value is {0}", decAmountEarned)
-        End If
+                If boolDiffWorker = True Then
+                    Dim empEntry As New Employee
+                    empEntry.EmpName() = strName
+                    empEntry.PiecesCompleted() = intPiecesEntered
+                    intWorkerCount += empEntry.WorkerIncrement()
+                    decAmountEarned = empEntry.EarningsForEntry()
+                    Console.WriteLine("WE have Name {0} and intPiecesEntered {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
+                    Console.WriteLine(empEntry.EmpName.ToString())
+                    Console.WriteLine("This is the first time the employee hit enter so increase by {0}", empEntry.WorkerIncrement())
+                    Console.WriteLine("_______________________________________________________")
+                    Console.WriteLine("The earned value is {0}", empEntry.EarningsForEntry.ToString())
+                Else
+
+                    Dim sameEmp As New SameEmployee
+                    sameEmp.EmpName() = strName
+                    sameEmp.PiecesCompleted = intPiecesEntered
+                    decAmountEarned = sameEmp.EarningsForEntry()
+                    intWorkerCount += sameEmp.WorkerIncrement()
+                    Console.WriteLine("This is the second time the employee hit enter so increase by {0}", sameEmp.WorkerIncrement())
+                    Console.WriteLine("The earned value is {0}", decAmountEarned)
+                End If
+
+                'Unlock label here
+                'Do Accumulation stuff here
+
+            End If
+
+
+        Catch ex As NullReferenceException
+            GlobalClass.UserErrorMessage("You must enter a name to proceed", "Compliance is mandatory")
+            ClearAndFocus("Name")
+        Catch ex As DivideByZeroException
+            GlobalClass.UserErrorMessage("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1" _
+                           & Environment.NewLine _
+                           & "Why are you trying to generate a black hole anyway? That Seems dangerous." _
+                                                      & Environment.NewLine _
+                           & "Again, use a number larger than 1 (one)", "Comply")
+        End Try
+
+
+
 
 
 
