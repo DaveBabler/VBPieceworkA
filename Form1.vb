@@ -18,6 +18,7 @@ Public Class frmPiecework_C
     Protected decEarningsAccumulation As Decimal = 0 'accumulation of all worker's earnings.  Keeping this as Decimal due to the case statment.
     Protected strLastWorkerName As String = ""
     Protected decAveragePayPerPerson As Decimal
+    Protected strPreviousName As String
     Public Sub ClearAndFocus(ByVal strTypeOfClear As String)
         'This sub clears the forms and focuses back to the correct line
         'WARNING: "Total" purges stored variable data and hides outputs.
@@ -207,7 +208,7 @@ Public Class frmPiecework_C
                         decAmountEarned = CalculateEarnings(intPiecesEntered)
                         lblEarnedAmountOutput.Text = decAmountEarned.ToString("C")
                         lblEarnedAmountOutput.Visible = True
-                        intUserIncrement = CheckWorker(strCurrentName)
+                        intUserIncrement = GlobalClass.CheckWorkerInt(strCurrentName, strLastWorkerName)
                         intWorkerCount += intUserIncrement
                         intPieceCountAccumulation += +intPiecesEntered
                         decEarningsAccumulation += decAmountEarned
@@ -335,27 +336,42 @@ Public Class frmPiecework_C
     End Sub
 
     Private Sub btnTesting_Click(sender As Object, e As EventArgs) Handles btnTesting.Click
-        Dim empEntry As New Employee
+        mnuFileSummary.Enabled = True
         Dim strName As String = txtName.Text
         Dim intPieces As Integer
         Dim intCounter As Integer
+        Dim boolDiffWorker As Boolean
+
 
         Dim sameEmp As New SameEmployee
 
-
         Integer.TryParse(txtNumberOfPieces.Text, intPieces)
-        empEntry.EmpName() = strName
-        empEntry.PiecesCompleted() = intPieces
-        intCounter = empEntry.WorkerIncrement()
-        sameEmp.EmpName() = strName
-        sameEmp.PiecesCompleted = intPieces
-        Console.WriteLine("WE have Name {0} and intPieces {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
-        Console.WriteLine(empEntry.EmpName.ToString())
-        Console.WriteLine("This is the first time the employee hit enter so increase by {0}", intCounter.ToString())
-        sameEmp.EmpName() = strName
-        sameEmp.PiecesCompleted = intPieces
-        intCounter = sameEmp.WorkerIncrement()
-        Console.WriteLine("This is the second time the employee hit enter so increase by {0}", intCounter.ToString())
+        boolDiffWorker = GlobalClass.CheckWorkerBool(strName, strPreviousName)
+
+        Console.WriteLine("The current value of sameworker is {0}", boolDiffWorker)
+
+        If boolDiffWorker = True Then
+            Dim empEntry As New Employee
+            empEntry.EmpName() = strName
+            empEntry.PiecesCompleted() = intPieces
+            intWorkerCount += empEntry.WorkerIncrement()
+            Console.WriteLine("WE have Name {0} and intPieces {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
+            Console.WriteLine(empEntry.EmpName.ToString())
+            Console.WriteLine("This is the first time the employee hit enter so increase by {0}", empEntry.WorkerIncrement())
+        Else
+            sameEmp.EmpName() = strName
+            sameEmp.PiecesCompleted = intPieces
+
+            sameEmp.EmpName() = strName
+            sameEmp.PiecesCompleted = intPieces
+            intWorkerCount += sameEmp.WorkerIncrement()
+            Console.WriteLine("This is the second time the employee hit enter so increase by {0}", sameEmp.WorkerIncrement())
+        End If
+
+
+
+
+
 
     End Sub
 End Class
