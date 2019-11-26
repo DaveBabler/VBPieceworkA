@@ -2,10 +2,10 @@
     Implements IIncrementLogic, IEarningsByPiece
     'The employee class contains the data structure that holds information about the Employee, and the amount of work they have done.
     ' Do not forget to check the constructor function on the main form to see if it is the same person
-    Private _strEmployeeName As String
-    Private _intNumPiecesCompleted As Integer
-    Private _intIncrementValue As Integer
-    Private _decTotalEarningForEntry As Decimal
+    Private strEmployeeName As String
+    Private intNumPiecesCompleted As Integer
+    Private intIncrementValue As Integer
+    Private decTotalEarningForEntry As Decimal
 
 
     Sub New()
@@ -14,7 +14,7 @@
     Public Property EmpName() As String
         Get
 
-            Return _strEmployeeName
+            Return strEmployeeName
         End Get
         Set(ByVal value As String)
             Try
@@ -25,13 +25,13 @@
                 GlobalClass.UserErrorMessage("You must enter a name to proceed.", "Comply.")
                 frmPiecework_C.ClearAndFocus("Name")
             End Try
-            _strEmployeeName = value
+            strEmployeeName = value
         End Set
     End Property
 
     Public Property PiecesCompleted() As Integer
         Get
-            Return _intNumPiecesCompleted
+            Return intNumPiecesCompleted
 
         End Get
         Set(value As Integer)
@@ -53,7 +53,7 @@
 
 
                 Else
-                    _intNumPiecesCompleted = value
+                    intNumPiecesCompleted = value
 
                 End If
             Catch appEx As ApplicationException
@@ -82,22 +82,16 @@
 
 
             End Try
-            '_intNumPiecesCompleted = value
+            decTotalEarningForEntry = CalculateEarnings(Me.intNumPiecesCompleted)
+            'intNumPiecesCompleted = value
         End Set
     End Property
 
-    Public Property EarningsForEntry() As Decimal
+    Public ReadOnly Property EarningsForEntry() As Decimal
         Get
-            Return _decTotalEarningForEntry
+            Return decTotalEarningForEntry
         End Get
-        Set
-            'Dim intValue As Integer
-            'value = Integer.TryParse(Me._intNumPiecesCompleted), intValue)
-            'This will of course still already be an integer; however since the property is a Decimal and we set it with a function we need to convert it to the
-            'type that the function accepts.
-            _decTotalEarningForEntry = CalculateEarnings(Me._intNumPiecesCompleted)
 
-        End Set
     End Property
 
     Public Overridable Function WorkerIncrement() As Integer Implements IIncrementLogic.WorkerIncrement

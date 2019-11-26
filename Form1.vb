@@ -329,7 +329,7 @@ Public Class frmPiecework_C
             empEntry.EmpName() = strName
             empEntry.PiecesCompleted() = intPiecesEntered
             intWorkerCount += empEntry.WorkerIncrement()
-            empEntry.EarningsForEntry() = 2.2D
+           decAmountEarned =  empEntry.EarningsForEntry()
             Console.WriteLine("WE have Name {0} and intPiecesEntered {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
             Console.WriteLine(empEntry.EmpName.ToString())
             Console.WriteLine("This is the first time the employee hit enter so increase by {0}", empEntry.WorkerIncrement())
@@ -340,10 +340,10 @@ Public Class frmPiecework_C
             Dim sameEmp As New SameEmployee
             sameEmp.EmpName() = strName
             sameEmp.PiecesCompleted = intPiecesEntered
-            sameEmp.EarningsForEntry() = 9.2D
+            decAmountEarned = sameEmp.EarningsForEntry()
             intWorkerCount += sameEmp.WorkerIncrement()
             Console.WriteLine("This is the second time the employee hit enter so increase by {0}", sameEmp.WorkerIncrement())
-            Console.WriteLine("The earned value is {0}", sameEmp.EarningsForEntry.ToString())
+            Console.WriteLine("The earned value is {0}", decAmountEarned)
         End If
 
 
