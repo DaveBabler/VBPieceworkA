@@ -1,10 +1,11 @@
 ﻿Public Class Employee
-    Implements IIncrementLogic
+    Implements IIncrementLogic, IEarningsByPiece
     'The employee class contains the data structure that holds information about the Employee, and the amount of work they have done.
     ' Do not forget to check the constructor function on the main form to see if it is the same person
     Private _strEmployeeName As String
     Private _intNumPiecesCompleted As Integer
     Private _intIncrementValue As Integer
+    Private _decTotalEarningForEntry As Decimal
 
 
     Sub New()
@@ -85,6 +86,19 @@
         End Set
     End Property
 
+    Public Property EarningsForEntry() As Decimal
+        Get
+            Return _decTotalEarningForEntry
+        End Get
+        Set
+            'Dim intValue As Integer
+            'value = Integer.TryParse(Me._intNumPiecesCompleted), intValue)
+            'This will of course still already be an integer; however since the property is a Decimal and we set it with a function we need to convert it to the
+            'type that the function accepts.
+            _decTotalEarningForEntry = CalculateEarnings(Me._intNumPiecesCompleted)
+
+        End Set
+    End Property
 
     Public Overridable Function WorkerIncrement() As Integer Implements IIncrementLogic.WorkerIncrement
         'This is to let us know that the employee is not the same person as the employee that just used the form. 
@@ -93,6 +107,27 @@
         Return 1
     End Function
 
+
+    Private Function CalculateEarnings(ByVal intIncomingNumPieces As Integer) As Decimal Implements IEarningsByPiece.CalculateEarnings
+        Dim decRate As Decimal
+        Dim decEarningsOut As Decimal
+
+        Select Case intIncomingNumPieces
+            Case Is <= 199
+                decRate = CDec(0.5)
+            Case 200 To 399
+                decRate = CDec(0.55)
+            Case 400 To 599
+                decRate = CDec(0.6)
+            Case >= 600
+                decRate = CDec(0.65)
+        End Select
+        decEarningsOut = decRate * intIncomingNumPieces
+
+        Return decEarningsOut
+
+
+    End Function
 
 
 End Class

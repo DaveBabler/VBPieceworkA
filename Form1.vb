@@ -101,36 +101,6 @@ Public Class frmPiecework_C
 
     End Function
 
-    Protected Function CheckWorker(ByVal strIncWorkerName As String) As Integer
-        'If the stored user name matches the same name entered it asks the user
-        'if they are the same person, if they are it returns a 1 or a 0 for tabulating the number 
-        'of users! This allows us to get actual averages
-        'at the end it sets the current worker as the stored worker for later comparison 
-        Dim msgNameResponse As MsgBoxResult
-
-        Dim intDiffUser As Integer
-
-        If String.Equals(txtName.Text, strLastWorkerName) Then
-
-            msgNameResponse = MsgBox("It appears that the same name from the last user is still in the user box, are you the same person?", MsgBoxStyle.YesNo Or MsgBoxStyle.Exclamation, "Same User")
-            If msgNameResponse = vbYes Then
-                'if the person is the same then we shan't update the person counter
-                intDiffUser = 0
-            Else
-                intDiffUser = 1
-            End If
-        Else
-            'if they don't equal they shouldn't be the same person so we increment 
-            'this includes if the value before was null! Because then by default they won't equal.
-            intDiffUser = 1
-
-        End If
-
-
-        'Set the class variable
-        strLastWorkerName = txtName.Text
-        Return intDiffUser
-    End Function
 
     Private Sub SummaryFontChanger(ByRef lblToChange As Label)
         Dim strOriginalFontName As String = lblToChange.Font.Name.ToString()
@@ -336,16 +306,20 @@ Public Class frmPiecework_C
     End Sub
 
     Private Sub btnTesting_Click(sender As Object, e As EventArgs) Handles btnTesting.Click
-        mnuFileSummary.Enabled = True
+
         Dim strName As String = txtName.Text
-        Dim intPieces As Integer
-        Dim intCounter As Integer
-        Dim boolDiffWorker As Boolean
+        Dim intPiecesEntered As Integer
+
+        Dim boolDiffWorker As Boolean 'Is it a different worker or not? It ABSOLUTELY matters for proper tabulation.
+
+        Dim decAmountEarned As Decimal
 
 
-        Dim sameEmp As New SameEmployee
 
-        Integer.TryParse(txtNumberOfPieces.Text, intPieces)
+
+
+        Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered)
+        Console.WriteLine("Number of pieces {0}", intPiecesEntered.ToString())
         boolDiffWorker = GlobalClass.CheckWorkerBool(strName, strPreviousName)
 
         Console.WriteLine("The current value of sameworker is {0}", boolDiffWorker)
@@ -353,19 +327,23 @@ Public Class frmPiecework_C
         If boolDiffWorker = True Then
             Dim empEntry As New Employee
             empEntry.EmpName() = strName
-            empEntry.PiecesCompleted() = intPieces
+            empEntry.PiecesCompleted() = intPiecesEntered
             intWorkerCount += empEntry.WorkerIncrement()
-            Console.WriteLine("WE have Name {0} and intPieces {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
+            empEntry.EarningsForEntry() = 2.2D
+            Console.WriteLine("WE have Name {0} and intPiecesEntered {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
             Console.WriteLine(empEntry.EmpName.ToString())
             Console.WriteLine("This is the first time the employee hit enter so increase by {0}", empEntry.WorkerIncrement())
+            Console.WriteLine("_______________________________________________________")
+            Console.WriteLine("The earned value is {0}", empEntry.EarningsForEntry.ToString())
         Else
-            sameEmp.EmpName() = strName
-            sameEmp.PiecesCompleted = intPieces
 
+            Dim sameEmp As New SameEmployee
             sameEmp.EmpName() = strName
-            sameEmp.PiecesCompleted = intPieces
+            sameEmp.PiecesCompleted = intPiecesEntered
+            sameEmp.EarningsForEntry() = 9.2D
             intWorkerCount += sameEmp.WorkerIncrement()
             Console.WriteLine("This is the second time the employee hit enter so increase by {0}", sameEmp.WorkerIncrement())
+            Console.WriteLine("The earned value is {0}", sameEmp.EarningsForEntry.ToString())
         End If
 
 

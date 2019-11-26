@@ -1,6 +1,7 @@
 ﻿Public Class SameEmployee
     Inherits Employee
     Implements IIncrementLogic
+
     'This will overload the value that is set so we don't screw up our calculations
 
     Public Overrides Function WorkerIncrement() As Integer Implements IIncrementLogic.WorkerIncrement
