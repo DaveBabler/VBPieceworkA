@@ -6,5 +6,12 @@
     ' StartupNextInstance: Raised when launching a single-instance application and the application is already active. 
     ' NetworkAvailabilityChanged: Raised when the network connection is connected or disconnected.
     Partial Friend Class MyApplication
+        Public thisFactory As New Factory
+        Protected Overrides Function OnInitialize(ByVal commandLineArgs As _
+          System.Collections.ObjectModel.ReadOnlyCollection(Of String)) As Boolean
+
+            Return MyBase.OnInitialize(commandLineArgs)
+
+        End Function
     End Class
 End Namespace

@@ -19,6 +19,7 @@ Public Class frmPiecework_C
     Protected strLastWorkerName As String = ""
     Protected decAveragePayPerPerson As Decimal
     Protected strPreviousName As String
+
     Public Sub ClearAndFocus(ByVal strTypeOfClear As String)
         'This sub clears the forms and focuses back to the correct line
         'WARNING: "Total" purges stored variable data and hides outputs.
@@ -336,6 +337,7 @@ Public Class frmPiecework_C
                     Console.WriteLine("This is the first time the employee hit enter so increase by {0}", empEntry.WorkerIncrement())
                     Console.WriteLine("_______________________________________________________")
                     Console.WriteLine("The earned value is {0}", empEntry.EarningsForEntry.ToString())
+                    Console.WriteLine("Value for incrementer {0}", My.Application.thisFactory.TotalWorkers().ToString())
                 Else
 
                     Dim sameEmp As New SameEmployee

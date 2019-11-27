@@ -9,6 +9,13 @@
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
     Protected decEarningsAccumulation As Decimal = 0 'accumulation of all worker's earnings.  Keeping this as Decimal due to the case statment.
     Protected decAveragePayPerPerson As Decimal
+    Private strFactoryName As String
+
+    Public Sub New()
+        Me.strFactoryName = "TEST FACTORY" 'logic to get the name will implement later
+    End Sub
+
+
 
     Public ReadOnly Property TotalWorkers()
         Get
@@ -30,4 +37,16 @@
             Return decAveragePayPerPerson
         End Get
     End Property
+
+    Public Sub CountWorkers(ByVal intAccumulatorVal As Integer)
+        'This sub exists to add a value to the intWorkerCount worker property 
+        'While it may seem like overkill to create a sub that increments a value by either
+        '0 or 1 this is being done to make certain that the business logic is implemented EXACTLY without 
+        'worry about so-called `magic numbers`
+
+        Me.intWorkerCount += intAccumulatorVal
+    End Sub
+
+
+
 End Class

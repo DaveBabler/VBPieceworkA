@@ -1,5 +1,5 @@
 ﻿Public Class Employee
-    Inherits Factory
+    'Inherits Factory
     Implements IIncrementLogic, IEarningsByPiece
     'The employee class contains the data structure that holds information about the Employee, and the amount of work they have done.
     ' Do not forget to check the constructor function on the main form to see if it is the same person
@@ -37,6 +37,7 @@
         End Get
         Set(value As Integer)
             Dim intTester As Integer 'for holing test values
+            Dim intWorkerInc As Integer 'for adding to the worker count
 
             'Dim modTester As Integer 'used in modulus 
 
@@ -55,6 +56,8 @@
 
                 Else
                     intNumPiecesCompleted = value
+                    decTotalEarningForEntry = CalculateEarnings(Me.intNumPiecesCompleted)
+                    My.Application.thisFactory.CountWorkers(WorkerIncrement())
 
                 End If
             Catch appEx As ApplicationException
@@ -83,7 +86,7 @@
 
 
             End Try
-            decTotalEarningForEntry = CalculateEarnings(Me.intNumPiecesCompleted)
+
             'intNumPiecesCompleted = value
             ''accumulation goes here
 
