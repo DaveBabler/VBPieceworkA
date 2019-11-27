@@ -81,6 +81,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Factory.vb" />
     <Compile Include="IEarningsByPiece.vb" />
     <Compile Include="Employee.vb" />
     <Compile Include="Form1.vb">

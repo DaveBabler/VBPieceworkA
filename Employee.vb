@@ -1,4 +1,5 @@
 ﻿Public Class Employee
+    Inherits Factory
     Implements IIncrementLogic, IEarningsByPiece
     'The employee class contains the data structure that holds information about the Employee, and the amount of work they have done.
     ' Do not forget to check the constructor function on the main form to see if it is the same person
@@ -84,6 +85,8 @@
             End Try
             decTotalEarningForEntry = CalculateEarnings(Me.intNumPiecesCompleted)
             'intNumPiecesCompleted = value
+            ''accumulation goes here
+
         End Set
     End Property
 
