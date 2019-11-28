@@ -80,6 +80,7 @@
     <Compile Include="AboutBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="IIntegerAccumulation.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Factory.vb" />
     <Compile Include="IEarningsByPiece.vb" />

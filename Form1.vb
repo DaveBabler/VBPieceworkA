@@ -337,7 +337,7 @@ Public Class frmPiecework_C
                     Console.WriteLine("This is the first time the employee hit enter so increase by {0}", empEntry.WorkerIncrement())
                     Console.WriteLine("_______________________________________________________")
                     Console.WriteLine("The earned value is {0}", empEntry.EarningsForEntry.ToString())
-                    Console.WriteLine("Value for incrementer {0}", My.Application.thisFactory.TotalWorkers().ToString())
+
                 Else
 
                     Dim sameEmp As New SameEmployee
@@ -348,7 +348,8 @@ Public Class frmPiecework_C
                     Console.WriteLine("This is the second time the employee hit enter so increase by {0}", sameEmp.WorkerIncrement())
                     Console.WriteLine("The earned value is {0}", decAmountEarned)
                 End If
-
+                Console.WriteLine("Value for incrementer {0}", My.Application.thisFactory.TotalWorkers().ToString())
+                Console.WriteLine("Value for avg pay {0}", My.Application.thisFactory.AverageWorkerPay().ToString())
                 'Unlock label here
                 'Do Accumulation stuff here
                 'Probably move this up to the proper location now and delete the button

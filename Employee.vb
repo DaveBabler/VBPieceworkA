@@ -57,7 +57,11 @@
                 Else
                     intNumPiecesCompleted = value
                     decTotalEarningForEntry = CalculateEarnings(Me.intNumPiecesCompleted)
+                    My.Application.thisFactory.TotalEarningsForPeriod(decTotalEarningForEntry)
                     My.Application.thisFactory.CountWorkers(WorkerIncrement())
+                    My.Application.thisFactory.PieceAccumulator(value)
+                    My.Application.thisFactory.CalculateAverageEmployeePay(My.Application.thisFactory.TotalEarnings(), My.Application.thisFactory.TotalWorkers())
+
 
                 End If
             Catch appEx As ApplicationException
