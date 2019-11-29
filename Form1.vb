@@ -181,13 +181,13 @@ Public Class frmPiecework_C
                         lblEarnedAmountOutput.Visible = True
                         intUserIncrement = GlobalClass.CheckWorkerInt(strCurrentName, strLastWorkerName)
                         intWorkerCount += intUserIncrement
-                        intPieceCountAccumulation += +intPiecesEntered
+                        intPieceCountAccumulation += intPiecesEntered
                         decEarningsAccumulation += decAmountEarned
 
 
 
                         'Make the Summary button now useable
-                        mnuFileSummary.Enabled = True
+
                     End If
                 Catch Exception As DivideByZeroException
                     MsgBox("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1" _
@@ -332,6 +332,7 @@ Public Class frmPiecework_C
                     empEntry.PiecesCompleted() = intPiecesEntered
                     intWorkerCount += empEntry.WorkerIncrement()
                     decAmountEarned = empEntry.EarningsForEntry()
+
                     Console.WriteLine("WE have Name {0} and intPiecesEntered {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
                     Console.WriteLine(empEntry.EmpName.ToString())
                     Console.WriteLine("This is the first time the employee hit enter so increase by {0}", empEntry.WorkerIncrement())
@@ -348,14 +349,20 @@ Public Class frmPiecework_C
                     Console.WriteLine("This is the second time the employee hit enter so increase by {0}", sameEmp.WorkerIncrement())
                     Console.WriteLine("The earned value is {0}", decAmountEarned)
                 End If
-                Console.WriteLine("Value for incrementer {0}", My.Application.thisFactory.TotalWorkers().ToString())
+                Console.WriteLine("Total Pieces created  = {0}", My.Application.thisFactory.TotalPiecesComplete().ToString())
+                intWorkerCount = CInt(My.Application.thisFactory.TotalWorkers())
+                intPieceCountAccumulation = CInt(My.Application.thisFactory.TotalPiecesComplete())
+                decEarningsAccumulation = CDec(My.Application.thisFactory.TotalEarnings())
+                decAveragePayPerPerson = CDec(My.Application.thisFactory.AverageWorkerPay())
+
                 Console.WriteLine("Value for avg pay {0}", My.Application.thisFactory.AverageWorkerPay().ToString())
-                'Unlock label here
+                mnuFileSummary.Enabled = True
+
                 'Do Accumulation stuff here
                 'Probably move this up to the proper location now and delete the button
             End If
 
-
+                                    mnuFileSummary.Enabled = True
         Catch ex As NullReferenceException
             GlobalClass.UserErrorMessage("You must enter a name to proceed", "Compliance is mandatory")
             ClearAndFocus("Name")

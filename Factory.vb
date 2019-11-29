@@ -52,7 +52,7 @@
 
     Public Sub PieceAccumulator(ByVal intPiecesCompletedByEmp As Integer)
         'builds the accumulation totals of the PieceAccumulator
-        Me.intPieceCountAccumulation += intPieceCountAccumulation
+        Me.intPieceCountAccumulation += intPiecesCompletedByEmp
     End Sub
 
     Public Sub TotalEarningsForPeriod(ByVal decEarningsForEmployee As Decimal)

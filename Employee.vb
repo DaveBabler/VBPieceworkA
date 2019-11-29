@@ -56,6 +56,7 @@
 
                 Else
                     intNumPiecesCompleted = value
+                    Console.WriteLine("In Employee class intNumPiecesCompleted = {0}", intNumPiecesCompleted.ToString())
                     decTotalEarningForEntry = CalculateEarnings(Me.intNumPiecesCompleted)
                     My.Application.thisFactory.TotalEarningsForPeriod(decTotalEarningForEntry)
                     My.Application.thisFactory.CountWorkers(WorkerIncrement())
