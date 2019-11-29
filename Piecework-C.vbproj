@@ -85,11 +85,11 @@
     <Compile Include="Factory.vb" />
     <Compile Include="IEarningsByPiece.vb" />
     <Compile Include="Employee.vb" />
-    <Compile Include="Form1.vb">
+    <Compile Include="frmPiecework_D.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="frmPiecework_D.Designer.vb">
+      <DependentUpon>frmPiecework_D.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCalculationOutput.Designer.vb">
@@ -127,8 +127,8 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="frmPiecework_D.resx">
+      <DependentUpon>frmPiecework_D.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalculationOutput.resx">
       <DependentUpon>frmCalculationOutput.vb</DependentUpon>

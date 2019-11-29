@@ -12,7 +12,7 @@
 'Tab stop note.  FOR SAFTEY Clear All and Exit have been removed from tabstops.
 Option Strict On
 
-Public Class frmPiecework_C
+Public Class frmPiecework_D
     Protected intWorkerCount As Integer = 0 'will be used to tabulate the total number of people
     Protected intPieceCountAccumulation As Integer = 0 'this is an accumulation of all pieces done
     Protected decEarningsAccumulation As Decimal = 0 'accumulation of all worker's earnings.  Keeping this as Decimal due to the case statment.
@@ -281,7 +281,7 @@ Public Class frmPiecework_C
         printPieceRateForm.Print(frmCalculationOutput, PowerPacks.Printing.PrintForm.PrintOption.FullWindow)
     End Sub
 
-    Private Sub frmPiecework_C_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmPiecework_D_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Threading.Thread.Sleep(5000)
     End Sub
 

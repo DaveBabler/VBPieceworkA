@@ -15,7 +15,7 @@
         'Factory
         'Form1/pieceworkEntry
         'Note: the Employee/SameEmployee classes are disposed once they are done being used so this clear function is not needed with them
-        frmPiecework_C.ClearAndFocus("Total")
+        frmPiecework_D.ClearAndFocus("Total")
         My.Application.thisFactory.ResetFactoryValues()
 
 

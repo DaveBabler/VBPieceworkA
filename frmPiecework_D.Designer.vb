@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmPiecework_C
+Partial Class frmPiecework_D
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class frmPiecework_C
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPiecework_C))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPiecework_D))
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtNumberOfPieces = New System.Windows.Forms.TextBox()
         Me.lblPersonName = New System.Windows.Forms.Label()
@@ -43,7 +43,6 @@ Partial Class frmPiecework_C
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuEditFont = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuEditColor = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LogoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AncillaryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuFunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuFontRorationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,7 +174,7 @@ Partial Class frmPiecework_C
         '
         'mnuEdit
         '
-        Me.mnuEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEditClear, Me.mnuEditClearAll, Me.ToolStripSeparator2, Me.mnuEditFont, Me.mnuEditColor, Me.LogoToolStripMenuItem})
+        Me.mnuEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEditClear, Me.mnuEditClearAll, Me.ToolStripSeparator2, Me.mnuEditFont, Me.mnuEditColor})
         Me.mnuEdit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(72, Byte), Integer))
         Me.mnuEdit.Name = "mnuEdit"
         Me.mnuEdit.Size = New System.Drawing.Size(39, 20)
@@ -184,37 +183,31 @@ Partial Class frmPiecework_C
         'mnuEditClear
         '
         Me.mnuEditClear.Name = "mnuEditClear"
-        Me.mnuEditClear.Size = New System.Drawing.Size(118, 22)
+        Me.mnuEditClear.Size = New System.Drawing.Size(180, 22)
         Me.mnuEditClear.Text = "Clea&r"
         '
         'mnuEditClearAll
         '
         Me.mnuEditClearAll.Name = "mnuEditClearAll"
-        Me.mnuEditClearAll.Size = New System.Drawing.Size(118, 22)
+        Me.mnuEditClearAll.Size = New System.Drawing.Size(180, 22)
         Me.mnuEditClearAll.Text = "Clear All"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(115, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
         '
         'mnuEditFont
         '
         Me.mnuEditFont.Name = "mnuEditFont"
-        Me.mnuEditFont.Size = New System.Drawing.Size(118, 22)
+        Me.mnuEditFont.Size = New System.Drawing.Size(180, 22)
         Me.mnuEditFont.Text = "&Font"
         '
         'mnuEditColor
         '
         Me.mnuEditColor.Name = "mnuEditColor"
-        Me.mnuEditColor.Size = New System.Drawing.Size(118, 22)
+        Me.mnuEditColor.Size = New System.Drawing.Size(180, 22)
         Me.mnuEditColor.Text = "&Color"
-        '
-        'LogoToolStripMenuItem
-        '
-        Me.LogoToolStripMenuItem.Name = "LogoToolStripMenuItem"
-        Me.LogoToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
-        Me.LogoToolStripMenuItem.Text = "Logo"
         '
         'AncillaryToolStripMenuItem
         '
@@ -308,7 +301,7 @@ Partial Class frmPiecework_C
         Me.lblSlogan.Text = "You will continue making " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "pieces until you die."
         Me.lblSlogan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'frmPiecework_C
+        'frmPiecework_D
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -329,7 +322,7 @@ Partial Class frmPiecework_C
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.MaximizeBox = False
-        Me.Name = "frmPiecework_C"
+        Me.Name = "frmPiecework_D"
         Me.Text = "Piece Rate Earnings"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -364,7 +357,6 @@ Partial Class frmPiecework_C
     Friend WithEvents AncillaryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents dlgFontDialog As FontDialog
     Friend WithEvents dlgColorDialog As ColorDialog
-    Friend WithEvents LogoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents mnuFunToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents mnuFontRorationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents mnuColorRotationToolStripMenuItem1 As ToolStripMenuItem

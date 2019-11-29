@@ -24,7 +24,7 @@
                 End If
             Catch ex As Exception
                 GlobalClass.UserErrorMessage("You must enter a name to proceed.", "Comply.")
-                frmPiecework_C.ClearAndFocus("Name")
+                frmPiecework_D.ClearAndFocus("Name")
             End Try
             strEmployeeName = value
         End Set
@@ -68,7 +68,7 @@
             Catch appEx As ApplicationException
                 GlobalClass.UserErrorMessage("If you're seeing this, you likely tried to enter in a partial piece.  Whole numbers only (no decimals, no fractions)!",
                                                  "Seriously, what are you doing?")
-                frmPiecework_C.ClearAndFocus("Number")
+                frmPiecework_D.ClearAndFocus("Number")
             Catch Exception As DivideByZeroException
                 MsgBox("If You're seeing this it is likely because: " _
                      & Environment.NewLine _
@@ -78,12 +78,12 @@
                      & Space(5) & "2." & Space(2) & "You entered in a 0 value, are you trying to create a black hole?" _
                      & Environment.NewLine & Convert.ToChar(Keys.Tab) & "Solution: use a whole number, NOT ZERO.")
 
-                frmPiecework_C.ClearAndFocus("Number")
+                frmPiecework_D.ClearAndFocus("Number")
 
 
             Catch Exception As ArgumentNullException
                 MsgBox("I'm afraid you must actually enter a value, if you want information!")
-                frmPiecework_C.ClearAndFocus("Number")
+                frmPiecework_D.ClearAndFocus("Number")
             Catch ex As Exception
                 GlobalClass.UserErrorMessage("Generic Message", "Wrong things!")
 
