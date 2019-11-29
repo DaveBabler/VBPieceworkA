@@ -70,4 +70,19 @@
 
     End Sub
 
+    Public Sub ResetFactoryValues()
+        'Sub resets the values stored for the factory and is part of of the
+        Me.intWorkerCount = 0
+        Me.intPieceCountAccumulation = 0
+        Me.decEarningsAccumulation = 0
+        Me.decAveragePayPerPerson = 0
+
+    End Sub
+
+    Public Sub Dispose()
+        'Dispose calls the default destructor but in a public setting so we can free up memory and stuff
+        'WARNING! do not use this for clearing values as the class will not be generated upon exit.  Use this on form close!
+        Me.Finalize()
+    End Sub
+
 End Class

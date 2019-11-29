@@ -2,6 +2,7 @@
     'This class will contain subs, functions and properties that may be used by any other class.
     'Most of this code would be called "static" methods in other languages.
     'This class exists to organize custom code chunks that could be called by other classes but don't quite need their own class
+    'This class will also implement logic that may touch several different classes at once, for example one to reset the program's data storage to a default state
 
     Public Shared Sub UserErrorMessage(ByVal strMessage As String, ByVal strTitle As String)
         ' a quick way of sending a popup error box instead of recoding the thing the whole time I am tired of it.
@@ -9,6 +10,17 @@
 
     End Sub
 
+    Public Shared Sub ResetProgramMemory()
+        'Resets the memory in the following classes to a default state
+        'Factory
+        'Form1/pieceworkEntry
+        'Note: the Employee/SameEmployee classes are disposed once they are done being used so this clear function is not needed with them
+        frmPiecework_C.ClearAndFocus("Total")
+        My.Application.thisFactory.ResetFactoryValues()
+
+
+
+    End Sub
 
     Public Shared Function CheckWorkerInt(ByVal strIncWorkerName As String, ByRef strPrevWorkerName As String) As Integer
         'If the stored user name matches the same name entered it asks the user

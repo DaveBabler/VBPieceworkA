@@ -164,7 +164,8 @@ Public Class frmPiecework_C
         Dim strName As String = txtName.Text
         Dim intPiecesEntered As Integer
 
-        Dim boolDiffWorker As Boolean 'Is it a different worker or not? It ABSOLUTELY matters for proper tabulation.
+        Dim boolDiffWorker As Boolean 'Is it a different worker or not? It ABSOLUTELY matters for proper tabulation. 
+        '
 
         Dim decAmountEarned As Decimal
         Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered)
@@ -185,6 +186,8 @@ Public Class frmPiecework_C
                     empEntry.PiecesCompleted() = intPiecesEntered
                     intWorkerCount += empEntry.WorkerIncrement()
                     decAmountEarned = empEntry.EarningsForEntry()
+                    empEntry.Dispose()
+
 
                 Else
 
@@ -193,6 +196,7 @@ Public Class frmPiecework_C
                     sameEmp.PiecesCompleted = intPiecesEntered
                     decAmountEarned = sameEmp.EarningsForEntry()
                     intWorkerCount += sameEmp.WorkerIncrement()
+                    sameEmp.Dispose()
 
                 End If
                 lblEarnedAmountOutput.Visible = True
@@ -221,7 +225,6 @@ Public Class frmPiecework_C
         End Try
 
 
-
     End Sub
 
     Private Sub MnuFileExit_Click(sender As Object, e As EventArgs) Handles mnuFileExit.Click
@@ -242,7 +245,7 @@ Public Class frmPiecework_C
         If msgConfirmReset = vbNo Then
             txtName.Focus()
         Else
-            ClearAndFocus("Total")
+            GlobalClass.ResetProgramMemory()
         End If
 
     End Sub

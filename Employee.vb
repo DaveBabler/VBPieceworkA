@@ -134,6 +134,21 @@
 
     End Function
 
+    Public Sub ResetEmployeeValues()
+        'This function wipes the values currently stored in the class. It's part of the general clear all function
+        'That being said, we may not end up using it as we will likely end up just regenerating the class and instead
+        'overriding the default destructor
+        Me.decTotalEarningForEntry = 0
+        Me.strEmployeeName = ""
+        Me.intNumPiecesCompleted = 0
+        Me.intIncrementValue = 0
+
+    End Sub
+
+    Public Sub Dispose()
+        'this allows for calling of the default class destructor
+        Me.Finalize()
+    End Sub
 
 End Class
 
