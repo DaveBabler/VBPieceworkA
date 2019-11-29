@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Piecework-C by Dave Babler")>
-<Assembly: AssemblyDescription("Piecework-C for COP 1332 Visual Basic")>
+<Assembly: AssemblyTitle("Piecework-D by Dave Babler")>
+<Assembly: AssemblyDescription("Piecework-D for COP 1332 Visual Basic")>
 <Assembly: AssemblyCompany("Student at HCC Dale Mabry")>
-<Assembly: AssemblyProduct("Piecework-C")>
+<Assembly: AssemblyProduct("Piecework-D")>
 <Assembly: AssemblyCopyright("Copyright ©  2019")>
 <Assembly: AssemblyTrademark("")>
 

@@ -281,9 +281,6 @@ Public Class frmPiecework_D
         printPieceRateForm.Print(frmCalculationOutput, PowerPacks.Printing.PrintForm.PrintOption.FullWindow)
     End Sub
 
-    Private Sub frmPiecework_D_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Threading.Thread.Sleep(5000)
-    End Sub
 
 
 
