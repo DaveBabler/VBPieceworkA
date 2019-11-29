@@ -33,6 +33,7 @@ Public Class frmPiecework_C
             Case "Both"
                 'defaults to name since that comes first, but clears both fields
                 txtNumberOfPieces.Clear()
+                lblEarnedAmountOutput.Text = ""
                 txtName.Clear()
                 txtName.Focus()
             Case "Total"
