@@ -160,62 +160,68 @@ Public Class frmPiecework_C
     End Sub
 
     Private Sub CalculatePayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuFileCalculate.Click
+
+        Dim strName As String = txtName.Text
         Dim intPiecesEntered As Integer
-        Dim intUserIncrement As Integer 'will be zero or 1 depending on a function call
-        Dim exDecimalError As Decimal  'using ex instaed of dec as I'm using this for error checking! 
+
+        Dim boolDiffWorker As Boolean 'Is it a different worker or not? It ABSOLUTELY matters for proper tabulation.
+
         Dim decAmountEarned As Decimal
-        Dim strCurrentName As String = txtName.Text 'store the user name temporarily 
+        Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered)
 
 
-        If String.IsNullOrEmpty(txtName.Text) Then
-            MsgBox("You must enter a name to proceed")
-            ClearAndFocus("Name")
-        Else
-            If Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered) Then
-                Try
-                    If intPiecesEntered = 0 Then
-                        Throw New DivideByZeroException
-                    Else
-                        decAmountEarned = CalculateEarnings(intPiecesEntered)
-                        lblEarnedAmountOutput.Text = decAmountEarned.ToString("C")
-                        lblEarnedAmountOutput.Visible = True
-                        intUserIncrement = GlobalClass.CheckWorkerInt(strCurrentName, strLastWorkerName)
-                        intWorkerCount += intUserIncrement
-                        intPieceCountAccumulation += intPiecesEntered
-                        decEarningsAccumulation += decAmountEarned
-
-
-
-                        'Make the Summary button now useable
-
-                    End If
-                Catch Exception As DivideByZeroException
-                    MsgBox("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1" _
-                           & Environment.NewLine _
-                           & "Why are you trying to generate a black hole anyway? That Seems dangerous." _
-                                                      & Environment.NewLine _
-                           & "Again, use a number larger than 1 (one)")
-                    ClearAndFocus("Number")
-                Catch Exception As FormatException
-
-                    MsgBox("You have entered something that is Not a whole number. Enter a whole number to procced")
-                    ClearAndFocus("Number")
-
-                Catch Exception As ArgumentNullException
-                    MsgBox("I'm afraid you must actually enter a value, if you want information!")
-                    ClearAndFocus("Number")
-                End Try
-            ElseIf Decimal.TryParse(txtNumberOfPieces.Text, exDecimalError) Then
-                MsgBox("If you're seeing this, you likely tried to enter in a partial piece.  Whole numbers only (no decimals, no fractions)!")
-                ClearAndFocus("Number")
+        Try
+            If String.IsNullOrEmpty(txtName.Text) Then
+                Throw New NullReferenceException
+            ElseIf intPiecesEntered = 0 Then
+                Throw New DivideByZeroException
             Else
-                MsgBox("You have entered something that is Not a whole number. Enter a whole number to procced")
-                ClearAndFocus("Number")
+                ' Is the worker the same or not? 
+                boolDiffWorker = GlobalClass.CheckWorkerBool(strName, strPreviousName)
+
+                If boolDiffWorker = True Then
+                    Dim empEntry As New Employee
+                    empEntry.EmpName() = strName
+                    empEntry.PiecesCompleted() = intPiecesEntered
+                    intWorkerCount += empEntry.WorkerIncrement()
+                    decAmountEarned = empEntry.EarningsForEntry()
+
+                Else
+
+                    Dim sameEmp As New SameEmployee
+                    sameEmp.EmpName() = strName
+                    sameEmp.PiecesCompleted = intPiecesEntered
+                    decAmountEarned = sameEmp.EarningsForEntry()
+                    intWorkerCount += sameEmp.WorkerIncrement()
+
+                End If
+                lblEarnedAmountOutput.Visible = True
+                lblEarnedAmountOutput.Text = decAmountEarned.ToString("C")
+                intWorkerCount = CInt(My.Application.thisFactory.TotalWorkers())
+                intPieceCountAccumulation = CInt(My.Application.thisFactory.TotalPiecesComplete())
+                decEarningsAccumulation = CDec(My.Application.thisFactory.TotalEarnings())
+                decAveragePayPerPerson = CDec(My.Application.thisFactory.AverageWorkerPay())
+
+
+                mnuFileSummary.Enabled = True
+
+
             End If
 
 
+        Catch ex As NullReferenceException
+            GlobalClass.UserErrorMessage("You must enter a name to proceed", "Compliance is mandatory")
+            ClearAndFocus("Name")
+        Catch ex As DivideByZeroException
+            GlobalClass.UserErrorMessage("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1" _
+                           & Environment.NewLine _
+                           & "Why are you trying to generate a black hole anyway? That Seems dangerous." _
+                                                      & Environment.NewLine _
+                           & "Again, use a number larger than 1 (one)", "Comply")
+        End Try
 
-        End If
+
+
     End Sub
 
     Private Sub MnuFileExit_Click(sender As Object, e As EventArgs) Handles mnuFileExit.Click
@@ -306,82 +312,6 @@ Public Class frmPiecework_C
 
     End Sub
 
-    Private Sub btnTesting_Click(sender As Object, e As EventArgs) Handles btnTesting.Click
 
-        Dim strName As String = txtName.Text
-        Dim intPiecesEntered As Integer
-
-        Dim boolDiffWorker As Boolean 'Is it a different worker or not? It ABSOLUTELY matters for proper tabulation.
-
-        Dim decAmountEarned As Decimal
-        Integer.TryParse(txtNumberOfPieces.Text, intPiecesEntered)
-
-
-        Try
-            If String.IsNullOrEmpty(txtName.Text) Then
-                Throw New NullReferenceException
-            ElseIf intPiecesEntered = 0 Then
-                Throw New DivideByZeroException
-            Else
-                ' Is the worker the same or not? 
-                boolDiffWorker = GlobalClass.CheckWorkerBool(strName, strPreviousName)
-
-                If boolDiffWorker = True Then
-                    Dim empEntry As New Employee
-                    empEntry.EmpName() = strName
-                    empEntry.PiecesCompleted() = intPiecesEntered
-                    intWorkerCount += empEntry.WorkerIncrement()
-                    decAmountEarned = empEntry.EarningsForEntry()
-
-                    Console.WriteLine("WE have Name {0} and intPiecesEntered {1}", empEntry.EmpName.ToString(), empEntry.PiecesCompleted.ToString())
-                    Console.WriteLine(empEntry.EmpName.ToString())
-                    Console.WriteLine("This is the first time the employee hit enter so increase by {0}", empEntry.WorkerIncrement())
-                    Console.WriteLine("_______________________________________________________")
-                    Console.WriteLine("The earned value is {0}", empEntry.EarningsForEntry.ToString())
-
-                Else
-
-                    Dim sameEmp As New SameEmployee
-                    sameEmp.EmpName() = strName
-                    sameEmp.PiecesCompleted = intPiecesEntered
-                    decAmountEarned = sameEmp.EarningsForEntry()
-                    intWorkerCount += sameEmp.WorkerIncrement()
-                    Console.WriteLine("This is the second time the employee hit enter so increase by {0}", sameEmp.WorkerIncrement())
-                    Console.WriteLine("The earned value is {0}", decAmountEarned)
-                End If
-                Console.WriteLine("Total Pieces created  = {0}", My.Application.thisFactory.TotalPiecesComplete().ToString())
-                intWorkerCount = CInt(My.Application.thisFactory.TotalWorkers())
-                intPieceCountAccumulation = CInt(My.Application.thisFactory.TotalPiecesComplete())
-                decEarningsAccumulation = CDec(My.Application.thisFactory.TotalEarnings())
-                decAveragePayPerPerson = CDec(My.Application.thisFactory.AverageWorkerPay())
-
-                Console.WriteLine("Value for avg pay {0}", My.Application.thisFactory.AverageWorkerPay().ToString())
-                mnuFileSummary.Enabled = True
-
-                'Do Accumulation stuff here
-                'Probably move this up to the proper location now and delete the button
-            End If
-
-                                    mnuFileSummary.Enabled = True
-        Catch ex As NullReferenceException
-            GlobalClass.UserErrorMessage("You must enter a name to proceed", "Compliance is mandatory")
-            ClearAndFocus("Name")
-        Catch ex As DivideByZeroException
-            GlobalClass.UserErrorMessage("You can't actually generate a black hole by dividing by zero. Please choose a whole number greater than 1" _
-                           & Environment.NewLine _
-                           & "Why are you trying to generate a black hole anyway? That Seems dangerous." _
-                                                      & Environment.NewLine _
-                           & "Again, use a number larger than 1 (one)", "Comply")
-        End Try
-
-
-
-
-
-
-
-
-
-    End Sub
 End Class
 
